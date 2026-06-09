@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
 
@@ -15,9 +15,10 @@ const SuiteCard = ({ resort, startDate, endDate, nights, travelers, imageUrl, ti
   const { user } = useContext(AuthContext);
 
   // Pricing
-  const basePricePerNight = amount || 199; // Using the passed amount or default
+  const basePricePerNight = amount || 79; // Using the passed amount or default
   const breakfastPricePerNight = 25; // Higher breakfast price for suite
   const spaAccessPrice = 40; // Additional extra for suite
+  const pointsLabel = "7,500 Points";
   
   const basePrice = basePricePerNight * nights;
   const breakfastPrice = selectedExtra === "Breakfast" ? breakfastPricePerNight * nights : 0;
@@ -178,6 +179,9 @@ const SuiteCard = ({ resort, startDate, endDate, nights, travelers, imageUrl, ti
             <span>Total</span>
             <span>${totalPrice}</span>
           </div>
+          <p className="text-sm text-gray-500 mt-2">
+            Suite Room: <span className="font-semibold">$79.00 + tax</span> • {pointsLabel}
+          </p>
         </div>
 
         {/* Reserve Button */}
@@ -185,7 +189,7 @@ const SuiteCard = ({ resort, startDate, endDate, nights, travelers, imageUrl, ti
           onClick={handleReserveClick}
           className="w-full bg-[#1668e3] text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-600 transition-all duration-300 mt-6"
         >
-          Reserve Now
+          Select Room
         </button>
 
         {/* Note */}

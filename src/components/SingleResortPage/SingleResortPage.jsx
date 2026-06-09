@@ -1,23 +1,23 @@
-import React, { useContext, useEffect, useState, useRef } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useContext, useEffect, useRef, useState } from 'react';
+import { FaArrowLeft } from 'react-icons/fa';
+import {
+    FiChevronLeft,
+    FiChevronRight,
+    FiHeart,
+    FiMapPin,
+    FiMaximize2,
+    FiShare2,
+    FiStar,
+    FiX,
+} from 'react-icons/fi';
+import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
 import Loading from '../Loading';
-import {
-  FiChevronLeft,
-  FiChevronRight,
-  FiX,
-  FiMaximize2,
-  FiShare2,
-  FiHeart,
-  FiMapPin,
-  FiStar,
-} from 'react-icons/fi';
-import { FaArrowLeft } from 'react-icons/fa';
-import Overview from './TabContent/Overview';
 import About from './TabContent/About';
-import Rooms from './TabContent/Rooms';
 import Accessibility from './TabContent/Accessibility';
+import Overview from './TabContent/Overview';
 import Policies from './TabContent/Policies';
+import Rooms from './TabContent/Rooms';
 
 const SingleResortPage = () => {
   const { _id } = useParams();
@@ -89,7 +89,8 @@ const SingleResortPage = () => {
   if (!resort) return <Loading />;
 
   const { img, img2, img3, place_name, location } = resort;
-  const images = [img, img2, img3];
+  const placeholderImage = 'https://via.placeholder.com/1200x800?text=Image+not+available';
+  const images = [img || placeholderImage, img2 || placeholderImage, img3 || placeholderImage];
 
   const handleTabClick = tab => {
     setActiveTab(tab);
@@ -137,6 +138,9 @@ const SingleResortPage = () => {
               <img
                 src={images[0]}
                 alt={`${place_name} - Main view`}
+                onError={(e) => {
+                  e.currentTarget.src = placeholderImage;
+                }}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 onClick={() => {
                   setCurrentImageIndex(0);
@@ -151,6 +155,9 @@ const SingleResortPage = () => {
               <img
                 src={images[1]}
                 alt={`${place_name} - View 2`}
+                onError={(e) => {
+                  e.currentTarget.src = placeholderImage;
+                }}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 onClick={() => {
                   setCurrentImageIndex(1);
@@ -164,6 +171,9 @@ const SingleResortPage = () => {
               <img
                 src={images[2]}
                 alt={`${place_name} - View 3`}
+                onError={(e) => {
+                  e.currentTarget.src = placeholderImage;
+                }}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 onClick={() => {
                   setCurrentImageIndex(2);
@@ -178,6 +188,9 @@ const SingleResortPage = () => {
               <img
                 src={images[0]}
                 alt={`${place_name} - View 4`}
+                onError={(e) => {
+                  e.currentTarget.src = placeholderImage;
+                }}
                 className="w-full h-full object-cover"
               />
               <button
@@ -363,6 +376,9 @@ const SingleResortPage = () => {
             <img
               src={images[currentImageIndex]}
               alt={`${place_name} - ${currentImageIndex + 1}`}
+              onError={(e) => {
+                e.currentTarget.src = placeholderImage;
+              }}
               className="max-w-full max-h-full object-contain"
             />
           </div>
@@ -398,6 +414,9 @@ const SingleResortPage = () => {
                 <img
                   src={image}
                   alt={`Thumbnail ${index + 1}`}
+                  onError={(e) => {
+                    e.currentTarget.src = placeholderImage;
+                  }}
                   className="w-full h-full object-cover"
                 />
               </button>

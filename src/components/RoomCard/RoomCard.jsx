@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
 
@@ -15,8 +15,9 @@ const RoomCard = ({ resort, startDate, endDate, nights, travelers }) => {
   const { user } = useContext(AuthContext);
 
   // Pricing
-  const basePricePerNight = 79;
+  const basePricePerNight = 59;
   const breakfastPricePerNight = 15;
+  const pointsLabel = "5,000 Points";
   
   const basePrice = basePricePerNight * nights;
   const breakfastPrice = selectedExtra === "Breakfast" ? breakfastPricePerNight * nights : 0;
@@ -103,7 +104,7 @@ const RoomCard = ({ resort, startDate, endDate, nights, travelers }) => {
 
         {/* Title and Rating */}
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-semibold text-gray-800">1 Bedroom</h2>
+          <h2 className="text-xl font-semibold text-gray-800">Standard Room</h2>
           <div className="flex items-center">
             <span className="text-sm text-gray-600 mr-2">Rating:</span>
             <span className="text-sm font-semibold text-blue-600">
@@ -197,6 +198,9 @@ const RoomCard = ({ resort, startDate, endDate, nights, travelers }) => {
             <span>Total</span>
             <span>${totalPrice}</span>
           </div>
+          <p className="text-sm text-gray-500 mt-2">
+            Standard Room: <span className="font-semibold">$59.00 + tax</span> • {pointsLabel}
+          </p>
         </div>
 
         {/* Reserve Button */}
@@ -204,7 +208,7 @@ const RoomCard = ({ resort, startDate, endDate, nights, travelers }) => {
           onClick={handleReserveClick}
           className="w-full bg-[#1668e3] text-white font-semibold py-3 px-6 rounded-lg hover:bg-blue-600 transition-all duration-300 mt-6"
         >
-          Reserve Now
+          Select Room
         </button>
 
         {/* Note */}

@@ -1,26 +1,24 @@
 import React, { useContext, useState } from 'react';
 import {
-  FaChevronLeft,
-  FaChevronRight,
-  FaCheck,
-  FaShieldAlt,
-  FaLock,
-  FaCreditCard,
-  FaUser,
-  FaPhone,
-  FaEnvelope,
-  FaInfoCircle,
-  FaCalendarAlt,
-  FaMapMarkerAlt,
+    FaCalendarAlt,
+    FaCheck,
+    FaChevronLeft,
+    FaChevronRight,
+    FaCreditCard,
+    FaInfoCircle,
+    FaLock,
+    FaMapMarkerAlt,
+    FaShieldAlt,
+    FaUser
 } from 'react-icons/fa';
 import { IoMdArrowRoundBack } from 'react-icons/io';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
+import GuestInfoCard from './CheckoutContent/GuestInfoCard';
 import ImportantInfo from './CheckoutContent/ImportantInfo';
 import PaymentMethod from './CheckoutContent/PaymentMethod';
 import ResortCardInfo from './CheckoutContent/ResortCardInfo';
-import GuestInfoCard from './CheckoutContent/GuestInfoCard';
-import Swal from 'sweetalert2';
-import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
 
 const Checkout = () => {
   const location = useLocation();
@@ -86,12 +84,16 @@ const Checkout = () => {
   }
 
   const { resort, room, paymentDetails } = paymentData;
-  const { room_details } = resort;
-  const privacy_room_amount =
-    parseFloat(room_details?.privacy_room_amount) || 0;
-  const baseAmount =
-    parseFloat(paymentDetails?.baseAmount) || privacy_room_amount;
-  const totalAmount = parseFloat(paymentDetails?.totalAmount) || baseAmount;
+  const paymentMode = paymentDetails?.paymentMode || 'cash';
+  const isDeposit = paymentDetails?.isDeposit || false;
+  const isPointsPayment = paymentMode === 'points';
+  const cashEquivalent = parseFloat(paymentData?.pricing?.totalPrice) || 0;
+  const pointsUsed = paymentDetails?.pointsUsed || 0;
+  const baseAmount = parseFloat(paymentDetails?.baseAmount) || 0;
+  const totalStayAmount = parseFloat(paymentDetails?.totalAmount) || cashEquivalent;
+  const dueToday = isDeposit ? baseAmount : isPointsPayment ? 0 : totalStayAmount;
+  const remainingBalance = isDeposit ? totalStayAmount - baseAmount : 0;
+  const numberOfNights = paymentData?.dates?.nights || 1;
   const refundableDate = paymentDetails?.refundableDate || 'the check-in date';
 
   const handleChange = e => {
@@ -130,26 +132,28 @@ const Checkout = () => {
       });
       return false;
     }
-    if (
-      !formData.cardNumber ||
-      formData.cardNumber.replace(/\s/g, '').length < 16
-    ) {
-      Swal.fire({
-        title: 'Invalid Card',
-        text: 'Please enter a valid 16-digit card number',
-        icon: 'warning',
-        confirmButtonColor: '#3b82f6',
-      });
-      return false;
-    }
-    if (!formData.securityCode || formData.securityCode.length < 3) {
-      Swal.fire({
-        title: 'Invalid Security Code',
-        text: 'Please enter a valid security code',
-        icon: 'warning',
-        confirmButtonColor: '#3b82f6',
-      });
-      return false;
+    if (!isPointsPayment) {
+      if (
+        !formData.cardNumber ||
+        formData.cardNumber.replace(/\s/g, '').length < 16
+      ) {
+        Swal.fire({
+          title: 'Invalid Card',
+          text: 'Please enter a valid 16-digit card number',
+          icon: 'warning',
+          confirmButtonColor: '#3b82f6',
+        });
+        return false;
+      }
+      if (!formData.securityCode || formData.securityCode.length < 3) {
+        Swal.fire({
+          title: 'Invalid Security Code',
+          text: 'Please enter a valid security code',
+          icon: 'warning',
+          confirmButtonColor: '#3b82f6',
+        });
+        return false;
+      }
     }
     return true;
   };
@@ -177,9 +181,13 @@ const Checkout = () => {
       const bookingData = {
         resortId: resort._id,
         email: user?.email || formData.email,
-        roomId: room._id,
-        startDate: new Date().toISOString(),
-        endDate: new Date(Date.now() + 86400000).toISOString(),
+        roomId: room._id || resort._id,
+        startDate: paymentData?.dates?.start
+          ? new Date(paymentData.dates.start).toISOString()
+          : new Date().toISOString(),
+        endDate: paymentData?.dates?.end
+          ? new Date(paymentData.dates.end).toISOString()
+          : new Date(Date.now() + 86400000).toISOString(),
         resort,
         room,
         guestInfo: {
@@ -189,17 +197,25 @@ const Checkout = () => {
           phone: formData.phone,
           specialRequests: formData.specialRequests,
         },
-        paymentInfo: {
-          cardName: formData.cardName,
-          cardNumber: formData.cardNumber.replace(/\s/g, ''),
-          expiry: `${formData.expiryMonth}/${formData.expiryYear}`,
-          securityCode: formData.securityCode,
-          zipCode: formData.zipCode,
-        },
+        paymentInfo: isPointsPayment
+          ? {
+              method: 'points',
+              pointsUsed,
+              cashEquivalent,
+            }
+          : {
+              cardName: formData.cardName,
+              cardNumber: formData.cardNumber.replace(/\s/g, ''),
+              expiry: `${formData.expiryMonth}/${formData.expiryYear}`,
+              securityCode: formData.securityCode,
+              zipCode: formData.zipCode,
+            },
         paymentDetails: {
-          baseAmount: baseAmount,
-          totalAmount: totalAmount,
-          isDeposit: paymentDetails?.isDeposit || false,
+          baseAmount,
+          totalAmount: totalStayAmount,
+          isDeposit,
+          isPointsPayment,
+          paymentMode,
           refundableDate,
         },
         status: 'confirmed',
@@ -306,7 +322,7 @@ const Checkout = () => {
             <div className="relative">
               <div className="absolute top-5 left-0 right-0 h-0.5 bg-gray-200"></div>
               <div className="relative flex justify-between">
-                {steps.map((step, index) => (
+                {steps.map((step) => (
                   <div
                     key={step.id}
                     className="flex flex-col items-center relative z-10"
@@ -344,7 +360,7 @@ const Checkout = () => {
             <div className="lg:col-span-2 space-y-6">
               {/* Resort Summary */}
               <div className="bg-white rounded-2xl shadow-lg border border-gray-100 overflow-hidden">
-                <ResortCardInfo resort={resort} room={room} />
+                <ResortCardInfo resort={resort} room={room} dates={paymentData.dates} />
               </div>
 
               {/* Success Message */}
@@ -381,6 +397,9 @@ const Checkout = () => {
                 handleCardNumberChange={handleCardNumberChange}
                 formatCardNumber={formatCardNumber}
                 setCurrentStep={setCurrentStep}
+                paymentMode={paymentMode}
+                pointsUsed={pointsUsed}
+                cashEquivalent={cashEquivalent}
               />
 
               {/* Price Breakdown */}
@@ -393,55 +412,83 @@ const Checkout = () => {
                 <div className="space-y-4">
                   <div className="flex justify-between items-center py-3 border-b border-gray-100">
                     <div>
-                      <p className="font-medium text-gray-900">Base Rate</p>
+                      <p className="font-medium text-gray-900">
+                        {isPointsPayment ? 'Stay Value' : 'Base Rate'}
+                      </p>
                       <p className="text-sm text-gray-500">
-                        Per {room_details?.nights || 1} night(s)
+                        {isPointsPayment
+                          ? 'Credit value for your points redemption'
+                          : `Per ${numberOfNights} night(s)`}
                       </p>
                     </div>
                     <p className="font-semibold text-gray-900">
-                      ${baseAmount?.toFixed(2)}
+                      ${cashEquivalent?.toFixed(2)}
                     </p>
                   </div>
 
-                  {paymentDetails?.isDeposit && (
+                  {isPointsPayment && (
                     <div className="flex justify-between items-center py-3 border-b border-gray-100">
                       <div>
-                        <p className="font-medium text-gray-900">
-                          Deposit Amount
-                        </p>
-                        <p className="text-sm text-gray-500">Paid today</p>
+                        <p className="font-medium text-gray-900">Points redeemed</p>
+                        <p className="text-sm text-gray-500">Platinum Club points</p>
                       </div>
-                      <p className="font-semibold text-green-600">
-                        -${baseAmount?.toFixed(2)}
+                      <p className="font-semibold text-gray-900">
+                        {pointsUsed.toLocaleString()} pts
                       </p>
                     </div>
                   )}
 
-                  <div className="flex justify-between items-center py-3 border-b border-gray-100">
-                    <div>
-                      <p className="font-medium text-gray-900">Taxes & Fees</p>
-                      <p className="text-sm text-gray-500">All included</p>
-                    </div>
-                    <p className="font-semibold text-gray-900">
-                      ${(totalAmount - baseAmount)?.toFixed(2)}
-                    </p>
-                  </div>
+                  {isDeposit && (
+                    <>
+                      <div className="flex justify-between items-center py-3 border-b border-gray-100">
+                        <div>
+                          <p className="font-medium text-gray-900">
+                            Deposit Amount
+                          </p>
+                          <p className="text-sm text-gray-500">Paid today</p>
+                        </div>
+                        <p className="font-semibold text-green-600">
+                          ${baseAmount?.toFixed(2)}
+                        </p>
+                      </div>
+                      <div className="flex justify-between items-center py-3 border-b border-gray-100">
+                        <div>
+                          <p className="font-medium text-gray-900">
+                            Remaining balance
+                          </p>
+                          <p className="text-sm text-gray-500">
+                            Due before arrival
+                          </p>
+                        </div>
+                        <p className="font-semibold text-gray-900">
+                          ${remainingBalance?.toFixed(2)}
+                        </p>
+                      </div>
+                    </>
+                  )}
 
                   <div className="flex justify-between items-center pt-3">
                     <div>
                       <p className="text-lg font-bold text-gray-900">
-                        Total Amount
+                        {isPointsPayment ? 'Points to Redeem' : 'Amount Due'}
                       </p>
-                      <p className="text-sm text-gray-500">Payable today</p>
+                      <p className="text-sm text-gray-500">
+                        {isDeposit
+                          ? 'Amount charged today'
+                          : isPointsPayment
+                          ? 'Redeem at checkout'
+                          : 'Payable today'}
+                      </p>
                     </div>
                     <div className="text-right">
                       <p className="text-2xl font-bold text-blue-700">
-                        ${totalAmount?.toFixed(2)}
+                        {isPointsPayment
+                          ? `${pointsUsed.toLocaleString()} pts`
+                          : `$${dueToday?.toFixed(2)}`}
                       </p>
-                      {paymentDetails?.isDeposit && (
+                      {isDeposit && (
                         <p className="text-sm text-gray-500">
-                          Remaining ${(baseAmount - totalAmount)?.toFixed(2)}{' '}
-                          due before arrival
+                          Total stay value ${totalStayAmount?.toFixed(2)}
                         </p>
                       )}
                     </div>
@@ -502,7 +549,7 @@ const Checkout = () => {
                         <div className="flex justify-between">
                           <span className="text-gray-600">Room Type:</span>
                           <span className="font-medium text-gray-900">
-                            {room.room_type}
+                            {room.room_type || room.type}
                           </span>
                         </div>
                         <div className="flex justify-between">
@@ -526,12 +573,17 @@ const Checkout = () => {
                         <div className="flex justify-between items-center mb-2">
                           <span className="text-gray-600">Total Amount</span>
                           <span className="text-2xl font-bold text-gray-900">
-                            ${totalAmount?.toFixed(2)}
+                            ${dueToday?.toFixed(2)}
                           </span>
                         </div>
-                        {paymentDetails?.isDeposit && (
+                        {isDeposit && (
                           <p className="text-sm text-green-600 bg-green-50 p-2 rounded-lg">
-                            ✅ Only ${totalAmount?.toFixed(2)} due today
+                            ✅ Only ${dueToday?.toFixed(2)} due today
+                          </p>
+                        )}
+                        {isPointsPayment && (
+                          <p className="text-sm text-purple-600 bg-purple-50 p-2 rounded-lg">
+                            ✅ {pointsUsed.toLocaleString()} points will be redeemed.
                           </p>
                         )}
                       </div>
@@ -550,7 +602,7 @@ const Checkout = () => {
                         ) : (
                           <div className="flex items-center justify-center">
                             <FaShieldAlt className="mr-3" />
-                            Complete Secure Booking
+                            {isPointsPayment ? 'Redeem Points' : 'Complete Secure Booking'}
                             <FaChevronRight className="ml-2" />
                           </div>
                         )}

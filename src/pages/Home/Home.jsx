@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import {
   FaBed,
-  FaBox,
   FaCar,
   FaCheck,
   FaGift,
@@ -9,7 +8,7 @@ import {
   FaPercent,
   FaPlane,
   FaShip,
-  FaStar,
+  FaStar
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import bannerImg1 from "../../assets/images/banner-img-1.avif";
@@ -19,7 +18,6 @@ import icon1 from "../../assets/images/onekey__standard__always_light.svg";
 import Cars from "../../components/SearchFilter/Cars/Cars";
 import Cruises from "../../components/SearchFilter/Cruises";
 import Flights from "../../components/SearchFilter/Flights/Flights";
-import Packages from "../../components/SearchFilter/Packages";
 import Stays from "../../components/SearchFilter/Stays";
 import ThingsToDo from "../../components/SearchFilter/ThingsToDo";
 import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
@@ -28,33 +26,30 @@ import CarouselCard from "./HomeContent/CarouselCard";
 import RecommendedStays from "./HomeContent/RecommendedStays";
 
 const Home = () => {
-  const [activeFilter, setActiveFilter] = useState("Stays");
+  const [activeFilter, setActiveFilter] = useState("Hotels");
   const { resortData } = useContext(AuthContext);
 
   const filters = [
-    { name: "Stays", icon: FaBed },
+    { name: "Hotels", icon: FaBed },
     { name: "Flights", icon: FaPlane },
-    { name: "Cars", icon: FaCar },
-    { name: "Packages", icon: FaBox },
-    { name: "Things to do", icon: FaMapMarkerAlt },
     { name: "Cruises", icon: FaShip },
+    { name: "Cars", icon: FaCar },
+    { name: "Activities", icon: FaMapMarkerAlt },
   ];
 
   // Render the corresponding filter content based on the active filter
   const renderFilterContent = () => {
     switch (activeFilter) {
-      case "Stays":
+      case "Hotels":
         return <Stays />;
       case "Flights":
         return <Flights />;
-      case "Cars":
-        return <Cars />;
-      case "Packages":
-        return <Packages />;
-      case "Things to do":
-        return <ThingsToDo />;
       case "Cruises":
         return <Cruises />;
+      case "Cars":
+        return <Cars />;
+      case "Activities":
+        return <ThingsToDo />;
       default:
         return <Stays />;
     }
@@ -101,7 +96,9 @@ const Home = () => {
                     }`}
                     aria-label={`Filter by ${filter.name}`}
                   >
-                    <Icon className="text-lg" />
+                    <Icon className={`text-lg ${
+                      activeFilter === filter.name ? 'text-blue-600' : 'text-white'
+                    }`} />
                     <span className="text-sm lg:text-base">{filter.name}</span>
                   </button>
                 );
@@ -124,7 +121,9 @@ const Home = () => {
                       }`}
                       aria-label={`Filter by ${filter.name}`}
                     >
-                      <Icon className="text-base" />
+                      <Icon className={`text-base ${
+                        activeFilter === filter.name ? 'text-blue-600' : 'text-white'
+                      }`} />
                       <span className="text-sm">{filter.name}</span>
                     </button>
                   );

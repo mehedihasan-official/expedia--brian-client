@@ -1,27 +1,30 @@
-import React, { useState } from 'react';
-import {
-  FaCalendarAlt,
-  FaUser,
-  FaChevronDown,
-  FaChevronUp,
-  FaMoon,
-  FaInfoCircle,
-  FaFilter,
-  FaBed,
-  FaCouch,
-} from 'react-icons/fa';
+import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import {
+    FaBed,
+    FaCalendarAlt,
+    FaChevronDown,
+    FaChevronUp,
+    FaCouch,
+    FaFilter,
+    FaInfoCircle,
+    FaMoon,
+    FaUser,
+} from 'react-icons/fa';
 import RoomCard from '../../RoomCard/RoomCard';
 import SuiteCard from '../../SuiteCard/SuiteCard';
 
 const Rooms = ({ resort }) => {
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date(Date.now() + 86400000)); // Next day
+  const [dateRange, setDateRange] = useState([
+    new Date(),
+    new Date(Date.now() + 86400000),
+  ]);
   const [travelers, setTravelers] = useState({ rooms: 1, travelers: 2 });
   const [showPricingInfo, setShowPricingInfo] = useState(false);
   const [selectedRoomType, setSelectedRoomType] = useState('1bed');
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
+  const [startDate, endDate] = dateRange;
 
   const togglePricingInfo = () => {
     setShowPricingInfo(!showPricingInfo);
@@ -64,18 +67,23 @@ const Rooms = ({ resort }) => {
         {/* Search Filter Card */}
         <div className="bg-white rounded-2xl shadow-lg p-4 sm:p-6 mb-6 border border-gray-200">
           {/* Date and Traveler Inputs */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-            {/* Check-in Date */}
-            <div className="relative">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            {/* Date Range Picker */}
+            <div className="relative md:col-span-1">
               <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Check-in
+                Dates
               </label>
               <div className="flex items-center border-2 border-gray-300 rounded-xl p-3 bg-white hover:border-blue-500 focus-within:border-blue-500 transition-colors duration-200 cursor-pointer">
                 <FaCalendarAlt className="text-blue-600 text-xl mr-3 flex-shrink-0" />
                 <div className="flex-1">
                   <DatePicker
+                    selectsRange
+                    startDate={startDate}
+                    endDate={endDate}
                     selected={startDate}
-                    onChange={date => setStartDate(date)}
+                    onChange={(update) => {
+                      setDateRange(update);
+                    }}
                     minDate={new Date()}
                     dateFormat="MMM dd, yyyy"
                     className="w-full text-sm font-medium text-gray-900 bg-transparent focus:outline-none cursor-pointer"
@@ -85,28 +93,8 @@ const Rooms = ({ resort }) => {
               </div>
             </div>
 
-            {/* Check-out Date */}
-            <div className="relative">
-              <label className="block text-sm font-semibold text-gray-700 mb-2">
-                Check-out
-              </label>
-              <div className="flex items-center border-2 border-gray-300 rounded-xl p-3 bg-white hover:border-blue-500 focus-within:border-blue-500 transition-colors duration-200 cursor-pointer">
-                <FaCalendarAlt className="text-blue-600 text-xl mr-3 flex-shrink-0" />
-                <div className="flex-1">
-                  <DatePicker
-                    selected={endDate}
-                    onChange={date => setEndDate(date)}
-                    minDate={startDate || new Date()}
-                    dateFormat="MMM dd, yyyy"
-                    className="w-full text-sm font-medium text-gray-900 bg-transparent focus:outline-none cursor-pointer"
-                    calendarClassName="custom-calendar"
-                  />
-                </div>
-              </div>
-            </div>
-
             {/* Travelers */}
-            <div className="relative">
+            <div className="relative md:col-span-1">
               <label className="block text-sm font-semibold text-gray-700 mb-2">
                 Guests
               </label>

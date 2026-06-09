@@ -1,7 +1,7 @@
 import React from "react";
-import { FaChevronLeft, FaChevronRight, FaCalendarAlt } from "react-icons/fa";
+import { FaCalendarAlt, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-const ResortCardInfo = ({ resort, room }) => {
+const ResortCardInfo = ({ resort, room, dates }) => {
   const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
   const [showSpecialRequests, setShowSpecialRequests] = React.useState(false);
   const [specialRequests, setSpecialRequests] = React.useState("");
@@ -10,9 +10,10 @@ const ResortCardInfo = ({ resort, room }) => {
   const images = [resort.img, resort.img2, resort.img3].filter(Boolean);
 
   // Date functions
-  const today = new Date();
-  const tomorrow = new Date(today);
-  tomorrow.setDate(tomorrow.getDate() + 1);
+  const checkIn = dates?.start ? new Date(dates.start) : new Date();
+  const checkOut = dates?.end
+    ? new Date(dates.end)
+    : new Date(new Date().getTime() + 86400000);
   const formatDate = (date) =>
     date.toLocaleDateString("en-US", {
       month: "short",
@@ -112,7 +113,7 @@ const ResortCardInfo = ({ resort, room }) => {
               <p className="text-sm text-gray-500">Check-in</p>
               <p className="font-medium flex items-center">
                 <FaCalendarAlt className="mr-2 text-gray-500" />
-                {formatDate(today)}
+                {formatDate(checkIn)}
               </p>
               <p className="text-sm text-gray-500 mt-1">After 3:00 PM</p>
             </div>
@@ -120,7 +121,7 @@ const ResortCardInfo = ({ resort, room }) => {
               <p className="text-sm text-gray-500">Check-out</p>
               <p className="font-medium flex items-center">
                 <FaCalendarAlt className="mr-2 text-gray-500" />
-                {formatDate(tomorrow)}
+                {formatDate(checkOut)}
               </p>
               <p className="text-sm text-gray-500 mt-1">Before 11:00 AM</p>
             </div>
