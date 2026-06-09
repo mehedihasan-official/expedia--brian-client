@@ -1,13 +1,12 @@
-import React from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
 import {
-  FaTimes,
   FaCheck,
   FaCreditCard,
   FaPaypal,
   FaRegCreditCard,
-} from 'react-icons/fa';
-import { RiSecurePaymentLine } from 'react-icons/ri';
+  FaTimes,
+} from "react-icons/fa";
+import { RiSecurePaymentLine } from "react-icons/ri";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Payment = () => {
   const navigate = useNavigate();
@@ -24,28 +23,28 @@ const Payment = () => {
   const randomDays = Math.floor(Math.random() * 5) + 3;
   const futureDate = new Date();
   futureDate.setDate(futureDate.getDate() + randomDays);
-  const refundableDate = futureDate.toLocaleDateString('en-US', {
-    weekday: 'short',
-    month: 'short',
-    day: 'numeric',
+  const refundableDate = futureDate.toLocaleDateString("en-US", {
+    weekday: "short",
+    month: "short",
+    day: "numeric",
   });
 
   const handleBackClick = () => {
     navigate(-1); // Go back to previous page
   };
 
-  const handlePaymentClick = paymentType => {
+  const handlePaymentClick = (paymentType) => {
     const paymentData = {
       ...reservationData,
       paymentDetails: {
         type: paymentType,
-        baseAmount: paymentType === 'full' ? basePrice : depositAmount,
-        isDeposit: paymentType === 'deposit',
+        baseAmount: paymentType === "full" ? basePrice : depositAmount,
+        isDeposit: paymentType === "deposit",
         refundableDate,
       },
     };
 
-    navigate('/checkout', { state: { paymentData } });
+    navigate("/checkout", { state: { paymentData } });
   };
 
   return (
@@ -121,7 +120,7 @@ const Payment = () => {
                 <div className="flex items-start">
                   <FaCheck className="text-green-500 mt-1 mr-3 flex-shrink-0" />
                   <span className="text-gray-700">
-                    Use valid Travel + Leisure coupons
+                    Use valid Platinum Club coupons
                   </span>
                 </div>
                 <div className="flex items-start">
@@ -150,7 +149,7 @@ const Payment = () => {
 
               {/* CTA Button */}
               <button
-                onClick={() => handlePaymentClick('full')}
+                onClick={() => handlePaymentClick("full")}
                 className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-4 px-6 rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl font-semibold text-lg"
               >
                 Pay Full Amount Now
@@ -184,8 +183,8 @@ const Payment = () => {
                 <div className="flex items-start">
                   <FaCheck className="text-green-500 mt-1 mr-3 flex-shrink-0" />
                   <span className="text-gray-700">
-                    Book with only{' '}
-                    <span className="font-semibold">${depositAmount}</span>{' '}
+                    Book with only{" "}
+                    <span className="font-semibold">${depositAmount}</span>{" "}
                     initial payment
                   </span>
                 </div>
@@ -237,7 +236,7 @@ const Payment = () => {
 
               {/* CTA Button */}
               <button
-                onClick={() => handlePaymentClick('deposit')}
+                onClick={() => handlePaymentClick("deposit")}
                 className="w-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white py-4 px-6 rounded-xl hover:from-emerald-600 hover:to-teal-700 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl font-semibold text-lg"
               >
                 Pay ${depositAmount} Deposit
@@ -289,7 +288,7 @@ const Payment = () => {
         {/* Help Section */}
         <div className="mt-8 text-center">
           <p className="text-gray-600">
-            Need help?{' '}
+            Need help?{" "}
             <button className="text-blue-600 hover:text-blue-800 font-medium underline">
               Contact our support team
             </button>

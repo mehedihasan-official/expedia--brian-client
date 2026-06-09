@@ -1,12 +1,12 @@
-import React, { useContext, useState } from "react";
-import { FcGoogle } from "react-icons/fc";
+import { useContext, useState } from "react";
 import { FaApple, FaFacebook } from "react-icons/fa";
-import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
+import { FcGoogle } from "react-icons/fc";
 import { useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
 
 const SignIn = () => {
-  const { login, googleLogin } = useContext(AuthContext); 
+  const { login, googleLogin } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from || "/"; // Redirect to the previous page or default to homepage
@@ -114,7 +114,8 @@ const SignIn = () => {
 
       {/* Description */}
       <p className="text-sm text-gray-600 mb-6">
-        Unlock a world of rewards with one account across Expedia, Hotels.com, and Vrbo.
+        Unlock a world of rewards with one account across Platinum Club,
+        Hotels.com, and Vrbo.
       </p>
 
       {/* Google Sign-In Button */}

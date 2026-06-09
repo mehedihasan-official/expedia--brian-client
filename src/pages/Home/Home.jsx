@@ -1,59 +1,59 @@
-import { useContext, useState } from 'react';
-import Stays from '../../components/SearchFilter/Stays';
-import Flights from '../../components/SearchFilter/Flights/Flights';
-import Cars from '../../components/SearchFilter/Cars/Cars';
-import Packages from '../../components/SearchFilter/Packages';
-import ThingsToDo from '../../components/SearchFilter/ThingsToDo';
-import Cruises from '../../components/SearchFilter/Cruises';
-import icon1 from '../../assets/images/onekey__standard__always_light.svg';
-import { Link } from 'react-router-dom';
-import bannerImg1 from '../../assets/images/banner-img-1.avif';
-import bannerImg2 from '../../assets/images/banner-img-2.avif';
-import KeyImg from '../../assets/images/Key.avif';
-import CarouselCard from './HomeContent/CarouselCard';
-import AnnualVacation from './HomeContent/AnnualVacation';
-import RecommendedStays from './HomeContent/RecommendedStays';
+import { useContext, useState } from "react";
 import {
   FaBed,
-  FaPlane,
-  FaCar,
   FaBox,
-  FaMapMarkerAlt,
-  FaShip,
+  FaCar,
   FaCheck,
-  FaStar,
   FaGift,
+  FaMapMarkerAlt,
   FaPercent,
-} from 'react-icons/fa';
-import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
+  FaPlane,
+  FaShip,
+  FaStar,
+} from "react-icons/fa";
+import { Link } from "react-router-dom";
+import bannerImg1 from "../../assets/images/banner-img-1.avif";
+import bannerImg2 from "../../assets/images/banner-img-2.avif";
+import KeyImg from "../../assets/images/Key.avif";
+import icon1 from "../../assets/images/onekey__standard__always_light.svg";
+import Cars from "../../components/SearchFilter/Cars/Cars";
+import Cruises from "../../components/SearchFilter/Cruises";
+import Flights from "../../components/SearchFilter/Flights/Flights";
+import Packages from "../../components/SearchFilter/Packages";
+import Stays from "../../components/SearchFilter/Stays";
+import ThingsToDo from "../../components/SearchFilter/ThingsToDo";
+import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
+import AnnualVacation from "./HomeContent/AnnualVacation";
+import CarouselCard from "./HomeContent/CarouselCard";
+import RecommendedStays from "./HomeContent/RecommendedStays";
 
 const Home = () => {
-  const [activeFilter, setActiveFilter] = useState('Stays');
+  const [activeFilter, setActiveFilter] = useState("Stays");
   const { resortData } = useContext(AuthContext);
 
   const filters = [
-    { name: 'Stays', icon: FaBed },
-    { name: 'Flights', icon: FaPlane },
-    { name: 'Cars', icon: FaCar },
-    { name: 'Packages', icon: FaBox },
-    { name: 'Things to do', icon: FaMapMarkerAlt },
-    { name: 'Cruises', icon: FaShip },
+    { name: "Stays", icon: FaBed },
+    { name: "Flights", icon: FaPlane },
+    { name: "Cars", icon: FaCar },
+    { name: "Packages", icon: FaBox },
+    { name: "Things to do", icon: FaMapMarkerAlt },
+    { name: "Cruises", icon: FaShip },
   ];
 
   // Render the corresponding filter content based on the active filter
   const renderFilterContent = () => {
     switch (activeFilter) {
-      case 'Stays':
+      case "Stays":
         return <Stays />;
-      case 'Flights':
+      case "Flights":
         return <Flights />;
-      case 'Cars':
+      case "Cars":
         return <Cars />;
-      case 'Packages':
+      case "Packages":
         return <Packages />;
-      case 'Things to do':
+      case "Things to do":
         return <ThingsToDo />;
-      case 'Cruises':
+      case "Cruises":
         return <Cruises />;
       default:
         return <Stays />;
@@ -62,12 +62,12 @@ const Home = () => {
 
   return (
     <div className="w-full bg-white">
-      {/* Hero Section with Search - Expedia Style */}
+      {/* Hero Section with Search - Platinum Club Style */}
       <section
         className="relative bg-cover bg-center"
         style={{
-          backgroundImage: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-          minHeight: '500px',
+          backgroundImage: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+          minHeight: "500px",
         }}
       >
         {/* Overlay */}
@@ -77,10 +77,11 @@ const Home = () => {
           {/* Hero Text */}
           <div className="text-center mb-8 pt-8">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4">
-              Your next adventure starts here
+              Your Next Vacation Starts Here
             </h1>
             <p className="text-lg sm:text-xl text-white/95 max-w-2xl mx-auto">
-              Discover deals on hotels, flights, and more
+              Book hotels, flights, cruises, and experiences while maximizing
+              the value of your vacation ownership.
             </p>
           </div>
 
@@ -88,7 +89,7 @@ const Home = () => {
           <div className="max-w-5xl mx-auto">
             {/* Desktop Navigation */}
             <div className="hidden md:flex bg-white/10 backdrop-blur-sm rounded-t-xl p-2">
-              {filters.map(filter => {
+              {filters.map((filter) => {
                 const Icon = filter.icon;
                 return (
                   <button
@@ -96,8 +97,8 @@ const Home = () => {
                     onClick={() => setActiveFilter(filter.name)}
                     className={`flex items-center gap-2 px-6 py-3 rounded-lg transition-all duration-200 ${
                       activeFilter === filter.name
-                        ? 'bg-white text-blue-600 font-semibold shadow-lg'
-                        : 'text-white hover:bg-white/20'
+                        ? "bg-white text-blue-600 font-semibold shadow-lg"
+                        : "text-white hover:bg-white/20"
                     }`}
                     aria-label={`Filter by ${filter.name}`}
                   >
@@ -111,7 +112,7 @@ const Home = () => {
             {/* Mobile Navigation - Horizontal Scroll */}
             <div className="md:hidden bg-white/10 backdrop-blur-sm rounded-t-xl p-2 overflow-x-auto scrollbar-hide">
               <div className="flex gap-2 min-w-max">
-                {filters.map(filter => {
+                {filters.map((filter) => {
                   const Icon = filter.icon;
                   return (
                     <button
@@ -119,8 +120,8 @@ const Home = () => {
                       onClick={() => setActiveFilter(filter.name)}
                       className={`flex items-center gap-2 px-4 py-2.5 rounded-lg whitespace-nowrap transition-all duration-200 ${
                         activeFilter === filter.name
-                          ? 'bg-white text-blue-600 font-semibold shadow-lg'
-                          : 'text-white hover:bg-white/20'
+                          ? "bg-white text-blue-600 font-semibold shadow-lg"
+                          : "text-white hover:bg-white/20"
                       }`}
                       aria-label={`Filter by ${filter.name}`}
                     >
@@ -143,7 +144,7 @@ const Home = () => {
       {/* Main Content */}
       <div className="bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-          {/* OneKey Membership Banner - Expedia Style */}
+          {/* OneKey Membership Banner - Platinum Club Style */}
           <section className="mb-10 lg:mb-16">
             <div className="bg-gradient-to-r from-[#1a1a2e] via-[#16213e] to-[#0f3460] rounded-2xl shadow-xl overflow-hidden border border-gray-800">
               <div className="p-6 sm:p-8 lg:p-10">
@@ -272,9 +273,7 @@ const Home = () => {
 
           {/* Annual Vacation resortData Showcase */}
           <section className="mb-10 lg:mb-16">
-            <AnnualVacation
-              resortData={resortData}
-            />
+            <AnnualVacation resortData={resortData} />
           </section>
 
           {/* Recommended Stays */}
@@ -351,7 +350,7 @@ const Home = () => {
             </div>
           </section>
 
-          {/* Trust Section - Expedia Style */}
+          {/* Trust Section - Platinum Club Style */}
           <section className="mb-10 lg:mb-16">
             <div className="text-center mb-8">
               <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">

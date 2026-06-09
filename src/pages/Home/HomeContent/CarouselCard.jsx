@@ -1,35 +1,35 @@
-import React, { useState } from 'react';
-import { FaArrowRight, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import airImg from '../../../assets/images/airImg.avif';
-import londonBridgeImg from '../../../assets/images/londonBridgeImg.avif';
-import keyImg from '../../../assets/images/keyImg.avif';
+import { useState } from "react";
+import { FaArrowRight, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import airImg from "../../../assets/images/airImg.avif";
+import keyImg from "../../../assets/images/keyImg.avif";
+import londonBridgeImg from "../../../assets/images/londonBridgeImg.avif";
 
 const CarouselCard = () => {
   // Card data
   const cards = [
     {
       id: 1,
-      header: 'Cleared for takeoff: Southwest Airlines now on Expedia',
-      description: 'Book flights and save on bundled travel packages',
+      header: "Cleared for takeoff: Southwest Airlines now on Platinum Club",
+      description: "Book flights and save on bundled travel packages",
       image: airImg,
-      link: '#',
-      bgColor: 'from-yellow-400 to-yellow-500',
+      link: "#",
+      bgColor: "from-yellow-400 to-yellow-500",
     },
     {
       id: 2,
-      header: 'The Annual Vacation Sale has landed',
-      description: 'Save 25% or more on select hotels worldwide',
+      header: "The Annual Vacation Sale has landed",
+      description: "Save 25% or more on select hotels worldwide",
       image: londonBridgeImg,
-      link: '#',
-      bgColor: 'from-blue-400 to-blue-500',
+      link: "#",
+      bgColor: "from-blue-400 to-blue-500",
     },
     {
       id: 3,
-      header: 'Earn up to $600 in OneKeyCash™',
-      description: 'Terms apply. Not redeemable for cash',
+      header: "Earn up to $600 in OneKeyCash™",
+      description: "Terms apply. Not redeemable for cash",
       image: keyImg,
-      link: '#',
-      bgColor: 'from-purple-400 to-purple-500',
+      link: "#",
+      bgColor: "from-purple-400 to-purple-500",
     },
   ];
 
@@ -37,12 +37,12 @@ const CarouselCard = () => {
 
   // Handle next card
   const handleNext = () => {
-    setCurrentCard(prev => (prev + 1) % cards.length);
+    setCurrentCard((prev) => (prev + 1) % cards.length);
   };
 
   // Handle previous card
   const handlePrev = () => {
-    setCurrentCard(prev => (prev - 1 + cards.length) % cards.length);
+    setCurrentCard((prev) => (prev - 1 + cards.length) % cards.length);
   };
 
   return (
@@ -88,7 +88,7 @@ const CarouselCard = () => {
               className="flex transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentCard * 100}%)` }}
             >
-              {cards.map(card => (
+              {cards.map((card) => (
                 <div key={card.id} className="w-full flex-shrink-0 px-2">
                   <a
                     href={card.link}
@@ -134,8 +134,8 @@ const CarouselCard = () => {
                   onClick={() => setCurrentCard(index)}
                   className={`h-2 rounded-full transition-all duration-300 ${
                     index === currentCard
-                      ? 'w-8 bg-blue-600'
-                      : 'w-2 bg-gray-300 hover:bg-gray-400'
+                      ? "w-8 bg-blue-600"
+                      : "w-2 bg-gray-300 hover:bg-gray-400"
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
                 />
@@ -145,7 +145,7 @@ const CarouselCard = () => {
 
           {/* Tablet & Desktop: Grid */}
           <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-            {cards.map(card => (
+            {cards.map((card) => (
               <a
                 key={card.id}
                 href={card.link}

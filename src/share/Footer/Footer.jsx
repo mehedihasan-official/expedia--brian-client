@@ -1,6 +1,5 @@
-import React from 'react';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
-import logo from '../../assets/images/Travel+Leisure-logo.png';
+import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+// using text-based Platinum Club title instead of image logo
 
 const Footer = () => {
   return (
@@ -11,11 +10,7 @@ const Footer = () => {
           {/* Logo Section */}
           <div className="mb-10 lg:mb-12">
             <div className="flex items-center justify-center lg:justify-start mb-4">
-              <img
-                src={logo}
-                alt="Expedia Logo"
-                className="h-8 w-auto"
-              />
+              <h1 className="text-2xl font-cormorant font-bold">Platinum Club</h1>
             </div>
             <p className="text-slate-600 text-sm max-w-md text-center lg:text-left mx-auto lg:mx-0">
               Your trusted partner for unforgettable travel experiences around
@@ -246,12 +241,11 @@ const Footer = () => {
           <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
             <div className="text-slate-600 text-xs text-center lg:text-left">
               <p className="mb-2 lg:mb-1">
-                © {new Date().getFullYear()} Expedia, Inc., an Expedia Group
-                company. All rights reserved.
+                © {new Date().getFullYear()} Platinum Club. All rights reserved.
               </p>
               <p className="text-slate-500">
-                Expedia and the Expedia Logo are trademarks or registered
-                trademarks of Expedia, Inc. CST# 2029030-50.
+                Platinum Club and the Platinum Club Logo are trademarks or
+                registered trademarks of Platinum Club. CST# 2029030-50.
               </p>
             </div>
 

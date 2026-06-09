@@ -1,11 +1,11 @@
-import {  useState } from "react";
-import { Link, useNavigate, Outlet } from "react-router-dom";
 import { Transition } from "@headlessui/react";
-import { HiOutlineHomeModern } from "react-icons/hi2";
+import { useState } from "react";
 import { BsFillMenuButtonWideFill } from "react-icons/bs";
 import { FaHome, FaWpforms } from "react-icons/fa";
+import { HiOutlineHomeModern } from "react-icons/hi2";
 import { IoMdClose } from "react-icons/io";
-import logo from "../../assets/images/Travel+Leisure-logo.png";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+// using text-based Platinum Club title instead of image logo
 
 const UserDashboard = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -57,7 +57,7 @@ const UserDashboard = () => {
         {/* Dashboard header Section */}
         <div className="flex items-center justify-between ">
           <Link to="/" className="z-20">
-            <img src={logo} alt="Logo" className="w-28 " />
+            <h1 className="text-2xl font-cormorant font-bold">Platinum Club</h1>
           </Link>
           <h1 className="text-xl font-bold">Dashboard</h1>
           <button onClick={toggleMobileMenu} className=" text-xl">

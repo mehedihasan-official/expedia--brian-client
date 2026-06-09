@@ -1,21 +1,20 @@
-import { useContext, useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { MdKeyboardArrowDown, MdMenu, MdClose } from 'react-icons/md';
-import { IoMdDownload } from 'react-icons/io';
-import logo from '../../assets/images/Travel+Leisure-logo.png';
+import { useContext, useEffect, useRef, useState } from "react";
 import {
   FaBed,
-  FaPlane,
   FaCar,
   FaGift,
-  FaUmbrellaBeach,
+  FaPlane,
   FaShip,
-  FaUserCircle,
-} from 'react-icons/fa';
+  FaUmbrellaBeach,
+} from "react-icons/fa";
+import { IoMdDownload } from "react-icons/io";
+import { MdClose, MdKeyboardArrowDown, MdMenu } from "react-icons/md";
+import { Link } from "react-router-dom";
+// logo image removed; using text-based site title with Cormorant Garamond
 
-import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
-import MobileMenu from './MobileMenu';
-import UserMenu from './UserMenu';
+import { AuthContext } from "../../providers/AuthProvider/AuthProvider";
+import MobileMenu from "./MobileMenu";
+import UserMenu from "./UserMenu";
 
 const Header = () => {
   const [isShopTravelOpen, setShopTravelOpen] = useState(false);
@@ -32,13 +31,13 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Close dropdowns when clicking outside
   useEffect(() => {
-    const handleClickOutside = event => {
+    const handleClickOutside = (event) => {
       if (
         shopTravelRef.current &&
         !shopTravelRef.current.contains(event.target)
@@ -50,53 +49,53 @@ const Header = () => {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   // Prevent body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [isMobileMenuOpen]);
 
   const toggleShopTravel = () => {
-    setShopTravelOpen(prev => !prev);
+    setShopTravelOpen((prev) => !prev);
     setUserMenuOpen(false);
   };
 
   const toggleUserMenu = () => {
-    setUserMenuOpen(prev => !prev);
+    setUserMenuOpen((prev) => !prev);
     setShopTravelOpen(false);
   };
 
   const toggleMobileMenu = () => {
-    setMobileMenuOpen(prev => !prev);
+    setMobileMenuOpen((prev) => !prev);
   };
 
   const shopTravelItems = [
-    { to: '/stays', icon: FaBed, label: 'Stays', color: 'text-blue-600' },
-    { to: '/flights', icon: FaPlane, label: 'Flights', color: 'text-sky-600' },
-    { to: '/cars', icon: FaCar, label: 'Cars', color: 'text-green-600' },
+    { to: "/stays", icon: FaBed, label: "Stays", color: "text-blue-600" },
+    { to: "/flights", icon: FaPlane, label: "Flights", color: "text-sky-600" },
+    { to: "/cars", icon: FaCar, label: "Cars", color: "text-green-600" },
     {
-      to: '/packages',
+      to: "/packages",
       icon: FaGift,
-      label: 'Packages',
-      color: 'text-purple-600',
+      label: "Packages",
+      color: "text-purple-600",
     },
     {
-      to: '/things-to-do',
+      to: "/things-to-do",
       icon: FaUmbrellaBeach,
-      label: 'Things to Do',
-      color: 'text-orange-600',
+      label: "Things to Do",
+      color: "text-orange-600",
     },
-    { to: '/cruises', icon: FaShip, label: 'Cruises', color: 'text-teal-600' },
+    { to: "/cruises", icon: FaShip, label: "Cruises", color: "text-teal-600" },
   ];
 
   return (
@@ -104,7 +103,7 @@ const Header = () => {
       {/* Main Header */}
       <header
         className={`sticky top-0 z-50 bg-white transition-all duration-300 ${
-          isScrolled ? 'shadow-lg' : 'shadow-md'
+          isScrolled ? "shadow-lg" : "shadow-md"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -116,11 +115,7 @@ const Header = () => {
                 to="/"
                 className="flex-shrink-0 transition-transform duration-200 hover:scale-105"
               >
-                <img
-                  src={logo}
-                  alt="Expedia Logo"
-                  className="h-8 lg:h-10 w-auto"
-                />
+                <h1 className="text-2xl font-cormorant font-bold text-slate-800">Platinum Club</h1>
               </Link>
 
               {/* Shop Travel Dropdown (Desktop Only) */}
@@ -133,7 +128,7 @@ const Header = () => {
                   <MdKeyboardArrowDown
                     size={20}
                     className={`transition-transform duration-200 ${
-                      isShopTravelOpen ? 'rotate-180' : ''
+                      isShopTravelOpen ? "rotate-180" : ""
                     }`}
                   />
                 </button>
@@ -142,7 +137,7 @@ const Header = () => {
                 {isShopTravelOpen && (
                   <div className="absolute top-full left-0 mt-2 bg-white shadow-xl rounded-xl p-3 w-72 border border-slate-100 opacity-0 animate-fadeIn">
                     <div className="grid grid-cols-2 gap-2">
-                      {shopTravelItems.map(item => (
+                      {shopTravelItems.map((item) => (
                         <Link
                           key={item.to}
                           to={item.to}
@@ -175,8 +170,9 @@ const Header = () => {
 
               <Link
                 to="/hotels"
-                className="px-3 xl:px-4 py-2 text-slate-700 hover:text-blue-600 font-medium text-sm transition-colors duration-200 rounded-lg hover:bg-blue-50 whitespace-nowrap">
-              Hotels
+                className="px-3 xl:px-4 py-2 text-slate-700 hover:text-blue-600 font-medium text-sm transition-colors duration-200 rounded-lg hover:bg-blue-50 whitespace-nowrap"
+              >
+                Hotels
               </Link>
 
               <Link
@@ -185,7 +181,6 @@ const Header = () => {
               >
                 List your property
               </Link>
-              
 
               {/* User Menu Button (Desktop) */}
               <UserMenu
