@@ -80,8 +80,7 @@ const Home = () => {
               Your Next Vacation Starts Here
             </h1>
             <p className="text-lg sm:text-xl text-white/95 max-w-2xl mx-auto">
-              Book hotels, flights, cruises, and experiences while maximizing
-              the value of your vacation ownership.
+              Book hotels, flights, cruises, and experiences while maximizing the value of your vacation ownership.
             </p>
           </div>
 
