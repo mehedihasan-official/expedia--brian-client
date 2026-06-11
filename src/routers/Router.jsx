@@ -20,6 +20,10 @@ import CarDetail from "../pages/CarDetail/CarDetail";
 import CarDrivers from "../pages/CarDrivers/CarDrivers";
 import CarPayment from "../pages/CarPayment/CarPayment";
 import Communications from "../pages/Communications/Communications";
+import CruiseConfirmation from "../pages/CruiseConfirmation/CruiseConfirmation";
+import CruiseDetail from "../pages/CruiseDetail/CruiseDetail";
+import CruiseGuests from "../pages/CruiseGuests/CruiseGuests";
+import CruisePayment from "../pages/CruisePayment/CruisePayment";
 import FlightConfirmation from "../pages/FlightConfirmation/FlightConfirmation";
 import FlightDetail from "../pages/FlightDetail/FlightDetail";
 import FlightPassengers from "../pages/FlightPassengers/FlightPassengers";
@@ -144,6 +148,22 @@ export const router = createBrowserRouter([
       {
         path: "cruise-search",
         element: <CruiseSearch />,
+      },
+      {
+        path: "cruise-detail",
+        element: <CruiseDetail />,
+      },
+      {
+        path: "cruise-guests",
+        element: <CruiseGuests />,
+      },
+      {
+        path: "cruise-payment",
+        element: <CruisePayment />,
+      },
+      {
+        path: "cruise-confirmation",
+        element: <CruiseConfirmation />,
       },
     ],
   },
