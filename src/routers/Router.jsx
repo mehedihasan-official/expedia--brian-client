@@ -15,6 +15,10 @@ import UserDashboard from "../layout/UserDashboard/UserDashboard";
 import Account from "../pages/Account/Account";
 import AdminControl from "../pages/AdminControl/AdminControl";
 import AdminOverview from "../pages/AdminOverview/AdminOverview";
+import CarConfirmation from "../pages/CarConfirmation/CarConfirmation";
+import CarDetail from "../pages/CarDetail/CarDetail";
+import CarDrivers from "../pages/CarDrivers/CarDrivers";
+import CarPayment from "../pages/CarPayment/CarPayment";
 import Communications from "../pages/Communications/Communications";
 import FlightConfirmation from "../pages/FlightConfirmation/FlightConfirmation";
 import FlightDetail from "../pages/FlightDetail/FlightDetail";
@@ -120,6 +124,22 @@ export const router = createBrowserRouter([
       {
         path: "car-search",
         element: <CarSearch />,
+      },
+      {
+        path: "car-detail",
+        element: <CarDetail />,
+      },
+      {
+        path: "car-drivers",
+        element: <CarDrivers />,
+      },
+      {
+        path: "car-payment",
+        element: <CarPayment />,
+      },
+      {
+        path: "car-confirmation",
+        element: <CarConfirmation />,
       },
       {
         path: "cruise-search",

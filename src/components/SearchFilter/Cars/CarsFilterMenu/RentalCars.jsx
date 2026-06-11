@@ -1,12 +1,12 @@
-import React, { useState, useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { FaMapMarkerAlt, FaCalendarAlt, FaClock, FaChevronDown } from "react-icons/fa";
+import { useEffect, useMemo, useRef, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { FaChevronDown, FaClock, FaMapMarkerAlt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { popularCarLocations } from "../../../../data/carsData";
 
 const RentalCars = () => {
   const navigate = useNavigate();
-  const [activeFilter] = useState("Rental Cars");
   const [showDiscountMenu, setShowDiscountMenu] = useState(false);
   const [selectedDiscount, setSelectedDiscount] = useState("Discount Code");
   const [pickupDate, setPickupDate] = useState(new Date());
@@ -15,16 +15,10 @@ const RentalCars = () => {
   const [dropoffTime, setDropoffTime] = useState("10:00");
   const [pickupLocation, setPickupLocation] = useState("");
   const [dropoffLocation, setDropoffLocation] = useState("");
+  const [sameLocation, setSameLocation] = useState(false);
   const [showAARPRates, setShowAARPRates] = useState(false);
 
   const discountMenuRef = useRef(null);
-
-  // Close discount menu when clicking outside
-  const handleClickOutside = (event) => {
-    if (discountMenuRef.current && !discountMenuRef.current.contains(event.target)) {
-      setShowDiscountMenu(false);
-    }
-  };
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -33,13 +27,79 @@ const RentalCars = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (sameLocation) {
+      setDropoffLocation(pickupLocation);
+    }
+  }, [pickupLocation, sameLocation]);
+
+  const handleClickOutside = (event) => {
+    if (discountMenuRef.current && !discountMenuRef.current.contains(event.target)) {
+      setShowDiscountMenu(false);
+    }
+  };
+
   const handleDiscountSelect = (discount) => {
     setSelectedDiscount(discount);
     setShowDiscountMenu(false);
   };
 
+  const formatTimeDisplay = (time) => {
+    if (!time) return "";
+    const [hours, minutes] = time.split(":");
+    const hourNum = parseInt(hours, 10);
+    return hourNum >= 12
+      ? `${hourNum === 12 ? 12 : hourNum - 12}:${minutes} PM`
+      : `${hourNum}:${minutes} AM`;
+  };
+
+  const filteredPickupLocations = useMemo(() => {
+    if (!pickupLocation.trim()) return [];
+    const query = pickupLocation.toLowerCase();
+    return popularCarLocations.filter((location) =>
+      location.city.toLowerCase().includes(query) || location.code.toLowerCase().includes(query)
+    ).slice(0, 5);
+  }, [pickupLocation]);
+
+  const filteredDropoffLocations = useMemo(() => {
+    if (!dropoffLocation.trim() || sameLocation) return [];
+    const query = dropoffLocation.toLowerCase();
+    return popularCarLocations.filter((location) =>
+      location.city.toLowerCase().includes(query) || location.code.toLowerCase().includes(query)
+    ).slice(0, 5);
+  }, [dropoffLocation, sameLocation]);
+
+  const handleSelectPickupSuggestion = (city) => {
+    setPickupLocation(city);
+    if (sameLocation) setDropoffLocation(city);
+  };
+
+  const handleSelectDropoffSuggestion = (city) => {
+    setDropoffLocation(city);
+  };
+
+  const calculateDays = () => {
+    const start = new Date(pickupDate);
+    const end = new Date(dropoffDate);
+    const diff = Math.ceil((end - start) / (1000 * 60 * 60 * 24));
+    return diff > 0 ? diff : 1;
+  };
+
   const handleSearch = () => {
-    // Prepare search data
+    if (!pickupLocation.trim()) {
+      alert("Please enter a pickup location.");
+      return;
+    }
+    if (!dropoffLocation.trim()) {
+      alert("Please enter a drop-off location.");
+      return;
+    }
+    if (dropoffDate <= pickupDate) {
+      alert("Drop-off date must be after the pick-up date.");
+      return;
+    }
+
+    const numberOfDays = calculateDays();
     const searchData = {
       pickupLocation,
       dropoffLocation,
@@ -48,194 +108,189 @@ const RentalCars = () => {
       pickupTime,
       dropoffTime,
       discountCode: selectedDiscount !== "Discount Code" ? selectedDiscount : null,
-      showAARPRates
+      showAARPRates,
+      sameLocation,
+      numberOfDays
     };
 
-    // Navigate to car search page with the data
     navigate('/car-search', { state: searchData });
-
-    console.log(searchData);
-  };
-
-  // Format time for display (converts "10:00" to "10:00 AM")
-  const formatTimeDisplay = (time) => {
-    if (!time) return "";
-    const [hours, minutes] = time.split(":");
-    const hourNum = parseInt(hours, 10);
-    return hourNum >= 12 
-      ? `${hourNum === 12 ? 12 : hourNum - 12}:${minutes} PM` 
-      : `${hourNum}:${minutes} AM`;
   };
 
   return (
-    <div className="bg-white p-4 md:p-6 max-w-5xl mx-auto">
-      {/* Rental Cars Form */}
-      {activeFilter === "Rental Cars" && (
-        <div className="flex flex-col gap-4">
-          {/* Pick-up Location */}
-          <div className="flex items-center w-full border border-gray-300 rounded-lg p-2 md:p-3 bg-gray-50 hover:bg-gray-100 focus:ring-2 ring-blue-200">
-            <FaMapMarkerAlt className="text-gray-500 text-lg mr-3" />
-            <div className="flex flex-col text-left w-full">
-              <span className="text-xs md:text-sm text-gray-700 font-medium">
-                Pick-up Location
-              </span>
-              <input
-                type="text"
-                placeholder="Enter pick-up location"
-                value={pickupLocation}
-                onChange={(e) => setPickupLocation(e.target.value)}
-                className="w-full text-xs text-gray-500 bg-transparent focus:outline-none"
-              />
-            </div>
-          </div>
+    <div className="bg-white p-4 md:p-6 max-w-5xl mx-auto rounded-3xl shadow-sm">
+      <div className="space-y-5">
+        <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+          <h2 className="text-lg font-semibold text-slate-900">Rental car search</h2>
+          <p className="mt-2 text-sm text-slate-600">Book rental cars with flexible pickup and drop-off options.</p>
+        </div>
 
-          {/* Drop-off Location */}
-          <div className="flex items-center w-full border border-gray-300 rounded-lg p-2 md:p-3 bg-gray-50 hover:bg-gray-100 focus:ring-2 ring-blue-200">
-            <FaMapMarkerAlt className="text-gray-500 text-lg mr-3" />
-            <div className="flex flex-col text-left w-full">
-              <span className="text-xs md:text-sm text-gray-700 font-medium">
-                Drop-off Location
-              </span>
-              <input
-                type="text"
-                placeholder="Enter drop-off location"
-                value={dropoffLocation}
-                onChange={(e) => setDropoffLocation(e.target.value)}
-                className="w-full text-xs text-gray-500 bg-transparent focus:outline-none"
-              />
-            </div>
-          </div>
-
-          {/* Pick-up Date */}
-          <div className="flex items-center w-full border border-gray-300 rounded-lg p-2 md:p-3 bg-gray-50 hover:bg-gray-100 focus:ring-2 ring-blue-200">
-            <FaCalendarAlt className="text-gray-500 text-lg mr-3" />
-            <div className="flex flex-col text-left w-full">
-              <span className="text-xs md:text-sm text-gray-700 font-medium">
-                Pick-up Date
-              </span>
-              <DatePicker
-                selected={pickupDate}
-                onChange={(date) => setPickupDate(date)}
-                minDate={new Date()}
-                className="w-full text-xs text-gray-500 bg-transparent focus:outline-none"
-              />
-            </div>
-          </div>
-
-          {/* Drop-off Date */}
-          <div className="flex items-center w-full border border-gray-300 rounded-lg p-2 md:p-3 bg-gray-50 hover:bg-gray-100 focus:ring-2 ring-blue-200">
-            <FaCalendarAlt className="text-gray-500 text-lg mr-3" />
-            <div className="flex flex-col text-left w-full">
-              <span className="text-xs md:text-sm text-gray-700 font-medium">
-                Drop-off Date
-              </span>
-              <DatePicker
-                selected={dropoffDate}
-                onChange={(date) => setDropoffDate(date)}
-                minDate={pickupDate}
-                className="w-full text-xs text-gray-500 bg-transparent focus:outline-none"
-              />
-            </div>
-          </div>
-
-          {/* Pick-up and Drop-off Time */}
-          <div className="flex md:flex-row gap-4">
-            {/* Pick-up Time */}
-            <div className="flex items-center w-full border border-gray-300 rounded-lg p-2 md:p-3 bg-gray-50 hover:bg-gray-100 focus:ring-2 ring-blue-200">
-              <FaClock className="text-gray-500 text-lg mr-3" />
-              <div className="flex flex-col text-left w-full">
-                <span className="text-xs md:text-sm text-gray-700 font-medium">
-                  Pick-up Time
-                </span>
-                <div className="flex items-center">
-                  <input
-                    type="time"
-                    value={pickupTime}
-                    onChange={(e) => setPickupTime(e.target.value)}
-                    className="w-full text-xs text-gray-500 bg-transparent focus:outline-none"
-                  />
-                  <span className="ml-2 text-xs text-gray-500">
-                    {formatTimeDisplay(pickupTime)}
-                  </span>
-                </div>
+        <div className="grid gap-4">
+          <div className="grid gap-3 md:grid-cols-2">
+            <div className="relative">
+              <label className="text-xs uppercase tracking-[0.2em] text-slate-500">Pick-up Location</label>
+              <div className="mt-2 flex items-center gap-3 rounded-3xl border border-slate-300 bg-white px-4 py-3">
+                <FaMapMarkerAlt className="text-gray-500 text-lg" />
+                <input
+                  type="text"
+                  placeholder="Enter pick-up location"
+                  value={pickupLocation}
+                  onChange={(e) => setPickupLocation(e.target.value)}
+                  className="w-full bg-transparent text-sm text-slate-700 outline-none"
+                />
               </div>
-            </div>
-
-            {/* Drop-off Time */}
-            <div className="flex items-center w-full border border-gray-300 rounded-lg p-2 md:p-3 bg-gray-50 hover:bg-gray-100 focus:ring-2 ring-blue-200">
-              <FaClock className="text-gray-500 text-lg mr-3" />
-              <div className="flex flex-col text-left w-full">
-                <span className="text-xs md:text-sm text-gray-700 font-medium">
-                  Drop-off Time
-                </span>
-                <div className="flex items-center">
-                  <input
-                    type="time"
-                    value={dropoffTime}
-                    onChange={(e) => setDropoffTime(e.target.value)}
-                    className="w-full text-xs text-gray-500 bg-transparent focus:outline-none"
-                  />
-                  <span className="ml-2 text-xs text-gray-500">
-                    {formatTimeDisplay(dropoffTime)}
-                  </span>
+              {filteredPickupLocations.length > 0 && (
+                <div className="absolute z-20 mt-1 w-full overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg">
+                  {filteredPickupLocations.map((location) => (
+                    <button
+                      key={location.code}
+                      type="button"
+                      onClick={() => handleSelectPickupSuggestion(location.city)}
+                      className="w-full px-4 py-3 text-left text-sm text-slate-700 hover:bg-slate-100"
+                    >
+                      {location.city}, {location.state} ({location.code})
+                    </button>
+                  ))}
                 </div>
-              </div>
+              )}
             </div>
-          </div>
 
-          {/* Show AARP Rates and Discount Codes */}
-          <div className="flex md:flex-row gap-4">
-            {/* Show AARP Rates */}
-            <button 
-              className={`w-full md:w-auto text-xs md:text-sm border border-gray-300 text-gray-700 font-semibold py-2 px-4 rounded-full hover:bg-blue-500 hover:text-white transition-all ${showAARPRates ? 'bg-blue-500 text-white' : ''}`}
-              onClick={() => setShowAARPRates(!showAARPRates)}
-            >
-              Show AARP Rates
-            </button>
-
-            {/* Discount Codes Dropdown */}
-            <div className="relative w-full md:w-auto" ref={discountMenuRef}>
-              <button
-                onClick={() => setShowDiscountMenu(!showDiscountMenu)}
-                className="flex items-center justify-between w-full text-xs border border-gray-300 rounded-full p-2 md:p-3 bg-gray-50 hover:bg-gray-100 focus:ring-2 ring-blue-200"
-              >
-                <span className="text-xs md:text-sm text-gray-700 font-medium">
-                  {selectedDiscount}
-                </span>
-                <FaChevronDown className="text-gray-500 text-lg" />
-              </button>
-
-              {/* Discount Menu */}
-              {showDiscountMenu && (
-                <div
-                  className="absolute mt-2 w-full bg-white border border-gray-300 rounded-lg shadow-lg z-10"
-                >
-                  {["Discount Code", "AAA Member", "Corporate Code", "Military Discount"].map(
-                    (discount) => (
-                      <button
-                        key={discount}
-                        onClick={() => handleDiscountSelect(discount)}
-                        className="flex items-center justify-between w-full px-4 py-3 text-xs md:text-sm text-gray-700 hover:bg-gray-100"
-                      >
-                        <span>{discount}</span>
-                      </button>
-                    )
-                  )}
+            <div className="relative">
+              <label className="text-xs uppercase tracking-[0.2em] text-slate-500">Drop-off Location</label>
+              <div className="mt-2 flex items-center gap-3 rounded-3xl border border-slate-300 bg-white px-4 py-3">
+                <FaMapMarkerAlt className="text-gray-500 text-lg" />
+                <input
+                  type="text"
+                  placeholder="Enter drop-off location"
+                  value={dropoffLocation}
+                  onChange={(e) => setDropoffLocation(e.target.value)}
+                  disabled={sameLocation}
+                  className="w-full bg-transparent text-sm text-slate-700 outline-none disabled:cursor-not-allowed disabled:text-slate-400"
+                />
+              </div>
+              {filteredDropoffLocations.length > 0 && (
+                <div className="absolute z-20 mt-1 w-full overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg">
+                  {filteredDropoffLocations.map((location) => (
+                    <button
+                      key={location.code}
+                      type="button"
+                      onClick={() => handleSelectDropoffSuggestion(location.city)}
+                      className="w-full px-4 py-3 text-left text-sm text-slate-700 hover:bg-slate-100"
+                    >
+                      {location.city}, {location.state} ({location.code})
+                    </button>
+                  ))}
                 </div>
               )}
             </div>
           </div>
 
-          {/* Search Button */}
-          <button 
+          <div className="flex flex-col gap-4 lg:flex-row">
+            <div className="flex-1 rounded-3xl border border-slate-300 bg-white p-4">
+              <label className="text-xs uppercase tracking-[0.2em] text-slate-500">Pick-up Date</label>
+              <DatePicker
+                selected={pickupDate}
+                onChange={(date) => setPickupDate(date)}
+                minDate={new Date()}
+                className="mt-2 w-full rounded-3xl border border-slate-200 bg-transparent px-4 py-3 text-sm text-slate-700 outline-none"
+              />
+            </div>
+            <div className="flex-1 rounded-3xl border border-slate-300 bg-white p-4">
+              <label className="text-xs uppercase tracking-[0.2em] text-slate-500">Drop-off Date</label>
+              <DatePicker
+                selected={dropoffDate}
+                onChange={(date) => setDropoffDate(date)}
+                minDate={pickupDate}
+                className="mt-2 w-full rounded-3xl border border-slate-200 bg-transparent px-4 py-3 text-sm text-slate-700 outline-none"
+              />
+            </div>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="rounded-3xl border border-slate-300 bg-white p-4">
+              <label className="text-xs uppercase tracking-[0.2em] text-slate-500">Pick-up Time</label>
+              <div className="mt-2 flex items-center gap-3 rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3">
+                <FaClock className="text-gray-500 text-lg" />
+                <input
+                  type="time"
+                  value={pickupTime}
+                  onChange={(e) => setPickupTime(e.target.value)}
+                  className="w-full bg-transparent text-sm text-slate-700 outline-none"
+                />
+              </div>
+              <p className="mt-2 text-xs text-slate-500">{formatTimeDisplay(pickupTime)}</p>
+            </div>
+
+            <div className="rounded-3xl border border-slate-300 bg-white p-4">
+              <label className="text-xs uppercase tracking-[0.2em] text-slate-500">Drop-off Time</label>
+              <div className="mt-2 flex items-center gap-3 rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3">
+                <FaClock className="text-gray-500 text-lg" />
+                <input
+                  type="time"
+                  value={dropoffTime}
+                  onChange={(e) => setDropoffTime(e.target.value)}
+                  className="w-full bg-transparent text-sm text-slate-700 outline-none"
+                />
+              </div>
+              <p className="mt-2 text-xs text-slate-500">{formatTimeDisplay(dropoffTime)}</p>
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <button
+              type="button"
+              onClick={() => setSameLocation(!sameLocation)}
+              className={`rounded-full border px-4 py-3 text-sm font-semibold transition ${sameLocation ? "bg-blue-600 text-white" : "bg-white text-slate-700 hover:bg-slate-100"}`}
+            >
+              {sameLocation ? "Same drop-off as pickup" : "Return to same location"}
+            </button>
+            <button
+              type="button"
+              onClick={() => setShowAARPRates((prev) => !prev)}
+              className={`rounded-full border px-4 py-3 text-sm font-semibold transition ${showAARPRates ? "bg-blue-600 text-white" : "bg-white text-slate-700 hover:bg-slate-100"}`}
+            >
+              {showAARPRates ? "AARP Rates On" : "Show AARP Rates"}
+            </button>
+          </div>
+
+          <div className="relative mt-2" ref={discountMenuRef}>
+            <button
+              type="button"
+              onClick={() => setShowDiscountMenu((prev) => !prev)}
+              className="w-full rounded-3xl border border-slate-300 bg-white px-4 py-3 text-left text-sm font-medium text-slate-700 shadow-sm hover:border-slate-400"
+            >
+              {selectedDiscount}
+              <FaChevronDown className="ml-3 inline-block text-slate-500" />
+            </button>
+            {showDiscountMenu && (
+              <div className="absolute left-0 right-0 z-20 mt-2 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg">
+                {[
+                  "Discount Code",
+                  "AAA Member",
+                  "Corporate Code",
+                  "Military Discount"
+                ].map((discount) => (
+                  <button
+                    key={discount}
+                    type="button"
+                    onClick={() => handleDiscountSelect(discount)}
+                    className="w-full px-4 py-3 text-left text-sm text-slate-700 hover:bg-slate-100"
+                  >
+                    {discount}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <button
+            type="button"
             onClick={handleSearch}
-            disabled={!pickupLocation || !dropoffLocation}
-            className={`w-full bg-[#1668e3] text-white font-semibold py-3 px-6 rounded-full hover:bg-blue-500 transition-all text-xs md:text-sm ${!pickupLocation || !dropoffLocation ? 'opacity-50 cursor-not-allowed' : ''}`}
+            className="w-full rounded-full bg-blue-600 px-6 py-4 text-sm font-semibold text-white shadow-sm transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50"
           >
-            Search
+            Search Cars
           </button>
         </div>
-      )}
+      </div>
     </div>
   );
 };
