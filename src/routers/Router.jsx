@@ -1,31 +1,36 @@
 import { createBrowserRouter } from "react-router-dom";
-import Main from "../layout/Main/Main";
-import Home from "../pages/Home/Home";
-import SignIn from "../pages/SignIn/SignIn";
-import Registration from "../pages/Registration/Registration";
-import Hotels from "../pages/Hotels/Hotels";
-import SingleResortPage from "../components/SingleResortPage/SingleResortPage";
-import HotelSearch from "../components/HotelSearch/HotelSearch";
-import Payment from "../components/Payment/Payment";
+import CarSearch from "../components/CarSearch/CarSearch";
 import Checkout from "../components/Checkout/Checkout";
-import Account from "../pages/Account/Account";
-import UserDashboard from "../layout/UserDashboard/UserDashboard";
-import Profile from "../pages/Profile/Profile";
-import Communications from "../pages/Communications/Communications";
 import ConfirmBooking from "../components/ConfirmBooking/ConfirmBooking";
-import UserOverview from "../pages/UserOverview/UserOverview";
-import MyBookings from "../pages/MyBookings/MyBookings";
-import AdminPanel from "../layout/AdminPanel/AdminPanel";
-import AdminOverview from "../pages/AdminOverview/AdminOverview";
-import UsersBookings from "../pages/UsersBookings/UsersBookings";
-import UserControl from "../pages/UserControl/UserControl";
-import AdminControl from "../pages/AdminControl/AdminControl";
-import NotFound from "../components/NotFound/NotFound";
-import ResortInputForm from "../pages/ResortInputForm/ResortInputForm";
+import CruiseSearch from "../components/CruiseSearch/CruiseSearch";
 import FlightSearch from "../components/FlightSearch/FlightSearch";
 import FlightType from "../components/FlightType/FlightType";
-import CarSearch from "../components/CarSearch/CarSearch";
-import CruiseSearch from "../components/CruiseSearch/CruiseSearch";
+import HotelSearch from "../components/HotelSearch/HotelSearch";
+import NotFound from "../components/NotFound/NotFound";
+import Payment from "../components/Payment/Payment";
+import SingleResortPage from "../components/SingleResortPage/SingleResortPage";
+import AdminPanel from "../layout/AdminPanel/AdminPanel";
+import Main from "../layout/Main/Main";
+import UserDashboard from "../layout/UserDashboard/UserDashboard";
+import Account from "../pages/Account/Account";
+import AdminControl from "../pages/AdminControl/AdminControl";
+import AdminOverview from "../pages/AdminOverview/AdminOverview";
+import Communications from "../pages/Communications/Communications";
+import FlightConfirmation from "../pages/FlightConfirmation/FlightConfirmation";
+import FlightDetail from "../pages/FlightDetail/FlightDetail";
+import FlightPassengers from "../pages/FlightPassengers/FlightPassengers";
+import FlightPayment from "../pages/FlightPayment/FlightPayment";
+import FlightResults from "../pages/FlightResults/FlightResults";
+import Home from "../pages/Home/Home";
+import Hotels from "../pages/Hotels/Hotels";
+import MyBookings from "../pages/MyBookings/MyBookings";
+import Profile from "../pages/Profile/Profile";
+import Registration from "../pages/Registration/Registration";
+import ResortInputForm from "../pages/ResortInputForm/ResortInputForm";
+import SignIn from "../pages/SignIn/SignIn";
+import UserControl from "../pages/UserControl/UserControl";
+import UserOverview from "../pages/UserOverview/UserOverview";
+import UsersBookings from "../pages/UsersBookings/UsersBookings";
 
 export const router = createBrowserRouter([
   {
@@ -91,6 +96,26 @@ export const router = createBrowserRouter([
       {
         path: "flight-type",
         element: <FlightType />,
+      },
+      {
+        path: "flight-results",
+        element: <FlightResults />,
+      },
+      {
+        path: "flight-detail",
+        element: <FlightDetail />,
+      },
+      {
+        path: "flight-passengers",
+        element: <FlightPassengers />,
+      },
+      {
+        path: "flight-payment",
+        element: <FlightPayment />,
+      },
+      {
+        path: "flight-confirmation",
+        element: <FlightConfirmation />,
       },
       {
         path: "car-search",
