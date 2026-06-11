@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { FaMapMarkerAlt, FaCalendarAlt, FaUser } from 'react-icons/fa';
+import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const RoundtripFlights = () => {
   const navigate = useNavigate();
@@ -57,8 +57,19 @@ const RoundtripFlights = () => {
   };
 
   const handleSearch = () => {
+    if (!locations.leavingFrom || !locations.goingTo || !dates.departure || !dates.return) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    if (dates.return < dates.departure) {
+      alert('Return date cannot be before departure date.');
+      return;
+    }
+
     const searchParams = {
-      ...locations,
+      from: locations.leavingFrom,
+      to: locations.goingTo,
       departureDate: dates.departure,
       returnDate: dates.return,
       travelers,
@@ -67,7 +78,7 @@ const RoundtripFlights = () => {
 
     console.log('Search Params:', searchParams);
 
-    navigate('/flight-search', { state: searchParams });
+    navigate('/flight-results', { state: searchParams });
   };
 
   return (

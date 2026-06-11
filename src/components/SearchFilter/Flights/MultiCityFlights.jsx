@@ -1,8 +1,8 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { FaMapMarkerAlt, FaCalendarAlt, FaUser, FaPlus, FaMinus } from 'react-icons/fa';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { FaCalendarAlt, FaMapMarkerAlt, FaMinus, FaPlus, FaUser } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const MultiCityFlights = ({ 
   flights = [], 
@@ -62,8 +62,8 @@ const MultiCityFlights = ({
 
     // Structure the search data according to the required pattern
     const searchParams = {
-      leavingFrom: flights[0].leavingFrom,
-      goingTo: flights[flights.length - 1].goingTo, // Final destination
+      from: flights[0].leavingFrom,
+      to: flights[flights.length - 1].goingTo, // Final destination
       departureDate: flights[0].date,
       returnDate: null,
       travelers,
@@ -75,7 +75,7 @@ const MultiCityFlights = ({
     };
 
     console.log('Flight search params:', searchParams);
-    navigate('/flight-search', { state: searchParams });
+    navigate('/flight-results', { state: searchParams });
   };
 
   // Function to add a new flight with default values

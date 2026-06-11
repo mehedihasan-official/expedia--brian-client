@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { FaMapMarkerAlt, FaCalendarAlt, FaUser } from 'react-icons/fa';
+import { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { FaCalendarAlt, FaMapMarkerAlt, FaUser } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const OneWayFlight = ({
   travelers = { adults: 1, children: 0, infants: 0 },
@@ -43,7 +43,8 @@ const OneWayFlight = ({
     }
 
     const searchParams = {
-      ...locations,
+      from: locations.leavingFrom,
+      to: locations.goingTo,
       departureDate: dates.departure,
       returnDate: null,
       travelers,
@@ -51,7 +52,7 @@ const OneWayFlight = ({
     };
 
     console.log('sending search params:', searchParams);
-    navigate('/flight-search', { state: searchParams });
+    navigate('/flight-results', { state: searchParams });
   };
 
   return (

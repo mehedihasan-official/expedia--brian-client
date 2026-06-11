@@ -1,12 +1,27 @@
 import { useState } from 'react';
 import { FaArrowRight, FaChevronDown, FaChevronUp } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { airportsList } from '../../data/flightsData';
+import { airportsList, flightsData } from '../../data/flightsData';
 
 const FlightResults = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { from, to, departureDate, flights, adults, children, infants } = location.state || {};
+  const state = location.state || {};
+  const {
+    from,
+    to,
+    departureDate,
+    returnDate,
+    travelers = {},
+    flightType,
+    segments,
+    addStay,
+    addCar
+  } = state;
+
+  const adults = travelers.adults ?? state.adults ?? 1;
+  const children = travelers.children ?? state.children ?? 0;
+  const infants = travelers.infants ?? state.infants ?? 0;
 
   const [sortBy, setSortBy] = useState('best');
   const [priceRange, setPriceRange] = useState([100, 800]);
@@ -16,9 +31,46 @@ const FlightResults = () => {
   const [refundableOnly, setRefundableOnly] = useState(false);
   const [showFilters, setShowFilters] = useState(false);
 
-  // Get airport names
-  const fromAirport = airportsList.find(a => a.code === from);
-  const toAirport = airportsList.find(a => a.code === to);
+  const normalize = (value) => value?.toString().trim().toLowerCase();
+  const fromQuery = normalize(from);
+  const toQuery = normalize(to);
+
+  const airportMatches = (code, city, query) => {
+    if (!query) return true;
+    const normalizedCode = normalize(code);
+    const normalizedCity = normalize(city);
+    if (normalizedCode === query || normalizedCity === query) return true;
+
+    const airport = airportsList.find((a) => {
+      const normalizedAirportCode = normalize(a.code);
+      const normalizedAirportCity = normalize(a.city);
+      const normalizedAirportName = normalize(a.name);
+      return normalizedAirportCode === query || normalizedAirportCity === query || normalizedAirportName === query;
+    });
+
+    return airport ? normalizedCode === normalize(airport.code) || normalizedCity === normalize(airport.city) : false;
+  };
+
+  const fromAirport = airportsList.find(
+    (a) => normalize(a.code) === fromQuery || normalize(a.city) === fromQuery
+  );
+  const toAirport = airportsList.find(
+    (a) => normalize(a.code) === toQuery || normalize(a.city) === toQuery
+  );
+
+  const departureDateObj = departureDate ? new Date(departureDate) : null;
+
+  const initialFilteredFlights = flightsData.filter((flight) => {
+    return (
+      airportMatches(flight.origin, flight.originCity, fromQuery) &&
+      airportMatches(flight.destination, flight.destinationCity, toQuery)
+    );
+  });
+
+  const flightsByOriginDestination =
+    initialFilteredFlights.length > 0 || (!fromQuery && !toQuery)
+      ? initialFilteredFlights
+      : flightsData;
 
   // Pricing calculation rules (EXACTLY as specified)
   const calculatePrices = (retailPrice) => {
@@ -26,7 +78,7 @@ const FlightResults = () => {
     const pointsRequired = Math.round(retailPrice / 0.04); // base points
     const processingFee = Math.round(pointsRequired * 0.10); // 10% fee
     const totalPoints = pointsRequired + processingFee;
-    
+
     return {
       retailPrice,
       discountedPrice: Math.round(discountedPrice * 100) / 100,
@@ -37,7 +89,7 @@ const FlightResults = () => {
   };
 
   // Filter flights
-  let filteredFlights = flights.filter(flight => {
+  let filteredFlights = flightsByOriginDestination.filter(flight => {
     // Price filter
     if (flight.retailPrice < priceRange[0] || flight.retailPrice > priceRange[1]) {
       return false;
@@ -86,7 +138,7 @@ const FlightResults = () => {
   }
 
   // Get unique airlines for filter
-  const uniqueAirlines = [...new Set(flights.map(f => f.airline))];
+  const uniqueAirlines = [...new Set(flightsData.map(f => f.airline))];
 
   const handleFlightSelect = (flight) => {
     navigate('/flight-detail', {
@@ -94,7 +146,8 @@ const FlightResults = () => {
         flight,
         from,
         to,
-        departureDate,
+        departureDate: departureDateObj,
+        returnDate,
         adults,
         children,
         infants,
@@ -105,14 +158,15 @@ const FlightResults = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
       <div className="bg-white border-b border-gray-200 p-4 md:p-6">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-3xl font-bold text-gray-800 mb-2">
-            {fromAirport?.code} <FaArrowRight className="inline mx-2 text-blue-600" /> {toAirport?.code}
+            {fromAirport?.code ?? from ?? 'Anywhere'} <FaArrowRight className="inline mx-2 text-blue-600" /> {toAirport?.code ?? to ?? 'Anywhere'}
           </h1>
           <p className="text-gray-600">
-            {departureDate?.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })} • {adults + children + infants} traveler{adults + children + infants !== 1 ? 's' : ''}
+            {departureDateObj
+              ? departureDateObj.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })
+              : 'Any date'}{' • '}{adults + children + infants} traveler{adults + children + infants !== 1 ? 's' : ''}
           </p>
           <p className="text-sm text-blue-600 mt-2 font-medium">
             {filteredFlights.length} flights found
