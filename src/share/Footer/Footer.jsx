@@ -10,7 +10,11 @@ const Footer = () => {
           {/* Logo Section */}
           <div className="mb-10 lg:mb-12">
             <div className="flex items-center justify-center lg:justify-start mb-4">
-              <h1 className="text-2xl font-cormorant font-bold">Platinum Club</h1>
+              <img
+                src="/PlatinumClub%20-%20Copy.jpeg"
+                alt="Platinum Club"
+                className="w-10 w-auto md:w-40"
+              />
             </div>
             <p className="text-slate-600 text-sm max-w-md text-center lg:text-left mx-auto lg:mx-0">
               Your trusted partner for unforgettable travel experiences around

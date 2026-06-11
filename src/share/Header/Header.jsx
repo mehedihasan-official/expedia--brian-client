@@ -115,7 +115,11 @@ const Header = () => {
                 to="/"
                 className="flex-shrink-0 transition-transform duration-200 hover:scale-105"
               >
-                <h1 className="text-2xl font-cormorant font-bold text-slate-800">Platinum Club</h1>
+                <img
+                  src="/PlatinumClub%20-%20Copy.jpeg"
+                  alt="Platinum Club"
+                  className="h-auto w-14 md:w-40"
+                />
               </Link>
 
               {/* Shop Travel Dropdown (Desktop Only) */}
