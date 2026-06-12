@@ -1,6 +1,9 @@
 import React from "react";
 
-const Loading = () => {
+const Loading = ({
+  title = "Loading...",
+  message = "Please wait while we prepare your content.",
+}) => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-50 to-purple-50">
       <div className="text-center">
@@ -11,8 +14,8 @@ const Loading = () => {
         </div>
 
         {/* Loading Text */}
-        <h1 className="text-3xl font-bold text-gray-800 mb-2">Loading...</h1>
-        <p className="text-gray-600">Please wait while we prepare your content.</p>
+        <h1 className="text-3xl font-bold text-gray-800 mb-2">{title}</h1>
+        <p className="text-gray-600">{message}</p>
 
         {/* Progress Bar with Smooth Fill Animation */}
         <div className="w-64 h-2 bg-gray-200 rounded-full overflow-hidden mx-auto mt-6">

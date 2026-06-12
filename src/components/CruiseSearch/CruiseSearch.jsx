@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { FaCalendarAlt, FaCheckCircle, FaShip, FaStar } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 import { cruiseCategories, enrichedCruiseData } from "../../data/cruisesData";
+import Loading from "../Loading";
 
 const imageFallback =
   "https://placehold.co/900x520/e5e7eb/334155?text=Cruise+Image";
@@ -29,13 +30,16 @@ const makeCabinTypes = (retailPrice) => ({
   suite: { name: "Suite", retailPrice: Math.round(retailPrice * 2.45) },
 });
 
-const makeDepartureDates = () => [
-  "2025-09-14",
-  "2025-10-12",
-  "2025-11-09",
-  "2025-12-07",
-  "2026-01-11",
-];
+const makeDepartureDates = () => {
+  const today = new Date();
+  const dates = [];
+  for (let i = 1; i <= 6; i++) {
+    const d = new Date(today);
+    d.setDate(d.getDate() + i * 38);
+    dates.push(d.toISOString().split("T")[0]);
+  }
+  return dates;
+};
 
 const normalizeCruise = (cruise, category, index) => {
   const retailPrice = Number(cruise.retailPrice || cruise.price || 899);
@@ -50,7 +54,9 @@ const normalizeCruise = (cruise, category, index) => {
   return {
     id:
       cruise.id ||
-      `CR-${category.replace(/\s+/g, "-").toUpperCase()}-${index + 1}`,
+      `CR-${category.replace(/\s+/g, "-").toUpperCase()}-${(cruise.name || "cruise")
+        .replace(/[^a-zA-Z0-9]+/g, "-")
+        .toUpperCase()}-${index + 1}`,
     name: cruise.name || "Featured Cruise",
     cruiseLine:
       cruise.cruiseLine ||
@@ -74,7 +80,7 @@ const normalizeCruise = (cruise, category, index) => {
       "Fitness Center",
     ],
     cabinTypes: cruise.cabinTypes || makeCabinTypes(retailPrice),
-    departureDates: cruise.departureDates || makeDepartureDates(),
+    departureDates: makeDepartureDates(),
     includes: cruise.includes || [
       "All meals",
       "Entertainment",
@@ -135,9 +141,7 @@ const CruiseSearch = () => {
       } catch (error) {
         console.error("Error loading cruise data:", error);
       } finally {
-        setTimeout(() => {
-          if (isMounted) setLoading(false);
-        }, 1500);
+        if (isMounted) setLoading(false);
       }
     };
 
@@ -168,7 +172,19 @@ const CruiseSearch = () => {
     return merged;
   }, [fallbackData]);
 
-  const cruises = useMemo(() => {
+  const sortCruises = (list) =>
+    [...list].sort((a, b) => {
+      const aPrice =
+        a.cabinTypes[selectedCabinType]?.retailPrice || a.retailPrice;
+      const bPrice =
+        b.cabinTypes[selectedCabinType]?.retailPrice || b.retailPrice;
+      if (sortBy === "price") return aPrice - bPrice;
+      if (sortBy === "rating") return b.rating - a.rating;
+      if (sortBy === "duration") return a.duration - b.duration;
+      return b.rating * 100 + b.reviews - (a.rating * 100 + a.reviews);
+    });
+
+  const { cruises, dateFilterRelaxed, showPopularFallback } = useMemo(() => {
     const allCruises = Object.values(mergedCruisesByCategory).flat();
     const categoryFiltered =
       selectedCategory === "All"
@@ -191,33 +207,52 @@ const CruiseSearch = () => {
       ? new Date(searchState.departureDateTo)
       : null;
 
-    return [...destinationFiltered]
+    const preDateFilter = destinationFiltered
       .filter(
         (cruise) =>
           !portQuery || cruise.departurePort.toLowerCase().includes(portQuery),
       )
       .filter((cruise) =>
         matchesDuration(cruise.duration, searchState.duration),
-      )
-      .filter((cruise) => {
-        if (!dateFrom && !dateTo) return true;
-        return cruise.departureDates.some((date) => {
+      );
+
+    let dateFilterRelaxed = false;
+    let filtered = preDateFilter;
+
+    if (dateFrom || dateTo) {
+      const dateFiltered = preDateFilter.filter((cruise) =>
+        cruise.departureDates.some((date) => {
           const sailing = new Date(date);
           return (
-            (!dateFrom || sailing >= dateFrom) && (!dateTo || sailing <= dateTo)
+            (!dateFrom || sailing >= dateFrom) &&
+            (!dateTo || sailing <= dateTo)
           );
-        });
-      })
-      .sort((a, b) => {
-        const aPrice =
-          a.cabinTypes[selectedCabinType]?.retailPrice || a.retailPrice;
-        const bPrice =
-          b.cabinTypes[selectedCabinType]?.retailPrice || b.retailPrice;
-        if (sortBy === "price") return aPrice - bPrice;
-        if (sortBy === "rating") return b.rating - a.rating;
-        if (sortBy === "duration") return a.duration - b.duration;
-        return b.rating * 100 + b.reviews - (a.rating * 100 + a.reviews);
-      });
+        }),
+      );
+
+      if (dateFiltered.length === 0 && preDateFilter.length > 0) {
+        filtered = preDateFilter;
+        dateFilterRelaxed = true;
+      } else {
+        filtered = dateFiltered;
+      }
+    }
+
+    const sorted = sortCruises(filtered);
+
+    if (sorted.length === 0) {
+      return {
+        cruises: sortCruises(allCruises),
+        dateFilterRelaxed: false,
+        showPopularFallback: allCruises.length > 0,
+      };
+    }
+
+    return {
+      cruises: sorted,
+      dateFilterRelaxed,
+      showPopularFallback: false,
+    };
   }, [
     mergedCruisesByCategory,
     searchState,
@@ -248,29 +283,199 @@ const CruiseSearch = () => {
     });
   };
 
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-slate-50 px-4 py-8">
-        <div className="max-w-7xl mx-auto space-y-6 animate-pulse">
-          <div className="h-10 bg-slate-200 rounded w-72" />
-          <div className="h-14 bg-slate-200 rounded-lg" />
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {[1, 2, 3].map((item) => (
-              <div
-                key={item}
-                className="bg-white rounded-lg overflow-hidden shadow-sm"
-              >
-                <div className="h-52 bg-slate-200" />
-                <div className="p-5 space-y-4">
-                  <div className="h-6 bg-slate-200 rounded w-3/4" />
-                  <div className="h-4 bg-slate-200 rounded" />
-                  <div className="h-20 bg-slate-200 rounded" />
+  const renderCruiseCards = (cruiseList) => (
+    <div className="grid gap-6 lg:grid-cols-2">
+      {cruiseList.map((cruise) => {
+        const selectedCabin =
+          cruise.cabinTypes[selectedCabinType] || cruise.cabinTypes.inside;
+        const pricing = calculateCruisePrices(selectedCabin.retailPrice);
+
+        return (
+          <article
+            key={cruise.id}
+            className="bg-white border border-slate-200 rounded-lg shadow-sm overflow-hidden"
+          >
+            <div className="relative h-64 bg-slate-200">
+              <img
+                src={cruise.image}
+                alt={cruise.name}
+                onError={(event) => {
+                  event.currentTarget.onerror = null;
+                  event.currentTarget.src = imageFallback;
+                }}
+                className="h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/20" />
+              <div className="absolute left-4 top-4 flex items-center gap-3 rounded-lg bg-white/95 px-3 py-2 shadow">
+                <img
+                  src={cruise.cruiseLineLogo}
+                  alt={cruise.cruiseLine}
+                  onError={(event) => {
+                    event.currentTarget.onerror = null;
+                    event.currentTarget.src = logoFallback;
+                  }}
+                  className="h-8 w-8 rounded object-contain"
+                />
+                <span className="text-sm font-semibold text-slate-900">
+                  {cruise.cruiseLine}
+                </span>
+              </div>
+              <div className="absolute right-4 top-4 flex items-center gap-1 rounded-full bg-white/95 px-3 py-2 text-sm font-semibold text-slate-900 shadow">
+                <FaStar className="text-yellow-400" />
+                {cruise.rating.toFixed(1)}
+              </div>
+            </div>
+
+            <div className="p-5 space-y-5">
+              <div>
+                <h2 className="text-2xl font-bold text-slate-900">
+                  {cruise.name}
+                </h2>
+                <p className="mt-2 flex items-start gap-2 text-slate-700">
+                  <FaShip className="mt-1 text-blue-600 shrink-0" />
+                  <span>{cruise.route}</span>
+                </p>
+                <div className="mt-3 inline-flex rounded-full bg-slate-100 px-3 py-1 text-sm font-semibold text-slate-700">
+                  {cruise.duration} Nights
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
+
+              <div>
+                <p className="text-sm font-semibold text-slate-900">
+                  Ports of call
+                </p>
+                <p className="mt-1 text-sm text-slate-600">
+                  {cruise.itinerary.join(" -> ")}
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-2">
+                {cruise.shipFeatures.slice(0, 5).map((feature) => (
+                  <span
+                    key={feature}
+                    className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700"
+                  >
+                    {feature}
+                  </span>
+                ))}
+              </div>
+
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+                {cabinOrder.map((type) => {
+                  const cabin = cruise.cabinTypes[type];
+                  if (!cabin) return null;
+                  return (
+                    <button
+                      key={type}
+                      type="button"
+                      onClick={() => setSelectedCabinType(type)}
+                      className={`rounded-lg border px-3 py-2 text-sm font-semibold ${
+                        selectedCabinType === type
+                          ? "border-blue-600 bg-blue-50 text-blue-700"
+                          : "border-slate-300 text-slate-700 hover:border-blue-300"
+                      }`}
+                    >
+                      {cabin.name}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div className="border-t border-slate-200 pt-5">
+                {paymentMode === "cash" ? (
+                  <div className="space-y-2">
+                    <p className="text-sm text-slate-500">
+                      Retail per person:{" "}
+                      <span className="line-through">
+                        ${pricing.retailPrice.toLocaleString()}
+                      </span>
+                    </p>
+                    <p className="text-2xl font-bold text-blue-600">
+                      Member Price: $
+                      {pricing.discountedPrice.toLocaleString()}/person
+                    </p>
+                    <p className="text-sm font-semibold text-green-700">
+                      50% Member Savings
+                    </p>
+                    <p className="text-sm text-slate-600">
+                      Includes taxes & fees
+                    </p>
+                  </div>
+                ) : (
+                  <div className="space-y-2">
+                    <p className="text-2xl font-bold text-blue-600">
+                      {pricing.pointsRequired.toLocaleString()} Points/person
+                    </p>
+                    <p className="text-sm font-semibold text-green-700">
+                      $0.04 per point value
+                    </p>
+                    <p className="text-sm text-slate-600">
+                      Includes taxes & fees
+                    </p>
+                  </div>
+                )}
+
+                <button
+                  type="button"
+                  onClick={() =>
+                    setExpandedCruises((prev) => ({
+                      ...prev,
+                      [cruise.id]: !prev[cruise.id],
+                    }))
+                  }
+                  className="mt-5 w-full rounded-full bg-blue-600 px-5 py-3 font-semibold text-white hover:bg-blue-700"
+                >
+                  {expandedCruises[cruise.id]
+                    ? "Hide Dates"
+                    : "View Dates & Book"}
+                </button>
+              </div>
+
+              {expandedCruises[cruise.id] && (
+                <div className="space-y-3 border-t border-slate-200 pt-5">
+                  {cruise.departureDates.map((date) => (
+                    <div
+                      key={date}
+                      className="grid gap-3 rounded-lg border border-slate-200 p-4 sm:grid-cols-[1fr_auto_auto] sm:items-center"
+                    >
+                      <div>
+                        <p className="font-semibold text-slate-900 flex items-center gap-2">
+                          <FaCalendarAlt className="text-blue-600" />
+                          {formatDate(date)}
+                        </p>
+                        <p className="text-sm text-slate-600">
+                          {cruise.duration} nights
+                        </p>
+                      </div>
+                      <div className="font-semibold text-slate-900">
+                        {paymentMode === "cash"
+                          ? `$${pricing.discountedPrice.toLocaleString()}`
+                          : `${pricing.pointsRequired.toLocaleString()} pts`}
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => selectDepartureDate(cruise, date)}
+                        className="rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-700"
+                      >
+                        Select This Date
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  );
+
+  if (loading) {
+    return (
+      <Loading
+        title="Searching for cruises..."
+        message="Finding the best sailings for your trip."
+      />
     );
   }
 
@@ -349,7 +554,31 @@ const CruiseSearch = () => {
           </div>
         </div>
 
-        {cruises.length === 0 ? (
+        {dateFilterRelaxed && (
+          <div className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+            Showing all available sailings — no exact matches for your selected
+            dates.
+          </div>
+        )}
+
+        {showPopularFallback ? (
+          <div className="space-y-6">
+            <div className="bg-white rounded-lg border border-slate-200 p-8 text-center">
+              <h2 className="text-xl font-semibold text-slate-900">
+                No cruises found
+              </h2>
+              <p className="text-slate-600 mt-2">
+                Try a wider date window, another port, or All destinations.
+              </p>
+            </div>
+            <div>
+              <h2 className="text-xl font-semibold text-slate-900 mb-4">
+                Here are some popular cruises you might like instead
+              </h2>
+              {renderCruiseCards(cruises)}
+            </div>
+          </div>
+        ) : cruises.length === 0 ? (
           <div className="bg-white rounded-lg border border-slate-200 p-8 text-center">
             <h2 className="text-xl font-semibold text-slate-900">
               No cruises found
@@ -359,192 +588,7 @@ const CruiseSearch = () => {
             </p>
           </div>
         ) : (
-          <div className="grid gap-6 lg:grid-cols-2">
-            {cruises.map((cruise) => {
-              const selectedCabin =
-                cruise.cabinTypes[selectedCabinType] ||
-                cruise.cabinTypes.inside;
-              const pricing = calculateCruisePrices(selectedCabin.retailPrice);
-
-              return (
-                <article
-                  key={cruise.id}
-                  className="bg-white border border-slate-200 rounded-lg shadow-sm overflow-hidden"
-                >
-                  <div className="relative h-64 bg-slate-200">
-                    <img
-                      src={cruise.image}
-                      alt={cruise.name}
-                      onError={(event) => {
-                        event.currentTarget.onerror = null;
-                        event.currentTarget.src = imageFallback;
-                      }}
-                      className="h-full w-full object-cover"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-slate-950/20" />
-                    <div className="absolute left-4 top-4 flex items-center gap-3 rounded-lg bg-white/95 px-3 py-2 shadow">
-                      <img
-                        src={cruise.cruiseLineLogo}
-                        alt={cruise.cruiseLine}
-                        onError={(event) => {
-                          event.currentTarget.onerror = null;
-                          event.currentTarget.src = logoFallback;
-                        }}
-                        className="h-8 w-8 rounded object-contain"
-                      />
-                      <span className="text-sm font-semibold text-slate-900">
-                        {cruise.cruiseLine}
-                      </span>
-                    </div>
-                    <div className="absolute right-4 top-4 flex items-center gap-1 rounded-full bg-white/95 px-3 py-2 text-sm font-semibold text-slate-900 shadow">
-                      <FaStar className="text-yellow-400" />
-                      {cruise.rating.toFixed(1)}
-                    </div>
-                  </div>
-
-                  <div className="p-5 space-y-5">
-                    <div>
-                      <h2 className="text-2xl font-bold text-slate-900">
-                        {cruise.name}
-                      </h2>
-                      <p className="mt-2 flex items-start gap-2 text-slate-700">
-                        <FaShip className="mt-1 text-blue-600 shrink-0" />
-                        <span>{cruise.route}</span>
-                      </p>
-                      <div className="mt-3 inline-flex rounded-full bg-slate-100 px-3 py-1 text-sm font-semibold text-slate-700">
-                        {cruise.duration} Nights
-                      </div>
-                    </div>
-
-                    <div>
-                      <p className="text-sm font-semibold text-slate-900">
-                        Ports of call
-                      </p>
-                      <p className="mt-1 text-sm text-slate-600">
-                        {cruise.itinerary.join(" -> ")}
-                      </p>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2">
-                      {cruise.shipFeatures.slice(0, 5).map((feature) => (
-                        <span
-                          key={feature}
-                          className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-700"
-                        >
-                          {feature}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-                      {cabinOrder.map((type) => {
-                        const cabin = cruise.cabinTypes[type];
-                        if (!cabin) return null;
-                        return (
-                          <button
-                            key={type}
-                            type="button"
-                            onClick={() => setSelectedCabinType(type)}
-                            className={`rounded-lg border px-3 py-2 text-sm font-semibold ${
-                              selectedCabinType === type
-                                ? "border-blue-600 bg-blue-50 text-blue-700"
-                                : "border-slate-300 text-slate-700 hover:border-blue-300"
-                            }`}
-                          >
-                            {cabin.name}
-                          </button>
-                        );
-                      })}
-                    </div>
-
-                    <div className="border-t border-slate-200 pt-5">
-                      {paymentMode === "cash" ? (
-                        <div className="space-y-2">
-                          <p className="text-sm text-slate-500">
-                            Retail per person:{" "}
-                            <span className="line-through">
-                              ${pricing.retailPrice.toLocaleString()}
-                            </span>
-                          </p>
-                          <p className="text-2xl font-bold text-blue-600">
-                            Member Price: $
-                            {pricing.discountedPrice.toLocaleString()}/person
-                          </p>
-                          <p className="text-sm font-semibold text-green-700">
-                            50% Member Savings
-                          </p>
-                          <p className="text-sm text-slate-600">
-                            Includes taxes & fees
-                          </p>
-                        </div>
-                      ) : (
-                        <div className="space-y-2">
-                          <p className="text-2xl font-bold text-blue-600">
-                            {pricing.pointsRequired.toLocaleString()}{" "}
-                            Points/person
-                          </p>
-                          <p className="text-sm font-semibold text-green-700">
-                            $0.04 per point value
-                          </p>
-                          <p className="text-sm text-slate-600">
-                            Includes taxes & fees
-                          </p>
-                        </div>
-                      )}
-
-                      <button
-                        type="button"
-                        onClick={() =>
-                          setExpandedCruises((prev) => ({
-                            ...prev,
-                            [cruise.id]: !prev[cruise.id],
-                          }))
-                        }
-                        className="mt-5 w-full rounded-full bg-blue-600 px-5 py-3 font-semibold text-white hover:bg-blue-700"
-                      >
-                        {expandedCruises[cruise.id]
-                          ? "Hide Dates"
-                          : "View Dates & Book"}
-                      </button>
-                    </div>
-
-                    {expandedCruises[cruise.id] && (
-                      <div className="space-y-3 border-t border-slate-200 pt-5">
-                        {cruise.departureDates.map((date) => (
-                          <div
-                            key={date}
-                            className="grid gap-3 rounded-lg border border-slate-200 p-4 sm:grid-cols-[1fr_auto_auto] sm:items-center"
-                          >
-                            <div>
-                              <p className="font-semibold text-slate-900 flex items-center gap-2">
-                                <FaCalendarAlt className="text-blue-600" />
-                                {formatDate(date)}
-                              </p>
-                              <p className="text-sm text-slate-600">
-                                {cruise.duration} nights
-                              </p>
-                            </div>
-                            <div className="font-semibold text-slate-900">
-                              {paymentMode === "cash"
-                                ? `$${pricing.discountedPrice.toLocaleString()}`
-                                : `${pricing.pointsRequired.toLocaleString()} pts`}
-                            </div>
-                            <button
-                              type="button"
-                              onClick={() => selectDepartureDate(cruise, date)}
-                              className="rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-700"
-                            >
-                              Select This Date
-                            </button>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </article>
-              );
-            })}
-          </div>
+          renderCruiseCards(cruises)
         )}
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaCalendarAlt, FaMapMarkerAlt, FaShip } from "react-icons/fa";
+import { FaCalendarAlt, FaMapMarkerAlt, FaShip, FaSpinner } from "react-icons/fa";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
@@ -38,13 +38,6 @@ const cruiseDestinations = [
   "Thailand",
   "Fiji",
   "Tahiti",
-  "Canary Islands",
-  "Scandinavia",
-  "Greenland",
-  "Black Sea",
-  "Florida",
-  "New England",
-  "South Korea",
   "Malaysia",
   "Indian Ocean",
   "Red Sea",
@@ -71,9 +64,13 @@ const Cruises = () => {
   const [departurePort, setDeparturePort] = useState("");
   const [dateRange, setDateRange] = useState([null, null]);
   const [duration, setDuration] = useState("7 nights");
+  const [isSearching, setIsSearching] = useState(false);
   const [departureDateFrom, departureDateTo] = dateRange;
 
   const handleSearch = () => {
+    if (isSearching) return;
+
+    setIsSearching(true);
     const selectedDestination = goingTo.trim();
 
     navigate("/cruise-search", {
@@ -163,10 +160,23 @@ const Cruises = () => {
       </div>
 
       <button
+        type="button"
         onClick={handleSearch}
-        className="w-full md:w-auto mt-4 bg-[#1668e3] text-white font-semibold py-3 px-8 rounded-full hover:bg-blue-500 transition-all text-sm md:text-base"
+        disabled={isSearching}
+        className={`w-full md:w-auto mt-4 font-semibold py-3 px-8 rounded-full transition-all text-sm md:text-base inline-flex items-center justify-center gap-2 ${
+          isSearching
+            ? "bg-blue-400 text-white cursor-not-allowed"
+            : "bg-[#1668e3] text-white hover:bg-blue-500"
+        }`}
       >
-        Search
+        {isSearching ? (
+          <>
+            <FaSpinner className="animate-spin" />
+            Searching cruises...
+          </>
+        ) : (
+          "Search"
+        )}
       </button>
     </div>
   );
