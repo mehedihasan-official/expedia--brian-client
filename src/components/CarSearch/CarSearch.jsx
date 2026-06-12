@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { carRentalData } from "../../data/carsData";
+import { calculateCarPricing } from "../../utils/carPricing";
 
 const categoryLabels = {
   All: "All",
@@ -90,7 +91,8 @@ const CarSearch = () => {
         pickupDate: searchData.pickupDate,
         dropoffDate: searchData.dropoffDate,
         pickupTime: searchData.pickupTime,
-        dropoffTime: searchData.dropoffTime
+        dropoffTime: searchData.dropoffTime,
+        pricing: calculateCarPricing(car.retailPricePerDay, numberOfDays)
       }
     });
   };
@@ -189,10 +191,7 @@ const CarSearch = () => {
             </div>
           ) : (
             filteredCars.map((car) => {
-              const pricePerDay = car.retailPricePerDay;
-              const totalPrice = pricePerDay * numberOfDays;
-              const pointsPerDay = Math.round(pricePerDay / 0.05);
-              const pointsTotal = pointsPerDay * numberOfDays;
+              const pricing = calculateCarPricing(car.retailPricePerDay, numberOfDays);
 
               return (
                 <div key={car.id} className="rounded-3xl border border-slate-200 bg-white shadow-sm overflow-hidden">
@@ -232,20 +231,46 @@ const CarSearch = () => {
                         <img src={car.image} alt={car.brand} className="h-full w-full object-cover" />
                       </div>
                       <div className="space-y-3 rounded-3xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
-                        <div className="flex justify-between">
-                          <span>Daily rate</span>
-                          <span>${pricePerDay.toFixed(0)}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <span>{numberOfDays} day{numberOfDays === 1 ? "" : "s"}</span>
-                          <span>${totalPrice.toFixed(0)}</span>
-                        </div>
-                        <div className="flex justify-between font-semibold text-slate-900">
-                          <span>Total</span>
-                          <span>${totalPrice.toFixed(0)}</span>
-                        </div>
-                        {paymentMode === "points" && (
-                          <div className="text-xs text-slate-500">or {pointsTotal.toLocaleString()} points</div>
+                        {paymentMode === "cash" ? (
+                          <>
+                            <div className="flex flex-col items-end gap-1">
+                              <span className="line-through text-slate-400 text-sm">
+                                ${pricing.retailSubtotal.toFixed(0)}
+                              </span>
+                              <span className="text-2xl font-bold text-blue-600">
+                                ${pricing.discountedSubtotal.toFixed(0)}
+                              </span>
+                              <span className="text-xs font-semibold text-green-600">
+                                {pricing.savingsPercent}% Member Savings — Save ${pricing.savingsAmount.toFixed(0)}
+                              </span>
+                            </div>
+                            <div className="flex justify-between text-xs">
+                              <span>Daily rate</span>
+                              <span>
+                                <span className="line-through text-slate-400">${pricing.retailPricePerDay.toFixed(0)}/day</span>
+                                {" "}
+                                <span className="font-semibold text-slate-900">Member: ${pricing.discountedPricePerDay.toFixed(0)}/day</span>
+                              </span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span>{numberOfDays} day{numberOfDays === 1 ? "" : "s"}</span>
+                              <span className="font-semibold text-slate-900">${pricing.discountedSubtotal.toFixed(0)}</span>
+                            </div>
+                          </>
+                        ) : (
+                          <>
+                            <div className="flex flex-col items-end gap-1">
+                              <span className="text-2xl font-bold text-purple-600">
+                                {pricing.pointsTotal.toLocaleString()} Points
+                              </span>
+                              <span className="text-xs text-slate-500">
+                                ({pricing.pointsPerDay.toLocaleString()} pts/day × {numberOfDays} days)
+                              </span>
+                              <span className="text-xs font-semibold text-green-600">
+                                ✅ No exchange fee
+                              </span>
+                            </div>
+                          </>
                         )}
                       </div>
                       <button

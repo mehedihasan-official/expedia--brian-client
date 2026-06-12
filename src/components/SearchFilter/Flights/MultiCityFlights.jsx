@@ -3,6 +3,11 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { FaCalendarAlt, FaMapMarkerAlt, FaMinus, FaPlus, FaUser } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import { airportsList } from '../../../data/flightsData';
+import AutocompleteInput from '../../common/AutocompleteInput';
+
+const airportOptionLabel = (airport) =>
+  `${airport.code} - ${airport.city} (${airport.name})`;
 
 const MultiCityFlights = ({ 
   flights = [], 
@@ -92,6 +97,18 @@ const MultiCityFlights = ({
     onAddFlight(newFlight);
   };
 
+  const handleAirportChange = (index, field, value) => {
+    onFlightChange(index, field, value);
+    const errorKey = `${field}-${index}`;
+    if (errors[errorKey]) {
+      setErrors(prev => ({ ...prev, [errorKey]: undefined }));
+    }
+  };
+
+  const handleAirportSelect = (index, field, airport) => {
+    handleAirportChange(index, field, airport.code);
+  };
+
   return (
     <form onSubmit={handleSearch} className="flex flex-col gap-4">
       {/* Travelers Summary */}
@@ -126,51 +143,39 @@ const MultiCityFlights = ({
           </div>
 
           {/* Leaving From */}
-          <div className={`flex items-center border rounded-lg p-3 ${errors[`leavingFrom-${index}`] ? 'border-red-500' : 'border-gray-300'} bg-gray-50`}>
-            <FaMapMarkerAlt className="text-gray-500 text-lg mr-3" />
-            <div className="flex flex-col w-full">
-              <label className="text-sm font-medium text-gray-700">Leaving from</label>
-              <input
-                type="text"
-                value={flight.leavingFrom}
-                onChange={(e) => {
-                  onFlightChange(index, 'leavingFrom', e.target.value);
-                  if (errors[`leavingFrom-${index}`]) {
-                    setErrors(prev => ({ ...prev, [`leavingFrom-${index}`]: undefined }));
-                  }
-                }}
-                placeholder="City or Airport"
-                className="text-sm bg-transparent focus:outline-none"
-                required
-              />
-              {errors[`leavingFrom-${index}`] && (
-                <p className="text-xs text-red-500 mt-1">{errors[`leavingFrom-${index}`]}</p>
-              )}
-            </div>
+          <div className={errors[`leavingFrom-${index}`] ? 'rounded-lg border border-red-500' : ''}>
+            <AutocompleteInput
+              label="Leaving from"
+              value={flight.leavingFrom}
+              onChange={(value) => handleAirportChange(index, 'leavingFrom', value)}
+              onSelect={(airport) => handleAirportSelect(index, 'leavingFrom', airport)}
+              options={airportsList}
+              getOptionLabel={airportOptionLabel}
+              filterFields={["code", "city", "name"]}
+              placeholder="City or Airport"
+              icon={<FaMapMarkerAlt className="text-gray-500 text-lg mr-3" />}
+            />
+            {errors[`leavingFrom-${index}`] && (
+              <p className="text-xs text-red-500 mt-1">{errors[`leavingFrom-${index}`]}</p>
+            )}
           </div>
 
           {/* Going To */}
-          <div className={`flex items-center border rounded-lg p-3 ${errors[`goingTo-${index}`] ? 'border-red-500' : 'border-gray-300'} bg-gray-50`}>
-            <FaMapMarkerAlt className="text-gray-500 text-lg mr-3" />
-            <div className="flex flex-col w-full">
-              <label className="text-sm font-medium text-gray-700">Going to</label>
-              <input
-                type="text"
-                value={flight.goingTo}
-                onChange={(e) => {
-                  onFlightChange(index, 'goingTo', e.target.value);
-                  if (errors[`goingTo-${index}`]) {
-                    setErrors(prev => ({ ...prev, [`goingTo-${index}`]: undefined }));
-                  }
-                }}
-                placeholder="City or Airport"
-                className="text-sm bg-transparent focus:outline-none"
-                required
-              />
-              {errors[`goingTo-${index}`] && (
-                <p className="text-xs text-red-500 mt-1">{errors[`goingTo-${index}`]}</p>
-              )}
-            </div>
+          <div className={errors[`goingTo-${index}`] ? 'rounded-lg border border-red-500' : ''}>
+            <AutocompleteInput
+              label="Going to"
+              value={flight.goingTo}
+              onChange={(value) => handleAirportChange(index, 'goingTo', value)}
+              onSelect={(airport) => handleAirportSelect(index, 'goingTo', airport)}
+              options={airportsList}
+              getOptionLabel={airportOptionLabel}
+              filterFields={["code", "city", "name"]}
+              placeholder="City or Airport"
+              icon={<FaMapMarkerAlt className="text-gray-500 text-lg mr-3" />}
+            />
+            {errors[`goingTo-${index}`] && (
+              <p className="text-xs text-red-500 mt-1">{errors[`goingTo-${index}`]}</p>
+            )}
           </div>
 
           {/* Date */}

@@ -1,9 +1,13 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { FaChevronDown, FaClock, FaMapMarkerAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { popularCarLocations } from "../../../../data/carsData";
+import AutocompleteInput from "../../../common/AutocompleteInput";
+
+const carLocationLabel = (location) =>
+  `${location.city}, ${location.state} (${location.code})`;
 
 const RentalCars = () => {
   const navigate = useNavigate();
@@ -51,31 +55,6 @@ const RentalCars = () => {
     return hourNum >= 12
       ? `${hourNum === 12 ? 12 : hourNum - 12}:${minutes} PM`
       : `${hourNum}:${minutes} AM`;
-  };
-
-  const filteredPickupLocations = useMemo(() => {
-    if (!pickupLocation.trim()) return [];
-    const query = pickupLocation.toLowerCase();
-    return popularCarLocations.filter((location) =>
-      location.city.toLowerCase().includes(query) || location.code.toLowerCase().includes(query)
-    ).slice(0, 5);
-  }, [pickupLocation]);
-
-  const filteredDropoffLocations = useMemo(() => {
-    if (!dropoffLocation.trim() || sameLocation) return [];
-    const query = dropoffLocation.toLowerCase();
-    return popularCarLocations.filter((location) =>
-      location.city.toLowerCase().includes(query) || location.code.toLowerCase().includes(query)
-    ).slice(0, 5);
-  }, [dropoffLocation, sameLocation]);
-
-  const handleSelectPickupSuggestion = (city) => {
-    setPickupLocation(city);
-    if (sameLocation) setDropoffLocation(city);
-  };
-
-  const handleSelectDropoffSuggestion = (city) => {
-    setDropoffLocation(city);
   };
 
   const calculateDays = () => {
@@ -126,62 +105,30 @@ const RentalCars = () => {
 
         <div className="grid gap-4">
           <div className="grid gap-3 md:grid-cols-2">
-            <div className="relative">
-              <label className="text-xs uppercase tracking-[0.2em] text-slate-500">Pick-up Location</label>
-              <div className="mt-2 flex items-center gap-3 rounded-3xl border border-slate-300 bg-white px-4 py-3">
-                <FaMapMarkerAlt className="text-gray-500 text-lg" />
-                <input
-                  type="text"
-                  placeholder="Enter pick-up location"
-                  value={pickupLocation}
-                  onChange={(e) => setPickupLocation(e.target.value)}
-                  className="w-full bg-transparent text-sm text-slate-700 outline-none"
-                />
-              </div>
-              {filteredPickupLocations.length > 0 && (
-                <div className="absolute z-20 mt-1 w-full overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg">
-                  {filteredPickupLocations.map((location) => (
-                    <button
-                      key={location.code}
-                      type="button"
-                      onClick={() => handleSelectPickupSuggestion(location.city)}
-                      className="w-full px-4 py-3 text-left text-sm text-slate-700 hover:bg-slate-100"
-                    >
-                      {location.city}, {location.state} ({location.code})
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
+            <AutocompleteInput
+              label="Pick-up Location"
+              value={pickupLocation}
+              onChange={setPickupLocation}
+              onSelect={(location) => setPickupLocation(location.city)}
+              options={popularCarLocations}
+              getOptionLabel={carLocationLabel}
+              filterFields={["city", "state", "code"]}
+              placeholder="Enter pick-up location"
+              icon={<FaMapMarkerAlt className="text-gray-500 text-lg mr-3" />}
+            />
 
-            <div className="relative">
-              <label className="text-xs uppercase tracking-[0.2em] text-slate-500">Drop-off Location</label>
-              <div className="mt-2 flex items-center gap-3 rounded-3xl border border-slate-300 bg-white px-4 py-3">
-                <FaMapMarkerAlt className="text-gray-500 text-lg" />
-                <input
-                  type="text"
-                  placeholder="Enter drop-off location"
-                  value={dropoffLocation}
-                  onChange={(e) => setDropoffLocation(e.target.value)}
-                  disabled={sameLocation}
-                  className="w-full bg-transparent text-sm text-slate-700 outline-none disabled:cursor-not-allowed disabled:text-slate-400"
-                />
-              </div>
-              {filteredDropoffLocations.length > 0 && (
-                <div className="absolute z-20 mt-1 w-full overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-lg">
-                  {filteredDropoffLocations.map((location) => (
-                    <button
-                      key={location.code}
-                      type="button"
-                      onClick={() => handleSelectDropoffSuggestion(location.city)}
-                      className="w-full px-4 py-3 text-left text-sm text-slate-700 hover:bg-slate-100"
-                    >
-                      {location.city}, {location.state} ({location.code})
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
+            <AutocompleteInput
+              label="Drop-off Location"
+              value={dropoffLocation}
+              onChange={setDropoffLocation}
+              onSelect={(location) => setDropoffLocation(location.city)}
+              options={popularCarLocations}
+              getOptionLabel={carLocationLabel}
+              filterFields={["city", "state", "code"]}
+              placeholder="Enter drop-off location"
+              icon={<FaMapMarkerAlt className="text-gray-500 text-lg mr-3" />}
+              disabled={sameLocation}
+            />
           </div>
 
           <div className="flex flex-col gap-4 lg:flex-row">

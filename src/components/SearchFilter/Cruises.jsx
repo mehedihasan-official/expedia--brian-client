@@ -1,25 +1,31 @@
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { FaCalendarAlt, FaMapMarkerAlt, FaShip } from "react-icons/fa";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useNavigate } from "react-router-dom";
-import { cruiseCategories } from "../../data/cruisesData";
+import AutocompleteInput from "../common/AutocompleteInput";
 
-const destinationOptions = [
-  ...cruiseCategories.filter((category) => category !== "All"),
-  "Africa",
-  "Antarctic",
+const cruiseDestinations = [
+  "All Destinations",
+  "Alaska",
+  "Caribbean",
+  "Europe",
+  "Bahamas",
+  "Mediterranean",
+  "Mexico",
+  "Australia",
+  "Asia",
+  "South America",
+  "Transatlantic",
   "Canada",
   "England",
   "Central America",
-  "Galapagos",
-  "Middle East",
-  "Pacific Coastal",
+  "MiddleEast",
   "Panama Canal",
   "South Pacific",
-  "Transatlantic",
   "Transpacific",
   "Baltic Sea",
+  "Hawaii",
   "Greek Isles",
   "Norwegian Fjords",
   "New Zealand",
@@ -65,19 +71,17 @@ const Cruises = () => {
   const [departurePort, setDeparturePort] = useState("");
   const [dateRange, setDateRange] = useState([null, null]);
   const [duration, setDuration] = useState("7 nights");
-  const [showSuggestions, setShowSuggestions] = useState(false);
   const [departureDateFrom, departureDateTo] = dateRange;
 
-  const filteredDestinations = useMemo(() => {
-    const query = goingTo.trim().toLowerCase();
-    if (!query) return destinationOptions;
-    return destinationOptions.filter((destination) => destination.toLowerCase().includes(query));
-  }, [goingTo]);
-
   const handleSearch = () => {
+    const selectedDestination = goingTo.trim();
+
     navigate("/cruise-search", {
       state: {
-        destination: goingTo.trim() || "All",
+        destination:
+          !selectedDestination || selectedDestination === "All Destinations"
+            ? "All"
+            : selectedDestination,
         departurePort: departurePort.trim(),
         departureDateFrom: departureDateFrom ? departureDateFrom.toISOString() : "",
         departureDateTo: departureDateTo ? departureDateTo.toISOString() : "",
@@ -86,57 +90,20 @@ const Cruises = () => {
     });
   };
 
-  const handleDestinationSelect = (destination) => {
-    setGoingTo(destination);
-    setShowSuggestions(false);
-  };
-
   return (
     <div className="bg-white p-4 md:p-6 max-w-5xl mx-auto">
       <p className="text-sm md:text-base text-gray-700 mb-4">For expert cruise advice.</p>
 
       <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-[1.1fr_1fr_1fr_0.7fr]">
-        <div className="relative">
-          <div className="flex items-center w-full border border-gray-300 rounded-lg p-3 bg-gray-50 focus-within:ring-2 focus-within:ring-blue-200">
-            <FaMapMarkerAlt className="text-gray-500 text-lg mr-3 shrink-0" />
-            <div className="flex flex-col w-full">
-              <label className="text-sm md:text-base text-gray-700 font-medium" htmlFor="cruise-destination">
-                Going to
-              </label>
-              <input
-                id="cruise-destination"
-                type="text"
-                value={goingTo}
-                onChange={(event) => {
-                  setGoingTo(event.target.value);
-                  setShowSuggestions(true);
-                }}
-                onFocus={() => setShowSuggestions(true)}
-                placeholder="Any destination"
-                className="text-sm text-gray-700 bg-transparent focus:outline-none"
-              />
-            </div>
-          </div>
-
-          {showSuggestions && (
-            <div className="absolute z-20 mt-1 w-full bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
-              {filteredDestinations.length > 0 ? (
-                filteredDestinations.map((destination) => (
-                  <button
-                    key={destination}
-                    type="button"
-                    onMouseDown={() => handleDestinationSelect(destination)}
-                    className="flex items-center w-full px-4 py-3 text-sm text-gray-700 hover:bg-gray-100 text-left"
-                  >
-                    {destination}
-                  </button>
-                ))
-              ) : (
-                <p className="px-4 py-3 text-sm text-gray-500">No matching destinations</p>
-              )}
-            </div>
-          )}
-        </div>
+        <AutocompleteInput
+          label="Going to"
+          value={goingTo}
+          onChange={setGoingTo}
+          onSelect={setGoingTo}
+          options={cruiseDestinations}
+          placeholder="Any destination"
+          icon={<FaMapMarkerAlt className="text-gray-500 text-lg mr-3 shrink-0" />}
+        />
 
         <div className="flex items-center w-full border border-gray-300 rounded-lg p-3 bg-gray-50 focus-within:ring-2 focus-within:ring-blue-200">
           <FaMapMarkerAlt className="text-gray-500 text-lg mr-3 shrink-0" />

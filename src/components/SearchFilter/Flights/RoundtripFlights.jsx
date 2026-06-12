@@ -1,69 +1,86 @@
-import { useState } from 'react';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import { FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { FaCalendarAlt, FaMapMarkerAlt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import { airportsList } from "../../../data/flightsData";
+import AutocompleteInput from "../../common/AutocompleteInput";
+
+const airportOptionLabel = (airport) =>
+  `${airport.code} - ${airport.city} (${airport.name})`;
 
 const RoundtripFlights = () => {
   const navigate = useNavigate();
 
   const [locations, setLocations] = useState({
-    leavingFrom: '',
-    goingTo: ''
+    leavingFrom: "",
+    goingTo: "",
   });
 
   const [dates, setDates] = useState({
     departure: null,
-    return: null
+    return: null,
   });
 
   const [travelers, setTravelers] = useState({
     adults: 1,
     children: 0,
-    infants: 0
+    infants: 0,
   });
 
   const [options, setOptions] = useState({
     addStay: false,
-    addCar: false
+    addCar: false,
   });
 
   const handleLocationChange = (field, value) => {
     setLocations((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
+    }));
+  };
+
+  const handleAirportSelect = (field, airport) => {
+    setLocations((prev) => ({
+      ...prev,
+      [field]: airport.code,
     }));
   };
 
   const handleDateChange = (field, value) => {
     setDates((prev) => ({
       ...prev,
-      [field]: value
+      [field]: value,
     }));
   };
 
   const handleTravelerChange = (field, value) => {
     setTravelers((prev) => ({
       ...prev,
-      [field]: parseInt(value) || 0
+      [field]: parseInt(value) || 0,
     }));
   };
 
   const handleOptionChange = (field) => {
     setOptions((prev) => ({
       ...prev,
-      [field]: !prev[field]
+      [field]: !prev[field],
     }));
   };
 
   const handleSearch = () => {
-    if (!locations.leavingFrom || !locations.goingTo || !dates.departure || !dates.return) {
-      alert('Please fill in all required fields.');
+    if (
+      !locations.leavingFrom ||
+      !locations.goingTo ||
+      !dates.departure ||
+      !dates.return
+    ) {
+      alert("Please fill in all required fields.");
       return;
     }
 
     if (dates.return < dates.departure) {
-      alert('Return date cannot be before departure date.');
+      alert("Return date cannot be before departure date.");
       return;
     }
 
@@ -73,34 +90,40 @@ const RoundtripFlights = () => {
       departureDate: dates.departure,
       returnDate: dates.return,
       travelers,
-      ...options
+      ...options,
     };
 
-    console.log('Search Params:', searchParams);
+    console.log("Search Params:", searchParams);
 
-    navigate('/flight-results', { state: searchParams });
+    navigate("/flight-results", { state: searchParams });
   };
 
   return (
     <div className="flex flex-col gap-4">
       {/* Leaving From */}
-      <InputWithIcon
-        icon={<FaMapMarkerAlt className="text-gray-500 text-lg mr-3" />}
+      <AutocompleteInput
         label="Leaving from"
-        id="leavingFrom"
         value={locations.leavingFrom}
-        onChange={(e) => handleLocationChange('leavingFrom', e.target.value)}
+        onChange={(value) => handleLocationChange("leavingFrom", value)}
+        onSelect={(airport) => handleAirportSelect("leavingFrom", airport)}
+        options={airportsList}
+        getOptionLabel={airportOptionLabel}
+        filterFields={["code", "city", "name"]}
         placeholder="City or Airport"
+        icon={<FaMapMarkerAlt className="text-gray-500 text-lg mr-3" />}
       />
 
       {/* Going To */}
-      <InputWithIcon
-        icon={<FaMapMarkerAlt className="text-gray-500 text-lg mr-3" />}
+      <AutocompleteInput
         label="Going to"
-        id="goingTo"
         value={locations.goingTo}
-        onChange={(e) => handleLocationChange('goingTo', e.target.value)}
+        onChange={(value) => handleLocationChange("goingTo", value)}
+        onSelect={(airport) => handleAirportSelect("goingTo", airport)}
+        options={airportsList}
+        getOptionLabel={airportOptionLabel}
+        filterFields={["code", "city", "name"]}
         placeholder="City or Airport"
+        icon={<FaMapMarkerAlt className="text-gray-500 text-lg mr-3" />}
       />
 
       {/* Departure Date */}
@@ -108,7 +131,7 @@ const RoundtripFlights = () => {
         label="Departure Date"
         id="departureDate"
         selected={dates.departure}
-        onChange={(date) => handleDateChange('departure', date)}
+        onChange={(date) => handleDateChange("departure", date)}
         minDate={new Date()}
       />
 
@@ -117,7 +140,7 @@ const RoundtripFlights = () => {
         label="Return Date"
         id="returnDate"
         selected={dates.return}
-        onChange={(date) => handleDateChange('return', date)}
+        onChange={(date) => handleDateChange("return", date)}
         minDate={dates.departure || new Date()}
       />
 
@@ -126,17 +149,17 @@ const RoundtripFlights = () => {
         <TravelerInput
           label="Adults"
           value={travelers.adults}
-          onChange={(e) => handleTravelerChange('adults', e.target.value)}
+          onChange={(e) => handleTravelerChange("adults", e.target.value)}
         />
         <TravelerInput
           label="Children"
           value={travelers.children}
-          onChange={(e) => handleTravelerChange('children', e.target.value)}
+          onChange={(e) => handleTravelerChange("children", e.target.value)}
         />
         <TravelerInput
           label="Infants"
           value={travelers.infants}
-          onChange={(e) => handleTravelerChange('infants', e.target.value)}
+          onChange={(e) => handleTravelerChange("infants", e.target.value)}
         />
       </div>
 
@@ -145,12 +168,12 @@ const RoundtripFlights = () => {
         <Checkbox
           label="Add a place to stay"
           checked={options.addStay}
-          onChange={() => handleOptionChange('addStay')}
+          onChange={() => handleOptionChange("addStay")}
         />
         <Checkbox
           label="Add a car"
           checked={options.addCar}
-          onChange={() => handleOptionChange('addCar')}
+          onChange={() => handleOptionChange("addCar")}
         />
       </div>
 
@@ -164,26 +187,6 @@ const RoundtripFlights = () => {
     </div>
   );
 };
-
-// Input with Icon
-const InputWithIcon = ({ icon, label, id, value, onChange, placeholder }) => (
-  <div className="flex items-center w-full border border-gray-300 rounded-lg p-2 md:p-3 bg-gray-50 hover:bg-gray-100">
-    {icon}
-    <div className="flex flex-col text-left w-full">
-      <label htmlFor={id} className="text-sm text-gray-700 font-medium">
-        {label}
-      </label>
-      <input
-        id={id}
-        type="text"
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        className="w-full text-sm text-gray-700 bg-transparent focus:outline-none placeholder-gray-400"
-      />
-    </div>
-  </div>
-);
 
 // Date Input
 const DateInput = ({ label, id, selected, onChange, minDate }) => (

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { calculateCarPricing } from "../../utils/carPricing";
 
 const CarDetail = () => {
   const location = useLocation();
@@ -7,7 +8,6 @@ const CarDetail = () => {
   const state = location.state || {};
   const {
     car,
-    pricing,
     searchData,
     paymentMode = "cash",
     numberOfDays = 1,
@@ -67,12 +67,9 @@ const CarDetail = () => {
       : `${hour}:${minutes} AM`;
   };
 
-  const pricePerDay = car.retailPricePerDay;
-  const pointsPerDay = Math.round(pricePerDay / 0.05);
-  const cashSubtotal = Math.round(pricePerDay * numberOfDays * 100) / 100;
-  const cashTax = Math.round(cashSubtotal * 0.12 * 100) / 100;
-  const cashTotal = Math.round((cashSubtotal + cashTax) * 100) / 100;
-  const pointsTotal = pointsPerDay * numberOfDays;
+  const pricing = calculateCarPricing(car.retailPricePerDay, numberOfDays);
+  const { discountedPricePerDay, retailSubtotal, discountedSubtotal: cashSubtotal,
+          cashTax, cashTotal, pointsPerDay, pointsTotal, savingsAmount, savingsPercent } = pricing;
 
   return (
     <div className="min-h-screen bg-slate-50 py-10 px-4 md:px-8">
@@ -188,7 +185,14 @@ const CarDetail = () => {
                   <div className="grid gap-3">
                     <div className="flex justify-between text-sm text-slate-600">
                       <span>Daily rate</span>
-                      <span>${pricePerDay.toFixed(2)}</span>
+                      <span>
+                        <span className="line-through text-slate-400">${pricing.retailPricePerDay.toFixed(2)}</span>
+                        <span className="font-semibold text-slate-900 ml-2">${discountedPricePerDay.toFixed(2)}</span>
+                      </span>
+                    </div>
+                    <div className="flex justify-between text-sm text-green-600 font-medium">
+                      <span>Member Savings ({savingsPercent}% off)</span>
+                      <span>-${savingsAmount.toFixed(2)}</span>
                     </div>
                     <div className="flex justify-between text-sm text-slate-600">
                       <span>Days</span>
@@ -232,14 +236,7 @@ const CarDetail = () => {
                           dropoffDate,
                           pickupTime,
                           dropoffTime,
-                          pricing: {
-                            pricePerDay,
-                            cashSubtotal,
-                            cashTax,
-                            cashTotal,
-                            pointsPerDay,
-                            pointsTotal
-                          }
+                          pricing
                         }
                       })
                     }

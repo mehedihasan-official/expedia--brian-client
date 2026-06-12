@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { calculateCarPricing } from "../../utils/carPricing";
 
 const CarPayment = () => {
   const location = useLocation();
@@ -50,20 +51,23 @@ const CarPayment = () => {
     setCardNumber(formatCardNumber(e.target.value));
   };
 
-  const cashSubtotal = useMemo(() => {
-    return Math.round(car.retailPricePerDay * numberOfDays * 100) / 100;
-  }, [car.retailPricePerDay, numberOfDays]);
+  const basePricing = useMemo(
+    () => calculateCarPricing(car.retailPricePerDay, numberOfDays),
+    [car.retailPricePerDay, numberOfDays]
+  );
 
-  const cashTax = useMemo(() => {
-    return Math.round(cashSubtotal * 0.12 * 100) / 100;
-  }, [cashSubtotal]);
+  const cashSubtotal = basePricing.discountedSubtotal;
+  const cashTax = basePricing.cashTax;
+  const cashTotal = useMemo(
+    () => Math.round((cashSubtotal + cashTax + (addOns.cashAddOnAmount || 0)) * 100) / 100,
+    [cashSubtotal, cashTax, addOns.cashAddOnAmount]
+  );
 
-  const cashTotal = useMemo(() => {
-    return Math.round((cashSubtotal + cashTax + (addOns.cashAddOnAmount || 0)) * 100) / 100;
-  }, [cashSubtotal, cashTax, addOns.cashAddOnAmount]);
-
-  const pointsPerDay = useMemo(() => Math.round(car.retailPricePerDay / 0.05), [car.retailPricePerDay]);
-  const pointsTotal = useMemo(() => pointsPerDay * numberOfDays + (addOns.pointsAddOnAmount || 0), [pointsPerDay, numberOfDays, addOns.pointsAddOnAmount]);
+  const pointsPerDay = basePricing.pointsPerDay;
+  const pointsTotal = useMemo(
+    () => basePricing.pointsTotal + (addOns.pointsAddOnAmount || 0),
+    [basePricing.pointsTotal, addOns.pointsAddOnAmount]
+  );
   const pointsBalance = 50000;
 
   const handleSubmit = () => {
@@ -286,7 +290,18 @@ const CarPayment = () => {
               <h3 className="text-lg font-semibold text-slate-900 mb-4">{paymentMode === 'cash' ? 'Cash Total' : 'Points Total'}</h3>
               {paymentMode === 'cash' ? (
                 <div className="space-y-3 text-sm text-slate-600">
-                  <div className="flex justify-between"><span>Per day</span><span>${car.retailPricePerDay.toFixed(2)}</span></div>
+                  <div className="flex justify-between">
+                    <span>Per day (retail)</span>
+                    <span className="line-through text-slate-400">${car.retailPricePerDay.toFixed(2)}</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Per day (member, {basePricing.savingsPercent}% off)</span>
+                    <span className="font-semibold text-blue-600">${basePricing.discountedPricePerDay.toFixed(2)}</span>
+                  </div>
+                  <div className="flex justify-between text-green-600 font-medium">
+                    <span>You save</span>
+                    <span>${basePricing.savingsAmount.toFixed(2)}</span>
+                  </div>
                   <div className="flex justify-between"><span>Days</span><span>{numberOfDays}</span></div>
                   <div className="flex justify-between"><span>Subtotal</span><span>${cashSubtotal.toFixed(2)}</span></div>
                   <div className="flex justify-between"><span>Taxes (12%)</span><span>${cashTax.toFixed(2)}</span></div>
