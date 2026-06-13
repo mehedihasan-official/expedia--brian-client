@@ -47,6 +47,54 @@ export const enrichedCruiseData = {
       },
       departureDates: ["2025-09-07", "2025-10-12", "2025-11-16", "2025-12-14", "2026-02-08"],
       includes: ["All meals", "Entertainment", "Spa access", "Fitness center"]
+    },
+    {
+      id: "CR-CAR-003",
+      name: "Carnival Vista",
+      cruiseLine: "Carnival Cruise Line",
+      cruiseLineLogo: "https://logo.clearbit.com/carnival.com",
+      route: "Miami → Nassau → Freeport → Half Moon Cay",
+      departurePort: "Miami, FL",
+      duration: 5,
+      category: "Caribbean",
+      image: "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      rating: 4.3,
+      reviews: 2156,
+      retailPrice: 699,
+      itinerary: ["Miami", "Nassau", "Freeport", "Half Moon Cay"],
+      shipFeatures: ["15 Decks", "3,954 Guests", "WaterWorks", "SkyRide", "Casino"],
+      cabinTypes: {
+        inside: { name: "Inside", retailPrice: 699 },
+        outside: { name: "Ocean View", retailPrice: 899 },
+        balcony: { name: "Balcony", retailPrice: 1099 },
+        suite: { name: "Suite", retailPrice: 2299 }
+      },
+      departureDates: ["2025-09-11", "2025-10-09", "2025-11-06", "2025-12-04", "2026-01-08"],
+      includes: ["All meals", "Entertainment", "Waterpark access"]
+    },
+    {
+      id: "CR-CAR-004",
+      name: "Disney Fantasy",
+      cruiseLine: "Disney Cruise Line",
+      cruiseLineLogo: "https://logo.clearbit.com/disneycruise.disney.go.com",
+      route: "Port Canaveral → Castaway Cay → Nassau",
+      departurePort: "Port Canaveral, FL",
+      duration: 7,
+      category: "Caribbean",
+      image: "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      rating: 4.9,
+      reviews: 3102,
+      retailPrice: 1799,
+      itinerary: ["Port Canaveral", "Castaway Cay", "Nassau"],
+      shipFeatures: ["14 Decks", "2,500 Guests", "AquaDuck", "Disney Shows", "Kids Clubs"],
+      cabinTypes: {
+        inside: { name: "Inside", retailPrice: 1799 },
+        outside: { name: "Ocean View", retailPrice: 2199 },
+        balcony: { name: "Balcony", retailPrice: 2799 },
+        suite: { name: "Suite", retailPrice: 5999 }
+      },
+      departureDates: ["2025-09-06", "2025-10-04", "2025-11-08", "2025-12-06", "2026-01-10"],
+      includes: ["All meals", "Entertainment", "Kids club", "Port charges"]
     }
   ],
   Mediterranean: [
@@ -97,6 +145,54 @@ export const enrichedCruiseData = {
       },
       departureDates: ["2025-09-28", "2025-10-26", "2026-04-19", "2026-05-17", "2026-06-14"],
       includes: ["All meals", "Specialty dining", "Entertainment", "Port charges"]
+    },
+    {
+      id: "CR-MED-003",
+      name: "Viking Star",
+      cruiseLine: "Viking Cruises",
+      cruiseLineLogo: "https://logo.clearbit.com/vikingcruises.com",
+      route: "Rome → Barcelona → Lisbon → London",
+      departurePort: "Rome (Civitavecchia), Italy",
+      duration: 15,
+      category: "Mediterranean",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      rating: 4.8,
+      reviews: 812,
+      retailPrice: 3499,
+      itinerary: ["Rome", "Florence", "Monaco", "Barcelona", "Lisbon", "London"],
+      shipFeatures: ["7 Decks", "930 Guests", "Adults Only", "Infinity Pool", "Spa"],
+      cabinTypes: {
+        inside: { name: "Standard", retailPrice: 3499 },
+        outside: { name: "Deluxe Veranda", retailPrice: 4299 },
+        balcony: { name: "Penthouse Jr.", retailPrice: 5499 },
+        suite: { name: "Explorer Suite", retailPrice: 8999 }
+      },
+      departureDates: ["2025-09-21", "2025-10-19", "2026-04-12", "2026-05-10"],
+      includes: ["All meals", "Beverages", "Shore excursions", "Wi-Fi", "Gratuities"]
+    },
+    {
+      id: "CR-MED-004",
+      name: "Azamara Quest",
+      cruiseLine: "Azamara",
+      cruiseLineLogo: "https://logo.clearbit.com/azamara.com",
+      route: "Istanbul → Athens → Dubrovnik → Venice",
+      departurePort: "Istanbul, Turkey",
+      duration: 12,
+      category: "Mediterranean",
+      image: "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      rating: 4.7,
+      reviews: 654,
+      retailPrice: 2799,
+      itinerary: ["Istanbul", "Mykonos", "Athens", "Kotor", "Dubrovnik", "Venice"],
+      shipFeatures: ["10 Decks", "686 Guests", "Intimate Ship", "Fine Dining", "Spa"],
+      cabinTypes: {
+        inside: { name: "Interior", retailPrice: 2799 },
+        outside: { name: "Ocean View", retailPrice: 3299 },
+        balcony: { name: "Veranda", retailPrice: 3999 },
+        suite: { name: "Club Suite", retailPrice: 6499 }
+      },
+      departureDates: ["2025-10-05", "2025-11-02", "2026-04-26", "2026-05-24"],
+      includes: ["All meals", "Beverages", "Gratuities", "Port charges"]
     }
   ],
   Alaska: [
@@ -123,32 +219,56 @@ export const enrichedCruiseData = {
       },
       departureDates: ["2025-09-06", "2025-09-20", "2025-10-04", "2026-05-09", "2026-05-23"],
       includes: ["All meals", "Entertainment", "Port charges", "Glacier viewing"]
+    },
+    {
+      id: "CR-ALA-002",
+      name: "Windstar Wind Surf",
+      cruiseLine: "Windstar Cruises",
+      cruiseLineLogo: "https://logo.clearbit.com/windstarcruises.com",
+      route: "Juneau → Sitka → Ketchikan → Victoria → Seattle",
+      departurePort: "Juneau, AK",
+      duration: 7,
+      category: "Alaska",
+      image: "https://www.cruisemapper.com/images/ships/697-large-8a0e1141fd37fa5b98d5bb769ba1a7cc.jpg",
+      rating: 4.6,
+      reviews: 423,
+      retailPrice: 2199,
+      itinerary: ["Juneau", "Sitka", "Ketchikan", "Victoria", "Seattle"],
+      shipFeatures: ["5 Masts", "310 Guests", "Intimate Ship", "Water Sports", "Spa"],
+      cabinTypes: {
+        inside: { name: "Cabin", retailPrice: 2199 },
+        outside: { name: "Ocean View", retailPrice: 2699 },
+        balcony: { name: "Bridge Suite", retailPrice: 3999 },
+        suite: { name: "Owner Suite", retailPrice: 5499 }
+      },
+      departureDates: ["2025-09-13", "2025-09-27", "2026-05-16", "2026-05-30"],
+      includes: ["All meals", "Beverages", "Water sports", "Gratuities"]
     }
   ],
   Bahamas: [
     {
       id: "CR-BAH-001",
-      name: "Carnival Vista",
-      cruiseLine: "Carnival Cruise Line",
-      cruiseLineLogo: "https://logo.clearbit.com/carnival.com",
-      route: "Miami → Nassau → Freeport → Half Moon Cay",
-      departurePort: "Miami, FL",
-      duration: 5,
+      name: "Bahamas Paradise",
+      cruiseLine: "Bahamas Paradise Cruise Line",
+      cruiseLineLogo: "https://logo.clearbit.com/bahamasparadisecruise.com",
+      route: "Palm Beach → Grand Bahama Island",
+      departurePort: "Palm Beach, FL",
+      duration: 2,
       category: "Bahamas",
       image: "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
-      rating: 4.3,
-      reviews: 2156,
-      retailPrice: 699,
-      itinerary: ["Miami", "Nassau", "Freeport", "Half Moon Cay"],
-      shipFeatures: ["15 Decks", "3,954 Guests", "WaterWorks", "SkyRide", "Casino"],
+      rating: 4.1,
+      reviews: 1890,
+      retailPrice: 299,
+      itinerary: ["Palm Beach", "Grand Bahama Island"],
+      shipFeatures: ["11 Decks", "1,200 Guests", "Pool", "Casino", "Entertainment"],
       cabinTypes: {
-        inside: { name: "Inside", retailPrice: 699 },
-        outside: { name: "Ocean View", retailPrice: 899 },
-        balcony: { name: "Balcony", retailPrice: 1099 },
-        suite: { name: "Suite", retailPrice: 2299 }
+        inside: { name: "Interior", retailPrice: 299 },
+        outside: { name: "Ocean View", retailPrice: 399 },
+        balcony: { name: "Balcony", retailPrice: 549 },
+        suite: { name: "Suite", retailPrice: 999 }
       },
       departureDates: ["2025-09-11", "2025-10-09", "2025-11-06", "2025-12-04", "2026-01-08"],
-      includes: ["All meals", "Entertainment", "Waterpark access"]
+      includes: ["All meals", "Entertainment", "Port charges"]
     }
   ],
   Europe: [
@@ -175,6 +295,54 @@ export const enrichedCruiseData = {
       },
       departureDates: ["2025-10-03", "2026-01-09", "2026-03-20", "2026-05-01"],
       includes: ["All meals", "White glove service", "Entertainment", "Port charges"]
+    },
+    {
+      id: "CR-EUR-002",
+      name: "Oceania Marina",
+      cruiseLine: "Oceania Cruises",
+      cruiseLineLogo: "https://logo.clearbit.com/oceaniacruises.com",
+      route: "London → Amsterdam → Copenhagen → Stockholm → Helsinki → St. Petersburg",
+      departurePort: "London (Southampton), UK",
+      duration: 14,
+      category: "Europe",
+      image: "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      rating: 4.8,
+      reviews: 621,
+      retailPrice: 3799,
+      itinerary: ["London", "Amsterdam", "Copenhagen", "Stockholm", "Helsinki", "St. Petersburg"],
+      shipFeatures: ["11 Decks", "1,250 Guests", "Culinary Focus", "Fine Dining", "Canyon Ranch Spa"],
+      cabinTypes: {
+        inside: { name: "Inside", retailPrice: 3799 },
+        outside: { name: "Ocean View", retailPrice: 4399 },
+        balcony: { name: "Veranda", retailPrice: 5299 },
+        suite: { name: "Penthouse Suite", retailPrice: 9999 }
+      },
+      departureDates: ["2025-10-11", "2026-04-04", "2026-05-02", "2026-05-30"],
+      includes: ["All meals", "Beverages", "Specialty dining", "Gratuities", "Wi-Fi"]
+    },
+    {
+      id: "CR-EUR-003",
+      name: "Silver Muse",
+      cruiseLine: "Silversea Cruises",
+      cruiseLineLogo: "https://logo.clearbit.com/silversea.com",
+      route: "Lisbon → Seville → Cadiz → Cartagena → Barcelona → Nice",
+      departurePort: "Lisbon, Portugal",
+      duration: 10,
+      category: "Europe",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      rating: 4.9,
+      reviews: 489,
+      retailPrice: 5499,
+      itinerary: ["Lisbon", "Seville", "Cadiz", "Cartagena", "Barcelona", "Nice"],
+      shipFeatures: ["8 Decks", "596 Guests", "All-Suite", "Butler Service", "10 Restaurants"],
+      cabinTypes: {
+        inside: { name: "Vista Suite", retailPrice: 5499 },
+        outside: { name: "Veranda Suite", retailPrice: 6999 },
+        balcony: { name: "Silver Suite", retailPrice: 9499 },
+        suite: { name: "Owner Suite", retailPrice: 18999 }
+      },
+      departureDates: ["2025-10-08", "2026-04-08", "2026-05-06", "2026-06-03"],
+      includes: ["All meals", "All beverages", "Butler service", "Shore excursions", "Wi-Fi", "Gratuities"]
     }
   ],
   Hawaii: [
@@ -202,8 +370,125 @@ export const enrichedCruiseData = {
       departureDates: ["2025-09-13", "2025-10-11", "2025-11-08", "2025-12-06", "2026-01-10"],
       includes: ["All meals", "Entertainment", "Inter-island travel"]
     }
+  ],
+  Transatlantic: [
+    {
+      id: "CR-TRA-001",
+      name: "MSC Seashore",
+      cruiseLine: "MSC Cruises",
+      cruiseLineLogo: "https://logo.clearbit.com/msccruises.com",
+      route: "New York → Lisbon → Barcelona → Marseille",
+      departurePort: "New York, NY",
+      duration: 16,
+      category: "Transatlantic",
+      image: "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      rating: 4.5,
+      reviews: 534,
+      retailPrice: 1999,
+      itinerary: ["New York", "Lisbon", "Barcelona", "Marseille"],
+      shipFeatures: ["20 Decks", "5,877 Guests", "Infinity Pool", "Water Park", "Casino"],
+      cabinTypes: {
+        inside: { name: "Inside", retailPrice: 1999 },
+        outside: { name: "Ocean View", retailPrice: 2499 },
+        balcony: { name: "Balcony", retailPrice: 2999 },
+        suite: { name: "Suite", retailPrice: 5499 }
+      },
+      departureDates: ["2025-10-25", "2026-04-18"],
+      includes: ["All meals", "Entertainment", "Port charges"]
+    },
+    {
+      id: "CR-TRA-002",
+      name: "Viking Jupiter",
+      cruiseLine: "Viking Cruises",
+      cruiseLineLogo: "https://logo.clearbit.com/vikingcruises.com",
+      route: "New York → Reykjavik → Bergen → London",
+      departurePort: "New York, NY",
+      duration: 15,
+      category: "Transatlantic",
+      image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      rating: 4.8,
+      reviews: 367,
+      retailPrice: 4299,
+      itinerary: ["New York", "Reykjavik", "Akureyri", "Bergen", "London"],
+      shipFeatures: ["7 Decks", "930 Guests", "Adults Only", "Aquavit Terrace", "Spa"],
+      cabinTypes: {
+        inside: { name: "Standard", retailPrice: 4299 },
+        outside: { name: "Deluxe Veranda", retailPrice: 5299 },
+        balcony: { name: "Penthouse Jr.", retailPrice: 6999 },
+        suite: { name: "Explorer Suite", retailPrice: 11999 }
+      },
+      departureDates: ["2025-09-27", "2026-05-09"],
+      includes: ["All meals", "Beverages", "Shore excursions", "Wi-Fi", "Gratuities"]
+    }
+  ],
+  MiddleEast: [
+    {
+      id: "CR-ME-001",
+      name: "Costa Smeralda",
+      cruiseLine: "Costa Cruises",
+      cruiseLineLogo: "https://logo.clearbit.com/costacruises.com",
+      route: "Dubai → Abu Dhabi → Muscat → Bahrain → Kuwait",
+      departurePort: "Dubai, UAE",
+      duration: 7,
+      category: "MiddleEast",
+      image: "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      rating: 4.4,
+      reviews: 312,
+      retailPrice: 1199,
+      itinerary: ["Dubai", "Abu Dhabi", "Muscat", "Bahrain", "Kuwait"],
+      shipFeatures: ["19 Decks", "6,554 Guests", "Multiple Pools", "Casino", "Theater"],
+      cabinTypes: {
+        inside: { name: "Inside", retailPrice: 1199 },
+        outside: { name: "Ocean View", retailPrice: 1499 },
+        balcony: { name: "Balcony", retailPrice: 1899 },
+        suite: { name: "Suite", retailPrice: 3299 }
+      },
+      departureDates: ["2025-11-15", "2025-12-13", "2026-01-10", "2026-02-07"],
+      includes: ["All meals", "Entertainment", "Port charges"]
+    },
+    {
+      id: "CR-ME-002",
+      name: "Celebrity Apex",
+      cruiseLine: "Celebrity Cruises",
+      cruiseLineLogo: "https://logo.clearbit.com/celebritycruises.com",
+      route: "Dubai → Muscat → Abu Dhabi → Fujairah",
+      departurePort: "Dubai, UAE",
+      duration: 5,
+      category: "MiddleEast",
+      image: "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      rating: 4.7,
+      reviews: 289,
+      retailPrice: 999,
+      itinerary: ["Dubai", "Muscat", "Abu Dhabi", "Fujairah"],
+      shipFeatures: ["16 Decks", "2,910 Guests", "Rooftop Garden", "Fine Dining", "Spa"],
+      cabinTypes: {
+        inside: { name: "Inside", retailPrice: 999 },
+        outside: { name: "Ocean View", retailPrice: 1249 },
+        balcony: { name: "Balcony", retailPrice: 1599 },
+        suite: { name: "Suite", retailPrice: 3499 }
+      },
+      departureDates: ["2025-11-22", "2025-12-20", "2026-01-17", "2026-02-14"],
+      includes: ["All meals", "Specialty dining", "Entertainment", "Port charges"]
+    }
   ]
 };
+
+export const cruiseLines = [
+  { name: "Royal Caribbean", logo: "https://logo.clearbit.com/royalcaribbean.com" },
+  { name: "Norwegian Cruise Line", logo: "https://logo.clearbit.com/ncl.com" },
+  { name: "Disney Cruise Line", logo: "https://logo.clearbit.com/disneycruise.disney.go.com" },
+  { name: "Windstar Cruises", logo: "https://logo.clearbit.com/windstarcruises.com" },
+  { name: "Victory Cruise Lines", logo: "https://logo.clearbit.com/victorycruiselines.com" },
+  { name: "MSC Cruises", logo: "https://logo.clearbit.com/msccruises.com" },
+  { name: "Viking Cruises", logo: "https://logo.clearbit.com/vikingcruises.com" },
+  { name: "Azamara", logo: "https://logo.clearbit.com/azamara.com" },
+  { name: "Costa Cruises", logo: "https://logo.clearbit.com/costacruises.com" },
+  { name: "Silversea Cruises", logo: "https://logo.clearbit.com/silversea.com" },
+  { name: "Bahamas Paradise Cruise Line", logo: "https://logo.clearbit.com/bahamasparadisecruise.com" },
+  { name: "Celebrity Cruises", logo: "https://logo.clearbit.com/celebritycruises.com" },
+  { name: "Oceania Cruises", logo: "https://logo.clearbit.com/oceaniacruises.com" },
+  { name: "Carnival Cruise Line", logo: "https://logo.clearbit.com/carnival.com" }
+];
 
 export const cruiseCategories = [
   "All",

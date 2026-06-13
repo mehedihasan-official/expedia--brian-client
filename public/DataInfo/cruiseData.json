@@ -2,1222 +2,1593 @@
   "Alaska": [
     {
       "name": "Nieuw Amsterdam",
-      "route": "Whittier → Vancouver",
+      "route": "Whittier \u2192 Vancouver",
       "price": 899,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Holland America Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/hollandamerica.com"
     },
     {
       "name": "Noordam",
-      "route": "Anchorage → Vancouver",
+      "route": "Anchorage \u2192 Vancouver",
       "price": 799,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Holland America Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/hollandamerica.com"
     },
     {
       "name": "Golden Princess",
-      "route": "Seward → Vancouver",
+      "route": "Seward \u2192 Vancouver",
       "price": 849,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Princess Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/princess.com"
     },
     {
       "name": "Coral Princess",
-      "route": "Vancouver → Whittier",
+      "route": "Vancouver \u2192 Whittier",
       "price": 929,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Princess Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/princess.com"
     },
     {
       "name": "Majestic Princess",
-      "route": "Seattle → Juneau",
+      "route": "Seattle \u2192 Juneau",
       "price": 779,
-      "image": "https://i.ytimg.com/vi_webp/LTjktmbTdOI/maxresdefault.webp"
+      "image": "https://i.ytimg.com/vi_webp/LTjktmbTdOI/maxresdefault.webp",
+      "cruiseLine": "Princess Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/princess.com"
     },
     {
       "name": "Discovery Princess",
-      "route": "Vancouver → Ketchikan",
+      "route": "Vancouver \u2192 Ketchikan",
       "price": 819,
-      "image": "https://www.cruisemummy.co.uk/wp-content/uploads/Discovery-Princess-Cabins-1.jpg"
+      "image": "https://www.cruisemummy.co.uk/wp-content/uploads/Discovery-Princess-Cabins-1.jpg",
+      "cruiseLine": "Princess Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/princess.com"
     },
     {
       "name": "Grand Princess",
-      "route": "San Francisco → Glacier Bay",
+      "route": "San Francisco \u2192 Glacier Bay",
       "price": 1099,
-      "image": "https://www.cruisemapper.com/images/ships/697-large-8a0e1141fd37fa5b98d5bb769ba1a7cc.jpg"
+      "image": "https://www.cruisemapper.com/images/ships/697-large-8a0e1141fd37fa5b98d5bb769ba1a7cc.jpg",
+      "cruiseLine": "Princess Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/princess.com"
     },
     {
       "name": "Ruby Princess",
-      "route": "Los Angeles → Sitka",
+      "route": "Los Angeles \u2192 Sitka",
       "price": 949,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Princess Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/princess.com"
     },
     {
       "name": "Crown Princess",
-      "route": "Seattle → Skagway",
+      "route": "Seattle \u2192 Skagway",
       "price": 879,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Princess Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/princess.com"
     },
     {
       "name": "Star Princess",
-      "route": "Vancouver → Hubbard Glacier",
+      "route": "Vancouver \u2192 Hubbard Glacier",
       "price": 999,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Princess Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/princess.com"
     }
   ],
   "Caribbean": [
     {
       "name": "Celebrity Summit",
-      "route": "Miami → San Juan",
+      "route": "Miami \u2192 San Juan",
       "price": 649,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Celebrity Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/celebritycruises.com"
     },
     {
       "name": "Norwegian Encore",
-      "route": "Orlando → Nassau",
+      "route": "Orlando \u2192 Nassau",
       "price": 749,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Norwegian Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/ncl.com"
     },
     {
       "name": "Harmony of the Seas",
-      "route": "Fort Lauderdale → St. Maarten",
+      "route": "Fort Lauderdale \u2192 St. Maarten",
       "price": 829,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Royal Caribbean",
+      "cruiseLineLogo": "https://logo.clearbit.com/royalcaribbean.com"
     },
     {
       "name": "Carnival Vista",
-      "route": "Galveston → Cozumel",
+      "route": "Galveston \u2192 Cozumel",
       "price": 579,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Carnival Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/carnival.com"
     },
     {
       "name": "MSC Meraviglia",
-      "route": "New York → Bermuda",
+      "route": "New York \u2192 Bermuda",
       "price": 699,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "MSC Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/msccruises.com"
     },
     {
       "name": "Disney Fantasy",
-      "route": "Port Canaveral → Castaway Cay",
+      "route": "Port Canaveral \u2192 Castaway Cay",
       "price": 1199,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Disney Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/disneycruise.disney.go.com"
     },
     {
       "name": "Adventure of the Seas",
-      "route": "Baltimore → Labadee",
+      "route": "Baltimore \u2192 Labadee",
       "price": 659,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Norwegian Joy",
-      "route": "Miami → Ocho Rios",
+      "route": "Miami \u2192 Ocho Rios",
       "price": 729,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Norwegian Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/ncl.com"
     },
     {
       "name": "Carnival Breeze",
-      "route": "Miami → Grand Turk",
+      "route": "Miami \u2192 Grand Turk",
       "price": 599,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Carnival Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/carnival.com"
     },
     {
       "name": "Symphony of the Seas",
-      "route": "Miami → St. Thomas",
+      "route": "Miami \u2192 St. Thomas",
       "price": 899,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Royal Caribbean",
+      "cruiseLineLogo": "https://logo.clearbit.com/royalcaribbean.com"
     }
   ],
   "Europe": [
     {
       "name": "Sapphire Princess",
-      "route": "Barcelona → Rome",
+      "route": "Barcelona \u2192 Rome",
       "price": 1099,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Princess Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/princess.com"
     },
     {
       "name": "Caribbean Princess",
-      "route": "Southampton → Bergen",
+      "route": "Southampton \u2192 Bergen",
       "price": 1199,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Princess Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/princess.com"
     },
     {
       "name": "Norwegian Epic",
-      "route": "Rome → Barcelona",
+      "route": "Rome \u2192 Barcelona",
       "price": 999,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Norwegian Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/ncl.com"
     },
     {
       "name": "MSC Grandiosa",
-      "route": "Genoa → Marseille",
+      "route": "Genoa \u2192 Marseille",
       "price": 849,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "MSC Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/msccruises.com"
     },
     {
       "name": "Queen Mary 2",
-      "route": "Southampton → New York",
+      "route": "Southampton \u2192 New York",
       "price": 1499,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Cunard",
+      "cruiseLineLogo": "https://logo.clearbit.com/cunard.com"
     },
     {
       "name": "Celebrity Edge",
-      "route": "Athens → Naples",
+      "route": "Athens \u2192 Naples",
       "price": 1299,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Celebrity Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/celebritycruises.com"
     },
     {
       "name": "Azamara Journey",
-      "route": "Lisbon → Seville",
+      "route": "Lisbon \u2192 Seville",
       "price": 1599,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Azamara",
+      "cruiseLineLogo": "https://logo.clearbit.com/azamara.com"
     },
     {
       "name": "Viking Star",
-      "route": "Stockholm → Copenhagen",
+      "route": "Stockholm \u2192 Copenhagen",
       "price": 1799,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Viking Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/vikingcruises.com"
     },
     {
       "name": "Costa Smeralda",
-      "route": "Barcelona → Palma",
+      "route": "Barcelona \u2192 Palma",
       "price": 799,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Costa Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/costacruises.com"
     },
     {
       "name": "AIDAdiva",
-      "route": "Hamburg → Oslo",
+      "route": "Hamburg \u2192 Oslo",
       "price": 699,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     }
   ],
   "Bahamas": [
     {
       "name": "Mariner of the Seas",
-      "route": "Miami → CocoCay",
+      "route": "Miami \u2192 CocoCay",
       "price": 499,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Carnival Sunrise",
-      "route": "Miami → Nassau",
+      "route": "Miami \u2192 Nassau",
       "price": 449,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Carnival Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/carnival.com"
     },
     {
       "name": "Norwegian Sky",
-      "route": "Miami → Freeport",
+      "route": "Miami \u2192 Freeport",
       "price": 399,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Norwegian Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/ncl.com"
     },
     {
       "name": "Disney Magic",
-      "route": "Port Canaveral → Castaway Cay",
+      "route": "Port Canaveral \u2192 Castaway Cay",
       "price": 999,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Disney Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/disneycruise.disney.go.com"
     },
     {
       "name": "Majesty of the Seas",
-      "route": "Fort Lauderdale → Bimini",
+      "route": "Fort Lauderdale \u2192 Bimini",
       "price": 429,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     }
   ],
   "Mediterranean": [
     {
       "name": "MSC Seaview",
-      "route": "Barcelona → Palma",
+      "route": "Barcelona \u2192 Palma",
       "price": 899,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "MSC Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/msccruises.com"
     },
     {
       "name": "Celebrity Reflection",
-      "route": "Rome → Santorini",
+      "route": "Rome \u2192 Santorini",
       "price": 1199,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Celebrity Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/celebritycruises.com"
     },
     {
       "name": "Costa Diadema",
-      "route": "Venice → Dubrovnik",
+      "route": "Venice \u2192 Dubrovnik",
       "price": 799,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Costa Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/costacruises.com"
     },
     {
       "name": "Norwegian Getaway",
-      "route": "Barcelona → Cannes",
+      "route": "Barcelona \u2192 Cannes",
       "price": 949,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Norwegian Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/ncl.com"
     },
     {
       "name": "Royal Princess",
-      "route": "Athens → Mykonos",
+      "route": "Athens \u2192 Mykonos",
       "price": 1099,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Princess Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/princess.com"
     }
   ],
   "Mexico": [
     {
       "name": "Carnival Panorama",
-      "route": "Long Beach → Cabo San Lucas",
+      "route": "Long Beach \u2192 Cabo San Lucas",
       "price": 649,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Carnival Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/carnival.com"
     },
     {
       "name": "Navigator of the Seas",
-      "route": "Los Angeles → Ensenada",
+      "route": "Los Angeles \u2192 Ensenada",
       "price": 549,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Royal Caribbean",
+      "cruiseLineLogo": "https://logo.clearbit.com/royalcaribbean.com"
     },
     {
       "name": "Norwegian Bliss",
-      "route": "Los Angeles → Puerto Vallarta",
+      "route": "Los Angeles \u2192 Puerto Vallarta",
       "price": 799,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Norwegian Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/ncl.com"
     },
     {
       "name": "Ruby Princess",
-      "route": "San Francisco → Mazatlán",
+      "route": "San Francisco \u2192 Mazatl\u00e1n",
       "price": 699,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Princess Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/princess.com"
     },
     {
       "name": "Carnival Miracle",
-      "route": "San Diego → Cabo San Lucas",
+      "route": "San Diego \u2192 Cabo San Lucas",
       "price": 599,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Carnival Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/carnival.com"
     }
   ],
   "default": [
     {
       "name": "Royal Caribbean",
-      "route": "Port Canaveral → Bahamas",
+      "route": "Port Canaveral \u2192 Bahamas",
       "price": 599,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Royal Caribbean",
+      "cruiseLineLogo": "https://logo.clearbit.com/royalcaribbean.com"
     },
     {
       "name": "MSC Seaside",
-      "route": "Miami → Jamaica",
+      "route": "Miami \u2192 Jamaica",
       "price": 699,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "MSC Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/msccruises.com"
     },
     {
       "name": "Carnival Horizon",
-      "route": "Miami → Grand Cayman",
+      "route": "Miami \u2192 Grand Cayman",
       "price": 649,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Carnival Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/carnival.com"
     },
     {
       "name": "Norwegian Escape",
-      "route": "New York → Bermuda",
+      "route": "New York \u2192 Bermuda",
       "price": 799,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Norwegian Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/ncl.com"
     },
     {
       "name": "Celebrity Equinox",
-      "route": "Fort Lauderdale → Key West",
+      "route": "Fort Lauderdale \u2192 Key West",
       "price": 749,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Celebrity Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/celebritycruises.com"
     }
   ],
-
   "Australia": [
     {
       "name": "Ovation of the Seas",
-      "route": "Sydney → Hobart",
+      "route": "Sydney \u2192 Hobart",
       "price": 999,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Pacific Explorer",
-      "route": "Brisbane → Cairns",
+      "route": "Brisbane \u2192 Cairns",
       "price": 849,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Coral Princess",
-      "route": "Melbourne → Adelaide",
+      "route": "Melbourne \u2192 Adelaide",
       "price": 899,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Princess Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/princess.com"
     },
     {
       "name": "Queen Elizabeth",
-      "route": "Sydney → Auckland",
+      "route": "Sydney \u2192 Auckland",
       "price": 1299,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Cunard",
+      "cruiseLineLogo": "https://logo.clearbit.com/cunard.com"
     },
     {
       "name": "Carnival Splendor",
-      "route": "Sydney → Moreton Island",
+      "route": "Sydney \u2192 Moreton Island",
       "price": 799,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Carnival Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/carnival.com"
     }
   ],
   "Asia": [
     {
       "name": "Spectrum of the Seas",
-      "route": "Singapore → Penang",
+      "route": "Singapore \u2192 Penang",
       "price": 699,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Genting Dream",
-      "route": "Hong Kong → Okinawa",
+      "route": "Hong Kong \u2192 Okinawa",
       "price": 899,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Diamond Princess",
-      "route": "Tokyo → Busan",
+      "route": "Tokyo \u2192 Busan",
       "price": 1099,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Princess Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/princess.com"
     },
     {
       "name": "Costa Serena",
-      "route": "Shanghai → Fukuoka",
+      "route": "Shanghai \u2192 Fukuoka",
       "price": 799,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Costa Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/costacruises.com"
     },
     {
       "name": "Celebrity Millennium",
-      "route": "Yokohama → Taipei",
+      "route": "Yokohama \u2192 Taipei",
       "price": 1199,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Celebrity Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/celebritycruises.com"
     }
   ],
   "South America": [
     {
       "name": "Norwegian Star",
-      "route": "Buenos Aires → Rio de Janeiro",
+      "route": "Buenos Aires \u2192 Rio de Janeiro",
       "price": 1399,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Norwegian Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/ncl.com"
     },
     {
       "name": "MSC Musica",
-      "route": "Santos → Montevideo",
+      "route": "Santos \u2192 Montevideo",
       "price": 999,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "MSC Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/msccruises.com"
     },
     {
       "name": "Zaandam",
-      "route": "Valparaiso → Buenos Aires",
+      "route": "Valparaiso \u2192 Buenos Aires",
       "price": 1599,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Holland America Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/hollandamerica.com"
     },
     {
       "name": "Coral Princess",
-      "route": "Lima → Santiago",
+      "route": "Lima \u2192 Santiago",
       "price": 1499,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Princess Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/princess.com"
     },
     {
       "name": "Costa Fascinosa",
-      "route": "Rio de Janeiro → Salvador",
+      "route": "Rio de Janeiro \u2192 Salvador",
       "price": 899,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Costa Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/costacruises.com"
     },
     {
       "name": "Celebrity Eclipse",
-      "route": "Buenos Aires → Ushuaia",
+      "route": "Buenos Aires \u2192 Ushuaia",
       "price": 1699,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Celebrity Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/celebritycruises.com"
     },
     {
       "name": "Seabourn Quest",
-      "route": "Rio de Janeiro → Buenos Aires",
+      "route": "Rio de Janeiro \u2192 Buenos Aires",
       "price": 1899,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Silver Muse",
-      "route": "Lima → Valparaiso",
+      "route": "Lima \u2192 Valparaiso",
       "price": 2099,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Silversea Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/silversea.com"
     },
     {
       "name": "Azamara Pursuit",
-      "route": "Montevideo → Buenos Aires",
+      "route": "Montevideo \u2192 Buenos Aires",
       "price": 1299,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Azamara",
+      "cruiseLineLogo": "https://logo.clearbit.com/azamara.com"
     },
     {
       "name": "MSC Sinfonia",
-      "route": "Santos → Punta del Este",
+      "route": "Santos \u2192 Punta del Este",
       "price": 899,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "MSC Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/msccruises.com"
     },
     {
       "name": "Costa Pacifica",
-      "route": "Rio de Janeiro → Ilhabela",
+      "route": "Rio de Janeiro \u2192 Ilhabela",
       "price": 799,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Costa Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/costacruises.com"
     },
     {
       "name": "Norwegian Sun",
-      "route": "Valparaiso → Lima",
+      "route": "Valparaiso \u2192 Lima",
       "price": 1199,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Norwegian Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/ncl.com"
     },
     {
       "name": "Coral Princess",
-      "route": "Buenos Aires → Montevideo",
+      "route": "Buenos Aires \u2192 Montevideo",
       "price": 999,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Princess Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/princess.com"
     },
     {
       "name": "MSC Preziosa",
-      "route": "Santos → Salvador",
+      "route": "Santos \u2192 Salvador",
       "price": 1099,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "MSC Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/msccruises.com"
     },
     {
       "name": "Silver Spirit",
-      "route": "Lima → Buenos Aires",
+      "route": "Lima \u2192 Buenos Aires",
       "price": 2199,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Silversea Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/silversea.com"
     }
   ],
   "Transatlantic": [
     {
       "name": "Queen Mary 2",
-      "route": "Southampton → New York",
+      "route": "Southampton \u2192 New York",
       "price": 1599,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Cunard",
+      "cruiseLineLogo": "https://logo.clearbit.com/cunard.com"
     },
     {
       "name": "Norwegian Getaway",
-      "route": "Barcelona → Miami",
+      "route": "Barcelona \u2192 Miami",
       "price": 1399,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Norwegian Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/ncl.com"
     },
     {
       "name": "Celebrity Silhouette",
-      "route": "Lisbon → Fort Lauderdale",
+      "route": "Lisbon \u2192 Fort Lauderdale",
       "price": 1499,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Celebrity Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/celebritycruises.com"
     }
   ],
   "Canada": [
     {
       "name": "Caribbean Princess",
-      "route": "New York → Quebec City",
+      "route": "New York \u2192 Quebec City",
       "price": 999,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Princess Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/princess.com"
     },
     {
       "name": "Norwegian Gem",
-      "route": "Boston → Halifax",
+      "route": "Boston \u2192 Halifax",
       "price": 899,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Norwegian Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/ncl.com"
     },
     {
       "name": "Zaandam",
-      "route": "Montreal → Charlottetown",
+      "route": "Montreal \u2192 Charlottetown",
       "price": 1099,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Holland America Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/hollandamerica.com"
     }
   ],
   "England": [
     {
       "name": "Britannia",
-      "route": "Southampton → Liverpool",
+      "route": "Southampton \u2192 Liverpool",
       "price": 799,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Queen Elizabeth",
-      "route": "London → Edinburgh",
+      "route": "London \u2192 Edinburgh",
       "price": 999,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Cunard",
+      "cruiseLineLogo": "https://logo.clearbit.com/cunard.com"
     },
     {
       "name": "MSC Virtuosa",
-      "route": "Southampton → Belfast",
+      "route": "Southampton \u2192 Belfast",
       "price": 899,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "MSC Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/msccruises.com"
     }
   ],
   "Hawaii": [
     {
       "name": "Pride of America",
-      "route": "Honolulu → Maui",
+      "route": "Honolulu \u2192 Maui",
       "price": 1299,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Norwegian Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/ncl.com"
     },
     {
       "name": "Celebrity Eclipse",
-      "route": "Vancouver → Hilo",
+      "route": "Vancouver \u2192 Hilo",
       "price": 1499,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Celebrity Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/celebritycruises.com"
     },
     {
       "name": "Emerald Princess",
-      "route": "Los Angeles → Honolulu",
+      "route": "Los Angeles \u2192 Honolulu",
       "price": 1399,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Princess Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/princess.com"
     }
   ],
   "MiddleEast": [
     {
       "name": "MSC Bellissima",
-      "route": "Dubai → Abu Dhabi",
+      "route": "Dubai \u2192 Abu Dhabi",
       "price": 999,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "MSC Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/msccruises.com"
     },
     {
       "name": "Costa Diadema",
-      "route": "Dubai → Muscat",
+      "route": "Dubai \u2192 Muscat",
       "price": 1099,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Costa Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/costacruises.com"
     },
     {
       "name": "Jewel of the Seas",
-      "route": "Abu Dhabi → Doha",
+      "route": "Abu Dhabi \u2192 Doha",
       "price": 899,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     }
   ],
   "Central America": [
     {
       "name": "Norwegian Pearl",
-      "route": "Miami → Costa Maya",
+      "route": "Miami \u2192 Costa Maya",
       "price": 799,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Norwegian Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/ncl.com"
     },
     {
       "name": "Carnival Miracle",
-      "route": "Tampa → Belize City",
+      "route": "Tampa \u2192 Belize City",
       "price": 899,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Carnival Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/carnival.com"
     },
     {
       "name": "MSC Armonia",
-      "route": "Miami → Roatán",
+      "route": "Miami \u2192 Roat\u00e1n",
       "price": 849,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "MSC Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/msccruises.com"
     }
   ],
   "Panama Canal": [
     {
       "name": "Coral Princess",
-      "route": "Fort Lauderdale → Panama City",
+      "route": "Fort Lauderdale \u2192 Panama City",
       "price": 1399,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Princess Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/princess.com"
     },
     {
       "name": "Norwegian Bliss",
-      "route": "Los Angeles → Panama City",
+      "route": "Los Angeles \u2192 Panama City",
       "price": 1499,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Norwegian Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/ncl.com"
     },
     {
       "name": "Island Princess",
-      "route": "Miami → Colon",
+      "route": "Miami \u2192 Colon",
       "price": 1299,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Princess Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/princess.com"
     }
   ],
   "South Pacific": [
     {
       "name": "Pacific Explorer",
-      "route": "Sydney → Noumea",
+      "route": "Sydney \u2192 Noumea",
       "price": 1099,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Ovation of the Seas",
-      "route": "Auckland → Fiji",
+      "route": "Auckland \u2192 Fiji",
       "price": 1299,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Carnival Spirit",
-      "route": "Brisbane → Vanuatu",
+      "route": "Brisbane \u2192 Vanuatu",
       "price": 999,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Carnival Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/carnival.com"
     }
   ],
   "Transpacific": [
     {
       "name": "Celebrity Solstice",
-      "route": "Vancouver → Tokyo",
+      "route": "Vancouver \u2192 Tokyo",
       "price": 2199,
-      "image": "https://www.cruisemapper.com/images/ships/1052-large-8a0e1141fd37fa5b98d5bb769ba1a7cc.jpg"
+      "image": "https://www.cruisemapper.com/images/ships/1052-large-8a0e1141fd37fa5b98d5bb769ba1a7cc.jpg",
+      "cruiseLine": "Celebrity Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/celebritycruises.com"
     },
     {
       "name": "Ovation of the Seas",
-      "route": "Seattle → Sydney",
+      "route": "Seattle \u2192 Sydney",
       "price": 2499,
-      "image": "https://www.cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://www.cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Carnival Splendor",
-      "route": "Los Angeles → Singapore",
+      "route": "Los Angeles \u2192 Singapore",
       "price": 2299,
-      "image": "https://static.vesselfinder.net/ship-photo/9333163-371774000-1c2e9e2e8c7c3f7e2c1e8e7e8e7e8e7e/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9333163-371774000-1c2e9e2e8c7c3f7e2c1e8e7e8e7e8e7e/1?v1",
+      "cruiseLine": "Carnival Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/carnival.com"
     }
   ],
   "Baltic Sea": [
     {
       "name": "MSC Poesia",
-      "route": "Copenhagen → St. Petersburg",
+      "route": "Copenhagen \u2192 St. Petersburg",
       "price": 1399,
-      "image": "https://www.cruisemapper.com/images/ships/1055-large-8a0e1141fd37fa5b98d5bb769ba1a7cc.jpg"
+      "image": "https://www.cruisemapper.com/images/ships/1055-large-8a0e1141fd37fa5b98d5bb769ba1a7cc.jpg",
+      "cruiseLine": "MSC Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/msccruises.com"
     },
     {
       "name": "Regal Princess",
-      "route": "Stockholm → Tallinn",
+      "route": "Stockholm \u2192 Tallinn",
       "price": 1499,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Princess Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/princess.com"
     }
   ],
   "Greek Isles": [
     {
       "name": "Norwegian Jade",
-      "route": "Athens → Santorini",
+      "route": "Athens \u2192 Santorini",
       "price": 1199,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Norwegian Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/ncl.com"
     },
     {
       "name": "Celestyal Olympia",
-      "route": "Athens → Mykonos",
+      "route": "Athens \u2192 Mykonos",
       "price": 999,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     }
   ],
   "Norwegian Fjords": [
     {
       "name": "MSC Virtuosa",
-      "route": "Bergen → Geiranger",
+      "route": "Bergen \u2192 Geiranger",
       "price": 1399,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "MSC Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/msccruises.com"
     },
     {
       "name": "Hurtigruten Nordkapp",
-      "route": "Bergen → Kirkenes",
+      "route": "Bergen \u2192 Kirkenes",
       "price": 1599,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     }
   ],
   "New Zealand": [
     {
       "name": "Majestic Princess",
-      "route": "Auckland → Wellington",
+      "route": "Auckland \u2192 Wellington",
       "price": 1299,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Princess Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/princess.com"
     },
     {
       "name": "Ovation of the Seas",
-      "route": "Sydney → Dunedin",
+      "route": "Sydney \u2192 Dunedin",
       "price": 1399,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Norwegian Spirit",
-      "route": "Auckland → Christchurch",
+      "route": "Auckland \u2192 Christchurch",
       "price": 1499,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Norwegian Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/ncl.com"
     },
     {
       "name": "Celebrity Solstice",
-      "route": "Wellington → Fiordland",
+      "route": "Wellington \u2192 Fiordland",
       "price": 1599,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Celebrity Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/celebritycruises.com"
     }
   ],
   "Iceland": [
     {
       "name": "Viking Sky",
-      "route": "Reykjavik → Akureyri",
+      "route": "Reykjavik \u2192 Akureyri",
       "price": 1799,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Viking Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/vikingcruises.com"
     },
     {
       "name": "Norwegian Star",
-      "route": "Reykjavik → Isafjordur",
+      "route": "Reykjavik \u2192 Isafjordur",
       "price": 1899,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Norwegian Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/ncl.com"
     },
     {
       "name": "Silver Whisper",
-      "route": "Akureyri → Reykjavik",
+      "route": "Akureyri \u2192 Reykjavik",
       "price": 1999,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Silversea Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/silversea.com"
     }
   ],
   "Dubai": [
     {
       "name": "Costa Firenze",
-      "route": "Dubai → Muscat",
+      "route": "Dubai \u2192 Muscat",
       "price": 1099,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Costa Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/costacruises.com"
     },
     {
       "name": "MSC Bellissima",
-      "route": "Dubai → Abu Dhabi",
+      "route": "Dubai \u2192 Abu Dhabi",
       "price": 999,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "MSC Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/msccruises.com"
     },
     {
       "name": "Jewel of the Seas",
-      "route": "Dubai → Doha",
+      "route": "Dubai \u2192 Doha",
       "price": 1199,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     }
   ],
   "Singapore": [
     {
       "name": "Quantum of the Seas",
-      "route": "Singapore → Penang",
+      "route": "Singapore \u2192 Penang",
       "price": 899,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Genting Dream",
-      "route": "Singapore → Langkawi",
+      "route": "Singapore \u2192 Langkawi",
       "price": 799,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Voyager of the Seas",
-      "route": "Singapore → Phuket",
+      "route": "Singapore \u2192 Phuket",
       "price": 999,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     }
   ],
   "Japan": [
     {
       "name": "Diamond Princess",
-      "route": "Yokohama → Osaka",
+      "route": "Yokohama \u2192 Osaka",
       "price": 1299,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Princess Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/princess.com"
     },
     {
       "name": "Celebrity Millennium",
-      "route": "Tokyo → Kyoto",
+      "route": "Tokyo \u2192 Kyoto",
       "price": 1399,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Celebrity Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/celebritycruises.com"
     },
     {
       "name": "Costa Serena",
-      "route": "Osaka → Fukuoka",
+      "route": "Osaka \u2192 Fukuoka",
       "price": 1199,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Costa Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/costacruises.com"
     }
   ],
   "Hong Kong": [
     {
       "name": "Spectrum of the Seas",
-      "route": "Hong Kong → Okinawa",
+      "route": "Hong Kong \u2192 Okinawa",
       "price": 1099,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Genting Dream",
-      "route": "Hong Kong → Halong Bay",
+      "route": "Hong Kong \u2192 Halong Bay",
       "price": 999,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Voyager of the Seas",
-      "route": "Hong Kong → Manila",
+      "route": "Hong Kong \u2192 Manila",
       "price": 899,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     }
   ],
-  
   "Vietnam": [
     {
       "name": "Celebrity Millennium",
-      "route": "Hong Kong → Ho Chi Minh City",
+      "route": "Hong Kong \u2192 Ho Chi Minh City",
       "price": 1199,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Celebrity Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/celebritycruises.com"
     },
     {
       "name": "Azamara Quest",
-      "route": "Singapore → Da Nang",
+      "route": "Singapore \u2192 Da Nang",
       "price": 1399,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Azamara",
+      "cruiseLineLogo": "https://logo.clearbit.com/azamara.com"
     },
     {
       "name": "Norwegian Spirit",
-      "route": "Bangkok → Ha Long Bay",
+      "route": "Bangkok \u2192 Ha Long Bay",
       "price": 1499,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Norwegian Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/ncl.com"
     }
   ],
   "Thailand": [
     {
       "name": "Voyager of the Seas",
-      "route": "Singapore → Phuket",
+      "route": "Singapore \u2192 Phuket",
       "price": 999,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Spectrum of the Seas",
-      "route": "Bangkok → Koh Samui",
+      "route": "Bangkok \u2192 Koh Samui",
       "price": 1099,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Costa Fortuna",
-      "route": "Singapore → Pattaya",
+      "route": "Singapore \u2192 Pattaya",
       "price": 899,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Costa Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/costacruises.com"
     }
   ],
   "Fiji": [
     {
       "name": "Pacific Explorer",
-      "route": "Sydney → Suva",
+      "route": "Sydney \u2192 Suva",
       "price": 1299,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Ovation of the Seas",
-      "route": "Auckland → Lautoka",
+      "route": "Auckland \u2192 Lautoka",
       "price": 1399,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Carnival Spirit",
-      "route": "Brisbane → Nadi",
+      "route": "Brisbane \u2192 Nadi",
       "price": 1199,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Carnival Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/carnival.com"
     }
   ],
   "Tahiti": [
     {
       "name": "Paul Gauguin",
-      "route": "Papeete → Bora Bora",
+      "route": "Papeete \u2192 Bora Bora",
       "price": 2499,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     }
   ],
   "Malaysia": [
     {
       "name": "Genting Dream",
-      "route": "Singapore → Langkawi",
+      "route": "Singapore \u2192 Langkawi",
       "price": 899,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Spectrum of the Seas",
-      "route": "Penang → Kuala Lumpur",
+      "route": "Penang \u2192 Kuala Lumpur",
       "price": 799,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Costa Serena",
-      "route": "Kota Kinabalu → Singapore",
+      "route": "Kota Kinabalu \u2192 Singapore",
       "price": 999,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Costa Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/costacruises.com"
     }
   ],
   "Indian Ocean": [
     {
       "name": "Costa Victoria",
-      "route": "Mauritius → Seychelles",
+      "route": "Mauritius \u2192 Seychelles",
       "price": 1799,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Costa Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/costacruises.com"
     },
     {
       "name": "Silver Spirit",
-      "route": "Maldives → Madagascar",
+      "route": "Maldives \u2192 Madagascar",
       "price": 2499,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Silversea Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/silversea.com"
     },
     {
       "name": "Le Lyrial",
-      "route": "Reunion Island → Seychelles",
+      "route": "Reunion Island \u2192 Seychelles",
       "price": 1999,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     }
   ],
   "Red Sea": [
     {
       "name": "MSC Opera",
-      "route": "Safaga → Aqaba",
+      "route": "Safaga \u2192 Aqaba",
       "price": 1399,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "MSC Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/msccruises.com"
     },
     {
       "name": "Costa Diadema",
-      "route": "Jeddah → Sharm El-Sheikh",
+      "route": "Jeddah \u2192 Sharm El-Sheikh",
       "price": 1299,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Costa Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/costacruises.com"
     },
     {
       "name": "Silver Whisper",
-      "route": "Aqaba → Port Sudan",
+      "route": "Aqaba \u2192 Port Sudan",
       "price": 1599,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Silversea Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/silversea.com"
     }
   ],
   "Seychelles": [
     {
       "name": "Le Bougainville",
-      "route": "Mahe → Praslin",
+      "route": "Mahe \u2192 Praslin",
       "price": 2499,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Silver Spirit",
-      "route": "Mahe → La Digue",
+      "route": "Mahe \u2192 La Digue",
       "price": 2299,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Silversea Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/silversea.com"
     },
     {
       "name": "Crystal Esprit",
-      "route": "Praslin → Mahe",
+      "route": "Praslin \u2192 Mahe",
       "price": 2699,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     }
   ],
   "Maldives": [
     {
       "name": "Costa neoClassica",
-      "route": "Male → Colombo",
+      "route": "Male \u2192 Colombo",
       "price": 1899,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Costa Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/costacruises.com"
     },
     {
       "name": "Silver Shadow",
-      "route": "Male → Maafushi",
+      "route": "Male \u2192 Maafushi",
       "price": 1999,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Silversea Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/silversea.com"
     },
     {
       "name": "Le Champlain",
-      "route": "Male → Addu Atoll",
+      "route": "Male \u2192 Addu Atoll",
       "price": 2199,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     }
   ],
   "Sri Lanka": [
     {
       "name": "MSC Lirica",
-      "route": "Colombo → Hambantota",
+      "route": "Colombo \u2192 Hambantota",
       "price": 999,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "MSC Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/msccruises.com"
     },
     {
       "name": "Costa Fortuna",
-      "route": "Colombo → Trincomalee",
+      "route": "Colombo \u2192 Trincomalee",
       "price": 1199,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Costa Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/costacruises.com"
     },
     {
       "name": "Silver Muse",
-      "route": "Hambantota → Colombo",
+      "route": "Hambantota \u2192 Colombo",
       "price": 1399,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Silversea Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/silversea.com"
     }
   ],
   "Chile": [
     {
       "name": "Zaandam",
-      "route": "Valparaiso → Punta Arenas",
+      "route": "Valparaiso \u2192 Punta Arenas",
       "price": 1599,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Holland America Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/hollandamerica.com"
     },
     {
       "name": "Norwegian Star",
-      "route": "Santiago → Puerto Montt",
+      "route": "Santiago \u2192 Puerto Montt",
       "price": 1499,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Norwegian Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/ncl.com"
     },
     {
       "name": "Silver Explorer",
-      "route": "Punta Arenas → Valparaiso",
+      "route": "Punta Arenas \u2192 Valparaiso",
       "price": 1799,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Silversea Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/silversea.com"
     }
   ],
   "Argentina": [
     {
       "name": "Norwegian Sun",
-      "route": "Buenos Aires → Ushuaia",
+      "route": "Buenos Aires \u2192 Ushuaia",
       "price": 1699,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Norwegian Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/ncl.com"
     },
     {
       "name": "Celebrity Eclipse",
-      "route": "Buenos Aires → Puerto Madryn",
+      "route": "Buenos Aires \u2192 Puerto Madryn",
       "price": 1499,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Celebrity Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/celebritycruises.com"
     },
     {
       "name": "Silver Wind",
-      "route": "Ushuaia → Buenos Aires",
+      "route": "Ushuaia \u2192 Buenos Aires",
       "price": 1899,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Silversea Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/silversea.com"
     }
   ],
   "Brazil": [
     {
       "name": "MSC Preziosa",
-      "route": "Rio de Janeiro → Salvador",
+      "route": "Rio de Janeiro \u2192 Salvador",
       "price": 1199,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "MSC Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/msccruises.com"
     },
     {
       "name": "Costa Fascinosa",
-      "route": "Santos → Rio de Janeiro",
+      "route": "Santos \u2192 Rio de Janeiro",
       "price": 999,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Costa Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/costacruises.com"
     },
     {
       "name": "Silver Spirit",
-      "route": "Salvador → Recife",
+      "route": "Salvador \u2192 Recife",
       "price": 1399,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Silversea Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/silversea.com"
     }
   ],
   "Costa Rica": [
     {
       "name": "Coral Princess",
-      "route": "Puntarenas → Panama City",
+      "route": "Puntarenas \u2192 Panama City",
       "price": 1399,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Princess Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/princess.com"
     },
     {
       "name": "Silver Explorer",
-      "route": "Puntarenas → San Juan del Sur",
+      "route": "Puntarenas \u2192 San Juan del Sur",
       "price": 1499,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Silversea Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/silversea.com"
     },
     {
       "name": "Norwegian Jewel",
-      "route": "Limon → Colon",
+      "route": "Limon \u2192 Colon",
       "price": 1299,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Norwegian Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/ncl.com"
     }
   ],
   "Puerto Rico": [
     {
       "name": "Carnival Fascination",
-      "route": "San Juan → St. Thomas",
+      "route": "San Juan \u2192 St. Thomas",
       "price": 899,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Carnival Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/carnival.com"
     },
     {
       "name": "Celebrity Summit",
-      "route": "San Juan → St. Kitts",
+      "route": "San Juan \u2192 St. Kitts",
       "price": 999,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Celebrity Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/celebritycruises.com"
     },
     {
       "name": "Royal Caribbean",
-      "route": "San Juan → Antigua",
+      "route": "San Juan \u2192 Antigua",
       "price": 1099,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Royal Caribbean",
+      "cruiseLineLogo": "https://logo.clearbit.com/royalcaribbean.com"
     }
   ],
   "Barbados": [
     {
       "name": "Royal Clipper",
-      "route": "Bridgetown → St. Lucia",
+      "route": "Bridgetown \u2192 St. Lucia",
       "price": 1299,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Celebrity Reflection",
-      "route": "Bridgetown → Grenada",
+      "route": "Bridgetown \u2192 Grenada",
       "price": 1399,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Celebrity Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/celebritycruises.com"
     },
     {
       "name": "Norwegian Dawn",
-      "route": "Bridgetown → Dominica",
+      "route": "Bridgetown \u2192 Dominica",
       "price": 1199,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Norwegian Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/ncl.com"
     }
   ],
   "Jamaica": [
     {
       "name": "MSC Seaside",
-      "route": "Montego Bay → Ocho Rios",
+      "route": "Montego Bay \u2192 Ocho Rios",
       "price": 999,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "MSC Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/msccruises.com"
     },
     {
       "name": "Carnival Sunrise",
-      "route": "Montego Bay → Falmouth",
+      "route": "Montego Bay \u2192 Falmouth",
       "price": 899,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Carnival Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/carnival.com"
     },
     {
       "name": "Royal Caribbean",
-      "route": "Ocho Rios → Grand Cayman",
+      "route": "Ocho Rios \u2192 Grand Cayman",
       "price": 1099,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Royal Caribbean",
+      "cruiseLineLogo": "https://logo.clearbit.com/royalcaribbean.com"
     }
   ],
   "St. Lucia": [
     {
       "name": "Celebrity Reflection",
-      "route": "Castries → Barbados",
+      "route": "Castries \u2192 Barbados",
       "price": 1099,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Celebrity Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/celebritycruises.com"
     },
     {
       "name": "Royal Clipper",
-      "route": "Castries → Martinique",
+      "route": "Castries \u2192 Martinique",
       "price": 999,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Norwegian Epic",
-      "route": "Castries → Antigua",
+      "route": "Castries \u2192 Antigua",
       "price": 1199,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Norwegian Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/ncl.com"
     }
   ],
   "St. Maarten": [
     {
       "name": "Adventure of the Seas",
-      "route": "Philipsburg → San Juan",
+      "route": "Philipsburg \u2192 San Juan",
       "price": 999,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Various",
+      "cruiseLineLogo": ""
     },
     {
       "name": "Celebrity Equinox",
-      "route": "Philipsburg → Tortola",
+      "route": "Philipsburg \u2192 Tortola",
       "price": 1099,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Celebrity Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/celebritycruises.com"
     },
     {
       "name": "Norwegian Bliss",
-      "route": "Philipsburg → St. Kitts",
+      "route": "Philipsburg \u2192 St. Kitts",
       "price": 1199,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "Norwegian Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/ncl.com"
     }
   ],
   "Dominican Republic": [
     {
       "name": "Carnival Horizon",
-      "route": "La Romana → Grand Turk",
+      "route": "La Romana \u2192 Grand Turk",
       "price": 899,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Carnival Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/carnival.com"
     },
     {
       "name": "MSC Seaside",
-      "route": "Santo Domingo → St. Thomas",
+      "route": "Santo Domingo \u2192 St. Thomas",
       "price": 999,
-      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768"
+      "image": "https://krfbe.twic.pics/library/original/aussenansicht.4erir5ax.jpg?twic=v1/cover=4:2.25/resize=768",
+      "cruiseLine": "MSC Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/msccruises.com"
     },
     {
       "name": "Norwegian Escape",
-      "route": "Puerto Plata → Nassau",
+      "route": "Puerto Plata \u2192 Nassau",
       "price": 849,
-      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg"
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Noordam.jpg/1200px-Noordam.jpg",
+      "cruiseLine": "Norwegian Cruise Line",
+      "cruiseLineLogo": "https://logo.clearbit.com/ncl.com"
     },
     {
       "name": "Celebrity Equinox",
-      "route": "La Romana → Aruba",
+      "route": "La Romana \u2192 Aruba",
       "price": 1099,
-      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp"
+      "image": "https://cruiseindustrynews.com/wp-content/uploads/2018/09/goldenprincess.jpg.webp",
+      "cruiseLine": "Celebrity Cruises",
+      "cruiseLineLogo": "https://logo.clearbit.com/celebritycruises.com"
     },
     {
       "name": "Royal Caribbean",
-      "route": "Santo Domingo → Cozumel",
+      "route": "Santo Domingo \u2192 Cozumel",
       "price": 1199,
-      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1"
+      "image": "https://static.vesselfinder.net/ship-photo/9229659-310376000-d8f654ac46fed19492ee563b98e67965/1?v1",
+      "cruiseLine": "Royal Caribbean",
+      "cruiseLineLogo": "https://logo.clearbit.com/royalcaribbean.com"
     }
   ]
-
 }

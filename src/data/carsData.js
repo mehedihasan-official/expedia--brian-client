@@ -150,7 +150,78 @@ export const carRentalData = [
     retailPricePerDay: 250,
     features: ["Free cancellation", "Pay at pick-up"],
     category: "luxury"
+  },
+  {
+    id: "CAR009",
+    type: "Economy",
+    brand: "Hyundai Accent or similar",
+    image: "https://www.motortrend.com/uploads/sites/10/2022/01/2022-Kia-Rio-S-FWD-sedan-angular-front.png",
+    passengers: 4,
+    transmission: "Automatic",
+    bags: 2,
+    mileage: "Unlimited mileage",
+    fuelType: "Gasoline",
+    airConditioning: true,
+    vendor: "Europcar",
+    vendorLogo: "https://logo.clearbit.com/europcar.com",
+    rating: 4.0,
+    reviewCount: 102,
+    retailPricePerDay: 70,
+    features: ["Free cancellation", "Pay at pick-up"],
+    category: "economy"
+  },
+  {
+    id: "CAR010",
+    type: "Compact SUV",
+    brand: "Nissan Rogue or similar",
+    image: "https://di-uploads-pod40.dealerinspire.com/toyotaoforlando/uploads/2023/02/2023-Toyota-RAV4-White.png",
+    passengers: 5,
+    transmission: "Automatic",
+    bags: 3,
+    mileage: "Unlimited mileage",
+    fuelType: "Gasoline",
+    airConditioning: true,
+    vendor: "ACE Rent A Car",
+    vendorLogo: "https://logo.clearbit.com/acerentacar.com",
+    rating: 3.8,
+    reviewCount: 57,
+    retailPricePerDay: 105,
+    features: ["Free cancellation", "Pay at pick-up"],
+    category: "suv"
+  },
+  {
+    id: "CAR011",
+    type: "Full Size",
+    brand: "Ford Fusion or similar",
+    image: "https://di-uploads-pod8.dealerinspire.com/sundancechevy/uploads/2019/10/2020-Malibu-White.png",
+    passengers: 5,
+    transmission: "Automatic",
+    bags: 4,
+    mileage: "Unlimited mileage",
+    fuelType: "Gasoline",
+    airConditioning: true,
+    vendor: "Fox Rent A Car",
+    vendorLogo: "https://logo.clearbit.com/foxrentacar.com",
+    rating: 3.7,
+    reviewCount: 43,
+    retailPricePerDay: 90,
+    features: ["Free cancellation", "Pay at pick-up"],
+    category: "fullsize"
   }
+];
+
+export const carVendors = [
+  { name: "Enterprise", logo: "https://logo.clearbit.com/enterprise.com" },
+  { name: "Budget", logo: "https://logo.clearbit.com/budget.com" },
+  { name: "Europcar", logo: "https://logo.clearbit.com/europcar.com" },
+  { name: "Hertz", logo: "https://logo.clearbit.com/hertz.com" },
+  { name: "Alamo", logo: "https://logo.clearbit.com/alamo.com" },
+  { name: "Avis", logo: "https://logo.clearbit.com/avis.com" },
+  { name: "ACE Rent A Car", logo: "https://logo.clearbit.com/acerentacar.com" },
+  { name: "Sixt", logo: "https://logo.clearbit.com/sixt.com" },
+  { name: "Thrifty", logo: "https://logo.clearbit.com/thrifty.com" },
+  { name: "Fox Rent A Car", logo: "https://logo.clearbit.com/foxrentacar.com" },
+  { name: "National", logo: "https://logo.clearbit.com/nationalcar.com" }
 ];
 
 export const popularCarLocations = [
