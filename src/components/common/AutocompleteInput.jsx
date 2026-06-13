@@ -1,17 +1,19 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { FaMapPin } from "react-icons/fa";
 
+const EMPTY_ARRAY = [];
+
 const AutocompleteInput = ({
   value,
   onChange,
   onSelect,
-  options = [],
+  options = EMPTY_ARRAY,
   displayKey = null,
   getOptionLabel = null,
   placeholder = "",
   icon = null,
   label = "",
-  filterFields = [],
+  filterFields = EMPTY_ARRAY,
   disabled = false,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
