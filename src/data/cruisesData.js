@@ -540,3 +540,23 @@ export const cruiseCategories = [
   "St. Maarten",
   "Dominican Republic"
 ];
+
+
+export const cruiseLinesBrands = [
+  { name: "Royal Caribbean International", logo: "https://logo.clearbit.com/royalcaribbean.com" },
+  { name: "Norwegian Cruise Line",         logo: "https://logo.clearbit.com/ncl.com" },
+  { name: "Disney Cruise Line",            logo: "https://logo.clearbit.com/disneycruiseline.com" },
+  { name: "MSC Cruises",                   logo: "https://logo.clearbit.com/msccruises.com" },
+  { name: "Viking Cruises",                logo: "https://logo.clearbit.com/vikingcruises.com" },
+  { name: "Azamara",                       logo: "https://logo.clearbit.com/azamara.com" },
+  { name: "Costa Cruises",                 logo: "https://logo.clearbit.com/costacruises.com" },
+  { name: "Silversea Cruises",             logo: "https://logo.clearbit.com/silversea.com" },
+  { name: "Bahamas Paradise Cruise Line",  logo: "https://logo.clearbit.com/bahamasparadisecruise.com" },
+  { name: "Celebrity Cruises",             logo: "https://logo.clearbit.com/celebritycruises.com" },
+  { name: "Oceania Cruises",               logo: "https://logo.clearbit.com/oceaniacruises.com" },
+  { name: "Carnival Cruise Line",          logo: "https://logo.clearbit.com/carnival.com" },
+  { name: "Windstar Cruises",              logo: "https://logo.clearbit.com/windstarcruises.com" },
+  { name: "Victory Cruise Lines",          logo: "https://logo.clearbit.com/victorycruiselines.com" },
+  { name: "Princess Cruises",              logo: "https://logo.clearbit.com/princess.com" },
+  { name: "Cunard",                        logo: "https://logo.clearbit.com/cunard.com" }
+];

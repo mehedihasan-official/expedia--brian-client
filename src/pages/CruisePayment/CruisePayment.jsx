@@ -16,10 +16,8 @@ const CruisePayment = () => {
     pricing,
     paymentMode = "cash",
     guestCount = 2,
-    selectedExcursionDetails = [],
-    cashTotal = 0,
-    totalPoints = 0,
-    taxesEstimate = 0
+    guests = [],
+    selectedExcursionDetails = []
   } = state;
   const [activeTab, setActiveTab] = useState(paymentMode);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
@@ -38,8 +36,8 @@ const CruisePayment = () => {
   }, [cruise, selectedCabin, departureDate, pricing, navigate]);
 
   const paymentSummary = useMemo(() => {
-    const baseCashSubtotal = pricing ? cashTotal : 0;
-    const basePointsSubtotal = pricing ? totalPoints : 0;
+    const baseCashSubtotal = pricing ? pricing.discountedPrice * guestCount : 0;
+    const basePointsSubtotal = pricing ? pricing.pointsRequired * guestCount : 0;
     const excursionCashSubtotal = selectedExcursionDetails.reduce(
       (sum, excursion) => sum + excursion.cash * guestCount,
       0
@@ -48,8 +46,8 @@ const CruisePayment = () => {
       (sum, excursion) => sum + excursion.points * guestCount,
       0
     );
-    const taxesAndPortFees = pricing ? taxesEstimate : 0;
-    const cashGrandTotal = baseCashSubtotal + excursionCashSubtotal;
+    const taxesAndPortFees = Math.round(baseCashSubtotal * 0.12);
+    const cashGrandTotal = baseCashSubtotal + excursionCashSubtotal + taxesAndPortFees;
     const pointsGrandTotal = basePointsSubtotal + excursionPointsSubtotal;
 
     return {
@@ -61,7 +59,7 @@ const CruisePayment = () => {
       cashGrandTotal,
       pointsGrandTotal
     };
-  }, [cashTotal, guestCount, pricing, selectedExcursionDetails, taxesEstimate, totalPoints]);
+  }, [guestCount, pricing, selectedExcursionDetails]);
 
   if (!cruise || !selectedCabin || !departureDate || !pricing) {
     return null;

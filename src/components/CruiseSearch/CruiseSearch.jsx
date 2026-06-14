@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { FaCalendarAlt, FaCheckCircle, FaShip, FaStar } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 import { cruiseCategories, enrichedCruiseData } from "../../data/cruisesData";
@@ -9,10 +9,12 @@ const imageFallback =
 const logoFallback = "https://placehold.co/80x80/e5e7eb/334155?text=CL";
 
 const calculateCruisePrices = (retailPrice) => {
-  const discountedPrice = Math.round(retailPrice * 0.5);
+  const discountedPrice = retailPrice * 0.5;
+  const pointsRequired = Math.round(retailPrice / 0.04);
   return {
     retailPrice,
-    discountedPrice,
+    discountedPrice: Math.round(discountedPrice),
+    pointsRequired,
     savings: Math.round(retailPrice - discountedPrice),
     savingsPercent: 50,
   };
@@ -116,7 +118,7 @@ const isKnownCategory = (value) => cruiseCategories.includes(value);
 const CruiseSearch = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const searchState = useMemo(() => location.state || {}, [location.state]);
+  const searchState = location.state || {};
   const requestedDestination = searchState.destination || "All";
   const requestedCategory = isKnownCategory(requestedDestination)
     ? requestedDestination
@@ -170,7 +172,7 @@ const CruiseSearch = () => {
     return merged;
   }, [fallbackData]);
 
-  const sortCruises = useCallback((list) =>
+  const sortCruises = (list) =>
     [...list].sort((a, b) => {
       const aPrice =
         a.cabinTypes[selectedCabinType]?.retailPrice || a.retailPrice;
@@ -180,7 +182,7 @@ const CruiseSearch = () => {
       if (sortBy === "rating") return b.rating - a.rating;
       if (sortBy === "duration") return a.duration - b.duration;
       return b.rating * 100 + b.reviews - (a.rating * 100 + a.reviews);
-    }), [selectedCabinType, sortBy]);
+    });
 
   const { cruises, dateFilterRelaxed, showPopularFallback } = useMemo(() => {
     const allCruises = Object.values(mergedCruisesByCategory).flat();
@@ -254,9 +256,10 @@ const CruiseSearch = () => {
   }, [
     mergedCruisesByCategory,
     searchState,
+    selectedCabinType,
     selectedCategory,
     requestedDestination,
-    sortCruises,
+    sortBy,
   ]);
 
   const headerTitle =
@@ -286,9 +289,6 @@ const CruiseSearch = () => {
         const selectedCabin =
           cruise.cabinTypes[selectedCabinType] || cruise.cabinTypes.inside;
         const pricing = calculateCruisePrices(selectedCabin.retailPrice);
-        const pointsPreview = Math.round(
-          (pricing.discountedPrice * 1.12) / 0.04,
-        );
 
         return (
           <article
@@ -404,7 +404,7 @@ const CruiseSearch = () => {
                 ) : (
                   <div className="space-y-2">
                     <p className="text-2xl font-bold text-blue-600">
-                      {pointsPreview.toLocaleString()} Points/person
+                      {pricing.pointsRequired.toLocaleString()} Points/person
                     </p>
                     <p className="text-sm font-semibold text-green-700">
                       $0.04 per point value
@@ -450,7 +450,7 @@ const CruiseSearch = () => {
                       <div className="font-semibold text-slate-900">
                         {paymentMode === "cash"
                           ? `$${pricing.discountedPrice.toLocaleString()}`
-                          : `${pointsPreview.toLocaleString()} pts`}
+                          : `${pricing.pointsRequired.toLocaleString()} pts`}
                       </div>
                       <button
                         type="button"

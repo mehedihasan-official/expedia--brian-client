@@ -21,16 +21,7 @@ const CruiseGuests = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const state = location.state || {};
-  const {
-    cruise,
-    selectedCabin,
-    departureDate,
-    pricing,
-    paymentMode = "cash",
-    guestCount = 2,
-    cashTotal = 0,
-    totalPoints = 0
-  } = state;
+  const { cruise, selectedCabin, selectedCabinType, departureDate, pricing, paymentMode = "cash", guestCount = 2 } = state;
   const [guests, setGuests] = useState(() => Array.from({ length: guestCount }, createGuest));
   const [selectedExcursions, setSelectedExcursions] = useState([]);
   const [specialRequests, setSpecialRequests] = useState({
@@ -54,12 +45,12 @@ const CruiseGuests = () => {
       .reduce((sum, excursion) => sum + excursion.points * guestCount, 0);
 
     return {
-      cash: pricing ? cashTotal + addOnCash : 0,
-      points: pricing ? totalPoints + addOnPoints : 0,
+      cash: pricing ? pricing.discountedPrice * guestCount + addOnCash : 0,
+      points: pricing ? pricing.pointsRequired * guestCount + addOnPoints : 0,
       addOnCash,
       addOnPoints
     };
-  }, [cashTotal, guestCount, pricing, selectedExcursions, totalPoints]);
+  }, [guestCount, pricing, selectedExcursions]);
 
   if (!cruise || !selectedCabin || !departureDate || !pricing) {
     return null;
@@ -238,8 +229,8 @@ const CruiseGuests = () => {
               <span>Base fare</span>
               <span>
                 {paymentMode === "cash"
-                  ? `$${cashTotal.toLocaleString()}`
-                  : `${totalPoints.toLocaleString()} pts`}
+                  ? `$${(pricing.discountedPrice * guestCount).toLocaleString()}`
+                  : `${(pricing.pointsRequired * guestCount).toLocaleString()} pts`}
               </span>
             </div>
             <div className="flex justify-between">

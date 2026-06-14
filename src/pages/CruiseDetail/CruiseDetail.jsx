@@ -28,13 +28,10 @@ const CruiseDetail = () => {
     day: "numeric",
     year: "numeric"
   });
+  const taxesEstimate = Math.round(pricing.discountedPrice * guestCount * 0.12);
   const cashSubtotal = pricing.discountedPrice * guestCount;
-  const taxesEstimate = Math.round(cashSubtotal * 0.12);
   const cashTotal = cashSubtotal + taxesEstimate;
-  // Points are derived directly from cashTotal so they always match.
-  // $0.04 = 1 point, therefore points = cashTotal / 0.04.
-  const totalPoints = Math.round(cashTotal / 0.04);
-  const pointsPerPerson = Math.round(totalPoints / guestCount);
+  const pointsTotal = pricing.pointsRequired * guestCount;
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -184,35 +181,16 @@ const CruiseDetail = () => {
                 </>
               ) : (
                 <>
-                  <div className="flex justify-between text-sm text-slate-600">
-                    <span>Retail per person</span>
-                    <span className="line-through">
-                      ${pricing.retailPrice.toLocaleString()}
-                    </span>
-                  </div>
                   <div className="flex justify-between font-semibold text-slate-900">
                     <span>Points per person</span>
-                    <span>{pointsPerPerson.toLocaleString()} pts</span>
-                  </div>
-                  <div className="rounded-lg bg-green-50 px-4 py-3 text-sm font-semibold text-green-700">
-                    50% savings - $0.04 per point
+                    <span>{pricing.pointsRequired.toLocaleString()}</span>
                   </div>
                   <div className="flex justify-between text-sm text-slate-600">
-                    <span>
-                      For {guestCount} {guestCount === 1 ? "person" : "persons"} (subtotal)
-                    </span>
-                    <span>{Math.round(cashSubtotal / 0.04).toLocaleString()} pts</span>
+                    <span>For {guestCount} persons</span>
+                    <span>{pointsTotal.toLocaleString()} total points</span>
                   </div>
-                  <div className="flex justify-between text-sm text-slate-600">
-                    <span>Taxes & fees estimate</span>
-                    <span>{Math.round(taxesEstimate / 0.04).toLocaleString()} pts</span>
-                  </div>
-                  <div className="flex justify-between border-t border-slate-200 pt-4 text-xl font-bold text-slate-900">
-                    <span>Grand total</span>
-                    <span>{totalPoints.toLocaleString()} pts</span>
-                  </div>
-                  <div className="rounded-lg bg-blue-50 px-4 py-3 text-xs text-blue-700">
-                    $0.04 per point - No exchange fee - No processing fee
+                  <div className="rounded-lg bg-blue-50 px-4 py-3 text-sm font-semibold text-blue-700">
+                    $0.04 per point value
                   </div>
                 </>
               )}
@@ -229,10 +207,7 @@ const CruiseDetail = () => {
                     departureDate,
                     pricing,
                     paymentMode,
-                    guestCount,
-                    cashTotal,
-                    totalPoints,
-                    taxesEstimate
+                    guestCount
                   }
                 })
               }
