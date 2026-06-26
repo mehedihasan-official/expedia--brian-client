@@ -73,11 +73,18 @@ const realisticPrice = (flight) => {
   return Math.max(79, Math.min(1899, base));
 };
 
+// Updated to use the same property names expected by FlightDetail
 const calcPricing = (retailPrice) => {
-  const discounted = Math.round(retailPrice * 0.53);
-  const pointsBase = Math.round(retailPrice / 0.04);
-  const processingFee = Math.round(pointsBase * 0.10);
-  return { retailPrice, discounted, pointsBase, processingFee, totalPoints: pointsBase + processingFee };
+  const discountedPrice = Math.round(retailPrice * 0.53);
+  const pointsRequired  = Math.round(retailPrice / 0.04);
+  const processingFee   = Math.round(pointsRequired * 0.10);
+  return {
+    retailPrice,
+    discountedPrice,         // ← was "discounted"
+    pointsRequired,          // ← was "pointsBase"
+    processingFee,
+    totalPoints: pointsRequired + processingFee,
+  };
 };
 
 const FlightResults = () => {
@@ -156,7 +163,7 @@ const FlightResults = () => {
         departureDate: departureDateObj,
         returnDate,
         adults, children, infants,
-        flightPricing: calcPricing(flight.retailPrice),
+        flightPricing: calcPricing(flight.retailPrice), // now uses consistent keys
       },
     });
   };
@@ -308,16 +315,16 @@ const FlightResults = () => {
 
                       <div className="border-l border-gray-200 pl-6">
                         <p className="text-xs text-gray-400 line-through mb-0.5">${p.retailPrice}</p>
-                        <p className="text-2xl font-bold text-blue-600">${p.discounted}</p>
+                        <p className="text-2xl font-bold text-blue-600">${p.discountedPrice}</p>
                         <p className="text-xs text-green-600 font-semibold mb-3">&#x2705; 47% Member Savings</p>
                         <div className="space-y-2 mb-4 text-sm">
                           <div className="border-b border-gray-100 pb-2">
                             <p className="font-medium text-gray-700">Pay with Cash</p>
-                            <p className="font-bold text-gray-900">${p.discounted} + tax</p>
+                            <p className="font-bold text-gray-900">${p.discountedPrice} + tax</p>
                           </div>
                           <div>
                             <p className="font-medium text-gray-700">Pay with Points</p>
-                            <p className="text-gray-800">{p.pointsBase.toLocaleString()} Sky Miles</p>
+                            <p className="text-gray-800">{p.pointsRequired.toLocaleString()} Sky Miles</p>
                             <p className="text-xs text-amber-600">&#9888;&#65039; 10% processing fee</p>
                             <p className="text-xs text-gray-500">+ {p.processingFee.toLocaleString()} pts fee</p>
                             <p className="font-bold text-gray-900">{p.totalPoints.toLocaleString()} total</p>

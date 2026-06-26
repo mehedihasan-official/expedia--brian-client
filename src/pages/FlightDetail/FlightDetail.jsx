@@ -6,7 +6,35 @@ import { airportsList } from '../../data/flightsData';
 const FlightDetail = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { flight, from, to, departureDate, adults, children, infants, flightPricing } = location.state || {};
+  const {
+    flight,
+    from,
+    to,
+    departureDate,
+    adults,
+    children,
+    infants,
+    flightPricing: passedPricing
+  } = location.state || {};
+
+  // -------------------------------------------------------------
+  // FALLBACK FOR MISSING flightPricing (prevents blank prices)
+  // -------------------------------------------------------------
+  const flightPricing = passedPricing || (flight && flight.price
+    ? {
+        retailPrice: flight.price,
+        discountedPrice: flight.price,
+        pointsRequired: 0,
+        processingFee: 0,
+        totalPoints: 0
+      }
+    : {
+        retailPrice: 0,
+        discountedPrice: 0,
+        pointsRequired: 0,
+        processingFee: 0,
+        totalPoints: 0
+      });
 
   const [paymentMethod, setPaymentMethod] = useState('cash');
 
@@ -18,7 +46,6 @@ const FlightDetail = () => {
     );
   }
 
-  // Get airport info
   const fromAirport = airportsList.find(a => a.code === from);
   const toAirport = airportsList.find(a => a.code === to);
 
@@ -38,48 +65,52 @@ const FlightDetail = () => {
     });
   };
 
+  // Format numbers safely
+  const format = (num) => (num ?? 0).toFixed(2);
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200 p-6">
+      <div className="bg-white border-b border-gray-200 p-4 md:p-6">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-3xl font-bold text-gray-800">Flight Details</h1>
-          <p className="text-gray-600 mt-1">Review and select your preferred payment method</p>
+          <h1 className="text-2xl md:text-3xl font-bold text-gray-800">Flight Details</h1>
+          <p className="text-gray-600 mt-1 text-sm md:text-base">Review and select your preferred payment method</p>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          
-          {/* Flight Details - Main */}
-          <div className="lg:col-span-2">
+      <div className="max-w-7xl mx-auto px-4 py-6 md:py-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+
+          {/* Left Column - Flight Details & Payment */}
+          <div className="lg:col-span-2 space-y-6 md:space-y-8">
+
             {/* Flight Summary Card */}
-            <div className="bg-white rounded-lg shadow-md p-8 mb-8">
-              <h2 className="text-2xl font-bold text-gray-800 mb-8">Flight Summary</h2>
+            <div className="bg-white rounded-lg shadow-md p-6 md:p-8">
+              <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-6">Flight Summary</h2>
 
               {/* Route and Date */}
-              <div className="mb-8 pb-8 border-b border-gray-200">
+              <div className="mb-6 pb-6 border-b border-gray-200">
                 <div className="flex items-center justify-between mb-4">
                   <div>
                     <p className="text-sm text-gray-600 mb-1">From</p>
-                    <p className="text-2xl font-bold text-gray-800">{from}</p>
-                    <p className="text-gray-600">{fromAirport?.name}</p>
+                    <p className="text-xl md:text-2xl font-bold text-gray-800">{from}</p>
+                    <p className="text-gray-600 text-sm">{fromAirport?.name}</p>
                   </div>
-                  <FaArrowRight className="text-blue-600 text-2xl" />
-                  <div>
+                  <FaArrowRight className="text-blue-600 text-xl md:text-2xl shrink-0 mx-2" />
+                  <div className="text-right">
                     <p className="text-sm text-gray-600 mb-1">To</p>
-                    <p className="text-2xl font-bold text-gray-800">{to}</p>
-                    <p className="text-gray-600">{toAirport?.name}</p>
+                    <p className="text-xl md:text-2xl font-bold text-gray-800">{to}</p>
+                    <p className="text-gray-600 text-sm">{toAirport?.name}</p>
                   </div>
                 </div>
-                <p className="text-gray-600">
+                <p className="text-gray-600 text-sm md:text-base">
                   {departureDate?.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' })}
                 </p>
               </div>
 
               {/* Airline and Flight Info */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 pb-8 border-b border-gray-200">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6 pb-6 border-b border-gray-200">
                 <div>
                   <p className="text-sm text-gray-600 mb-2 font-semibold">Airline</p>
                   <div className="flex items-center gap-3">
@@ -88,45 +119,44 @@ const FlightDetail = () => {
                       alt={flight.airline}
                       onError={(e) => {
                         e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'inline-block';
+                        e.target.nextSibling.style.display = 'inline-flex';
                       }}
-                      className="w-12 h-12 rounded-full object-cover"
+                      className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover"
                     />
-                    <div style={{ display: 'none' }} className="w-12 h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">
+                    <div style={{ display: 'none' }} className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">
                       {flight.airline.charAt(0)}
                     </div>
                     <div>
                       <p className="font-bold text-gray-800">{flight.airline}</p>
-                      <p className="text-gray-600">{flight.flightNumber}</p>
+                      <p className="text-gray-600 text-sm">{flight.flightNumber}</p>
                     </div>
                   </div>
                 </div>
-
                 <div>
                   <p className="text-sm text-gray-600 mb-2 font-semibold">Aircraft</p>
                   <p className="font-semibold text-gray-800">{flight.aircraft}</p>
-                  <p className="text-gray-600">Cabin: {flight.cabinClass}</p>
+                  <p className="text-gray-600 text-sm">Cabin: {flight.cabinClass}</p>
                 </div>
               </div>
 
               {/* Flight Times */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 pb-8 border-b border-gray-200">
+              <div className="grid grid-cols-3 gap-4 md:gap-8 mb-6 pb-6 border-b border-gray-200">
                 <div>
                   <p className="text-sm text-gray-600 mb-2 font-semibold">Departure</p>
-                  <p className="text-2xl font-bold text-gray-800">{flight.departureTime}</p>
+                  <p className="text-lg md:text-2xl font-bold text-gray-800">{flight.departureTime}</p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600 mb-2 font-semibold">Duration</p>
-                  <p className="text-2xl font-bold text-gray-800">{flight.duration}</p>
+                  <p className="text-lg md:text-2xl font-bold text-gray-800">{flight.duration}</p>
                 </div>
                 <div>
                   <p className="text-sm text-gray-600 mb-2 font-semibold">Arrival</p>
-                  <p className="text-2xl font-bold text-gray-800">{flight.arrivalTime}</p>
+                  <p className="text-lg md:text-2xl font-bold text-gray-800">{flight.arrivalTime}</p>
                 </div>
               </div>
 
               {/* Stops and Baggage */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 pb-8 border-b border-gray-200">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6 pb-6 border-b border-gray-200">
                 <div>
                   <p className="text-sm text-gray-600 mb-2 font-semibold">Stops</p>
                   <p className="font-semibold text-gray-800">{flight.stopLabel}</p>
@@ -157,40 +187,46 @@ const FlightDetail = () => {
             </div>
 
             {/* Fare Breakdown */}
-            <div className="bg-white rounded-lg shadow-md p-8 mb-8">
+            <div className="bg-white rounded-lg shadow-md p-6 md:p-8">
               <h3 className="text-xl font-bold text-gray-800 mb-6">Fare Breakdown</h3>
-              
               <div className="space-y-4">
                 <div className="flex justify-between pb-2 border-b border-gray-200">
                   <span className="text-gray-700">Base Fare</span>
-                  <span className="font-semibold text-gray-800">${flightPricing?.retailPrice}</span>
+                  <span className="font-semibold text-gray-800">${format(flightPricing.retailPrice)}</span>
                 </div>
                 <div className="flex justify-between pb-2 border-b border-gray-200">
                   <span className="text-gray-700">Taxes & Fees</span>
                   <span className="font-semibold text-gray-800">$0 (incl.)</span>
                 </div>
-                <div className="flex justify-between pb-4 border-b border-gray-200">
-                  <span className="text-gray-700">Platinum Club Discount (47%)</span>
-                  <span className="font-semibold text-green-600">-${(flightPricing?.retailPrice - flightPricing?.discountedPrice).toFixed(2)}</span>
-                </div>
+                {flightPricing.retailPrice !== flightPricing.discountedPrice && (
+                  <div className="flex justify-between pb-4 border-b border-gray-200">
+                    <span className="text-gray-700">Platinum Club Discount (47%)</span>
+                    <span className="font-semibold text-green-600">
+                      -${format(flightPricing.retailPrice - flightPricing.discountedPrice)}
+                    </span>
+                  </div>
+                )}
                 <div className="flex justify-between pt-4">
                   <span className="text-lg font-bold text-gray-800">Total Price</span>
-                  <span className="text-2xl font-bold text-blue-600">${flightPricing?.discountedPrice}</span>
+                  <span className="text-xl md:text-2xl font-bold text-blue-600">
+                    ${format(flightPricing.discountedPrice)}
+                  </span>
                 </div>
               </div>
             </div>
 
             {/* Payment Method Selection */}
-            <div className="bg-white rounded-lg shadow-md p-8">
+            <div className="bg-white rounded-lg shadow-md p-6 md:p-8">
               <h3 className="text-xl font-bold text-gray-800 mb-6">Select Payment Method</h3>
-              
               <div className="space-y-4">
                 {/* Cash Payment */}
-                <label className={`border-2 rounded-lg p-6 cursor-pointer transition-all ${
-                  paymentMethod === 'cash'
-                    ? 'border-blue-600 bg-blue-50'
-                    : 'border-gray-300 hover:border-blue-400'
-                }`}>
+                <label
+                  className={`border-2 rounded-lg p-4 md:p-6 cursor-pointer transition-all block ${
+                    paymentMethod === 'cash'
+                      ? 'border-blue-600 bg-blue-50'
+                      : 'border-gray-300 hover:border-blue-400'
+                  }`}
+                >
                   <div className="flex items-start gap-4">
                     <input
                       type="radio"
@@ -198,22 +234,26 @@ const FlightDetail = () => {
                       value="cash"
                       checked={paymentMethod === 'cash'}
                       onChange={(e) => setPaymentMethod(e.target.value)}
-                      className="mt-1"
+                      className="mt-1 accent-blue-600 min-w-[16px]"
                     />
                     <div className="flex-1">
-                      <p className="font-bold text-gray-800">Pay with Cash</p>
-                      <p className="text-gray-600 text-sm">Credit or Debit Card</p>
-                      <p className="text-2xl font-bold text-blue-600 mt-2">${flightPricing?.discountedPrice} + tax</p>
+                      <p className="font-bold text-gray-800 text-sm md:text-base">Pay with Cash</p>
+                      <p className="text-gray-600 text-xs md:text-sm">Credit or Debit Card</p>
+                      <p className="text-lg md:text-2xl font-bold text-blue-600 mt-2">
+                        ${format(flightPricing.discountedPrice)} + tax
+                      </p>
                     </div>
                   </div>
                 </label>
 
                 {/* Points Payment */}
-                <label className={`border-2 rounded-lg p-6 cursor-pointer transition-all ${
-                  paymentMethod === 'points'
-                    ? 'border-blue-600 bg-blue-50'
-                    : 'border-gray-300 hover:border-blue-400'
-                }`}>
+                <label
+                  className={`border-2 rounded-lg p-4 md:p-6 cursor-pointer transition-all block ${
+                    paymentMethod === 'points'
+                      ? 'border-blue-600 bg-blue-50'
+                      : 'border-gray-300 hover:border-blue-400'
+                  }`}
+                >
                   <div className="flex items-start gap-4">
                     <input
                       type="radio"
@@ -221,16 +261,18 @@ const FlightDetail = () => {
                       value="points"
                       checked={paymentMethod === 'points'}
                       onChange={(e) => setPaymentMethod(e.target.value)}
-                      className="mt-1"
+                      className="mt-1 accent-blue-600 min-w-[16px]"
                     />
                     <div className="flex-1">
-                      <p className="font-bold text-gray-800">Pay with Sky Miles Points</p>
-                      <p className="text-gray-600 text-sm mb-3">Platinum Club Rewards</p>
+                      <p className="font-bold text-gray-800 text-sm md:text-base">Pay with Sky Miles Points</p>
+                      <p className="text-gray-600 text-xs md:text-sm mb-3">Platinum Club Rewards</p>
                       <div className="space-y-2 text-sm">
-                        <p>Points needed: <span className="font-bold">{flightPricing?.pointsRequired?.toLocaleString()}</span></p>
+                        <p>Points needed: <span className="font-bold">{flightPricing.pointsRequired?.toLocaleString() ?? 0}</span></p>
                         <p className="text-gray-600">⚠️ 10% processing fee applies</p>
-                        <p>Fee: <span className="font-bold text-gray-800">+{flightPricing?.processingFee?.toLocaleString()} points</span></p>
-                        <p className="text-lg font-bold text-blue-600 pt-2">Total: {flightPricing?.totalPoints?.toLocaleString()} points</p>
+                        <p>Fee: <span className="font-bold text-gray-800">+{flightPricing.processingFee?.toLocaleString() ?? 0} points</span></p>
+                        <p className="text-lg font-bold text-blue-600 pt-2">
+                          Total: {(flightPricing.totalPoints ?? 0).toLocaleString()} points
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -239,9 +281,9 @@ const FlightDetail = () => {
             </div>
           </div>
 
-          {/* Sidebar - Booking Summary */}
+          {/* Sidebar - Booking Summary (mobile friendly) */}
           <div>
-            <div className="bg-white rounded-lg shadow-md p-6 sticky top-6">
+            <div className="bg-white rounded-lg shadow-md p-6 lg:sticky lg:top-6">
               <h3 className="text-lg font-bold text-gray-800 mb-6">Booking Summary</h3>
 
               {/* Flight Summary */}
@@ -249,9 +291,7 @@ const FlightDetail = () => {
                 <p className="text-sm text-gray-600 mb-2">Flight</p>
                 <p className="font-semibold text-gray-800">{flight.airline}</p>
                 <p className="text-sm text-gray-600">{flight.flightNumber}</p>
-                <p className="text-sm text-gray-600 mt-2">
-                  {from} → {to}
-                </p>
+                <p className="text-sm text-gray-600 mt-2">{from} → {to}</p>
                 <p className="text-sm text-gray-600">
                   {departureDate?.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                 </p>
@@ -267,20 +307,28 @@ const FlightDetail = () => {
                 </div>
               </div>
 
-              {/* Pricing Summary */}
+              {/* Pricing Summary – now mirrors Fare Breakdown */}
               <div className="mb-6 pb-6 border-b border-gray-200">
                 <div className="space-y-3">
                   <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Subtotal</span>
-                    <span className="font-semibold text-gray-800">${flightPricing?.discountedPrice}</span>
+                    <span className="text-gray-600">Base Fare</span>
+                    <span className="font-semibold text-gray-800">${format(flightPricing.retailPrice)}</span>
                   </div>
+                  {flightPricing.retailPrice !== flightPricing.discountedPrice && (
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-600">Platinum Discount</span>
+                      <span className="font-semibold text-green-600">
+                        -${format(flightPricing.retailPrice - flightPricing.discountedPrice)}
+                      </span>
+                    </div>
+                  )}
                   <div className="flex justify-between text-sm">
                     <span className="text-gray-600">Taxes & Fees</span>
                     <span className="font-semibold text-gray-800">Included</span>
                   </div>
                   <div className="flex justify-between text-lg font-bold border-t pt-3">
                     <span className="text-gray-800">Total</span>
-                    <span className="text-blue-600">${flightPricing?.discountedPrice}</span>
+                    <span className="text-blue-600">${format(flightPricing.discountedPrice)}</span>
                   </div>
                 </div>
               </div>
@@ -293,8 +341,8 @@ const FlightDetail = () => {
                 </p>
                 <p className="text-sm text-gray-600 mt-2">
                   {paymentMethod === 'cash'
-                    ? `$${flightPricing?.discountedPrice}`
-                    : `${flightPricing?.totalPoints?.toLocaleString()} points`}
+                    ? `$${format(flightPricing.discountedPrice)}`
+                    : `${(flightPricing.totalPoints ?? 0).toLocaleString()} points`}
                 </p>
               </div>
 
