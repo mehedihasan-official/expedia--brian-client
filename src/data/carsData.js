@@ -14,7 +14,7 @@ export const carRentalData = [
     vendorLogo: "https://logo.clearbit.com/enterprise.com",
     rating: 4.2,
     reviewCount: 128,
-    retailPricePerDay: 49,
+    retailPricePerDay: 75,
     features: ["Free cancellation", "Pay at pick-up", "No credit card needed"],
     category: "economy"
   },
@@ -33,7 +33,7 @@ export const carRentalData = [
     vendorLogo: "https://logo.clearbit.com/hertz.com",
     rating: 4.0,
     reviewCount: 95,
-    retailPricePerDay: 62,
+    retailPricePerDay: 95,
     features: ["Free cancellation", "Pay at pick-up"],
     category: "compact"
   },
@@ -52,7 +52,7 @@ export const carRentalData = [
     vendorLogo: "https://logo.clearbit.com/avis.com",
     rating: 4.3,
     reviewCount: 210,
-    retailPricePerDay: 78,
+    retailPricePerDay: 115,
     features: ["Free cancellation", "Pay at pick-up", "No credit card needed"],
     category: "midsize"
   },
@@ -71,7 +71,7 @@ export const carRentalData = [
     vendorLogo: "https://logo.clearbit.com/budget.com",
     rating: 3.9,
     reviewCount: 74,
-    retailPricePerDay: 89,
+    retailPricePerDay: 130,
     features: ["Free cancellation", "Pay at pick-up"],
     category: "fullsize"
   },
@@ -90,7 +90,7 @@ export const carRentalData = [
     vendorLogo: "https://logo.clearbit.com/nationalcar.com",
     rating: 4.5,
     reviewCount: 312,
-    retailPricePerDay: 109,
+    retailPricePerDay: 160,
     features: ["Free cancellation", "Pay at pick-up", "No credit card needed"],
     category: "suv"
   },
@@ -109,7 +109,7 @@ export const carRentalData = [
     vendorLogo: "https://logo.clearbit.com/alamo.com",
     rating: 4.4,
     reviewCount: 156,
-    retailPricePerDay: 149,
+    retailPricePerDay: 195,
     features: ["Free cancellation", "Pay at pick-up"],
     category: "suv"
   },
@@ -128,7 +128,7 @@ export const carRentalData = [
     vendorLogo: "https://logo.clearbit.com/thrifty.com",
     rating: 4.1,
     reviewCount: 88,
-    retailPricePerDay: 119,
+    retailPricePerDay: 175,
     features: ["Free cancellation", "Pay at pick-up", "No credit card needed"],
     category: "van"
   },
@@ -147,7 +147,7 @@ export const carRentalData = [
     vendorLogo: "https://logo.clearbit.com/sixt.com",
     rating: 4.7,
     reviewCount: 64,
-    retailPricePerDay: 189,
+    retailPricePerDay: 250,
     features: ["Free cancellation", "Pay at pick-up"],
     category: "luxury"
   },
@@ -166,7 +166,7 @@ export const carRentalData = [
     vendorLogo: "https://logo.clearbit.com/europcar.com",
     rating: 4.0,
     reviewCount: 102,
-    retailPricePerDay: 45,
+    retailPricePerDay: 70,
     features: ["Free cancellation", "Pay at pick-up"],
     category: "economy"
   },
@@ -185,7 +185,7 @@ export const carRentalData = [
     vendorLogo: "https://logo.clearbit.com/acerentacar.com",
     rating: 3.8,
     reviewCount: 57,
-    retailPricePerDay: 69,
+    retailPricePerDay: 105,
     features: ["Free cancellation", "Pay at pick-up"],
     category: "suv"
   },
@@ -204,7 +204,7 @@ export const carRentalData = [
     vendorLogo: "https://logo.clearbit.com/foxrentacar.com",
     rating: 3.7,
     reviewCount: 43,
-    retailPricePerDay: 55,
+    retailPricePerDay: 90,
     features: ["Free cancellation", "Pay at pick-up"],
     category: "fullsize"
   }

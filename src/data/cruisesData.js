@@ -12,14 +12,14 @@ export const enrichedCruiseData = {
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Harmony_of_the_Seas_(31087257484).jpg/1200px-Harmony_of_the_Seas_(31087257484).jpg",
       rating: 4.7,
       reviews: 2841,
-      retailPrice: 899,
+      retailPrice: 1299,
       itinerary: ["Fort Lauderdale", "Nassau", "St. Maarten", "St. Thomas", "San Juan"],
       shipFeatures: ["18 Decks", "5,400 Guests", "Water Park", "Rock Climbing", "Casino"],
       cabinTypes: {
-        inside: { name: "Inside", retailPrice: 899 },
-        outside: { name: "Ocean View", retailPrice: 1099 },
-        balcony: { name: "Balcony", retailPrice: 1399 },
-        suite: { name: "Suite", retailPrice: 2999 }
+        inside: { name: "Inside", retailPrice: 1299 },
+        outside: { name: "Ocean View", retailPrice: 1599 },
+        balcony: { name: "Balcony", retailPrice: 1999 },
+        suite: { name: "Suite", retailPrice: 3499 }
       },
       departureDates: ["2025-09-14", "2025-10-05", "2025-11-02", "2025-12-07", "2026-01-11"],
       includes: ["All meals", "Entertainment", "Kids club", "Fitness center"]
@@ -36,14 +36,14 @@ export const enrichedCruiseData = {
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/'Norwegian_Encore'_docked_in_Victoria,_British_Columbia_01.jpg/1200px-'Norwegian_Encore'_docked_in_Victoria,_British_Columbia_01.jpg",
       rating: 4.5,
       reviews: 1923,
-      retailPrice: 749,
+      retailPrice: 1099,
       itinerary: ["Miami", "Key West", "Cozumel", "Belize City", "Roatan"],
       shipFeatures: ["20 Decks", "3,998 Guests", "Go-Kart Track", "Laser Tag", "Casino"],
       cabinTypes: {
-        inside: { name: "Inside", retailPrice: 749 },
-        outside: { name: "Ocean View", retailPrice: 949 },
-        balcony: { name: "Balcony", retailPrice: 1199 },
-        suite: { name: "Suite", retailPrice: 2499 }
+        inside: { name: "Inside", retailPrice: 1099 },
+        outside: { name: "Ocean View", retailPrice: 1349 },
+        balcony: { name: "Balcony", retailPrice: 1749 },
+        suite: { name: "Suite", retailPrice: 2999 }
       },
       departureDates: ["2025-09-07", "2025-10-12", "2025-11-16", "2025-12-14", "2026-02-08"],
       includes: ["All meals", "Entertainment", "Spa access", "Fitness center"]
@@ -110,14 +110,14 @@ export const enrichedCruiseData = {
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/MSC_Bellissima_20190226_191245.jpg/1200px-MSC_Bellissima_20190226_191245.jpg",
       rating: 4.6,
       reviews: 1456,
-      retailPrice: 999,
+      retailPrice: 1599,
       itinerary: ["Barcelona", "Marseille", "Genoa", "Naples", "Palermo", "Valletta"],
       shipFeatures: ["19 Decks", "5,686 Guests", "Waterslides", "Theater", "Casino"],
       cabinTypes: {
-        inside: { name: "Inside", retailPrice: 999 },
-        outside: { name: "Ocean View", retailPrice: 1299 },
-        balcony: { name: "Balcony", retailPrice: 1599 },
-        suite: { name: "Suite", retailPrice: 3299 }
+        inside: { name: "Inside", retailPrice: 1599 },
+        outside: { name: "Ocean View", retailPrice: 1899 },
+        balcony: { name: "Balcony", retailPrice: 2299 },
+        suite: { name: "Suite", retailPrice: 3999 }
       },
       departureDates: ["2025-09-20", "2025-10-18", "2025-11-08", "2026-03-14", "2026-04-11"],
       includes: ["All meals", "Entertainment", "Port charges", "Fitness center"]
@@ -134,14 +134,14 @@ export const enrichedCruiseData = {
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Celebrity_Silhouette_(ship,_2011)_at_Liverpool_Cruise_Terminal_1.jpg/1200px-Celebrity_Silhouette_(ship,_2011)_at_Liverpool_Cruise_Terminal_1.jpg",
       rating: 4.8,
       reviews: 987,
-      retailPrice: 1499,
+      retailPrice: 2199,
       itinerary: ["Athens", "Mykonos", "Santorini", "Rhodes", "Kusadasi", "Istanbul"],
       shipFeatures: ["15 Decks", "2,850 Guests", "Rooftop Pool", "Fine Dining", "Spa"],
       cabinTypes: {
-        inside: { name: "Inside", retailPrice: 1499 },
-        outside: { name: "Ocean View", retailPrice: 1899 },
-        balcony: { name: "Balcony", retailPrice: 2299 },
-        suite: { name: "Suite", retailPrice: 4999 }
+        inside: { name: "Inside", retailPrice: 2199 },
+        outside: { name: "Ocean View", retailPrice: 2599 },
+        balcony: { name: "Balcony", retailPrice: 3099 },
+        suite: { name: "Suite", retailPrice: 5499 }
       },
       departureDates: ["2025-09-28", "2025-10-26", "2026-04-19", "2026-05-17", "2026-06-14"],
       includes: ["All meals", "Specialty dining", "Entertainment", "Port charges"]
@@ -208,14 +208,14 @@ export const enrichedCruiseData = {
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Grand_Princess.jpg/1200px-Grand_Princess.jpg",
       rating: 4.5,
       reviews: 1102,
-      retailPrice: 1099,
+      retailPrice: 1799,
       itinerary: ["Seattle", "Juneau", "Skagway", "Glacier Bay", "Ketchikan", "Vancouver"],
       shipFeatures: ["18 Decks", "2,600 Guests", "Glacier Viewing Deck", "Spa", "Casino"],
       cabinTypes: {
-        inside: { name: "Inside", retailPrice: 1099 },
-        outside: { name: "Ocean View", retailPrice: 1349 },
-        balcony: { name: "Balcony", retailPrice: 1699 },
-        suite: { name: "Suite", retailPrice: 3499 }
+        inside: { name: "Inside", retailPrice: 1799 },
+        outside: { name: "Ocean View", retailPrice: 2099 },
+        balcony: { name: "Balcony", retailPrice: 2599 },
+        suite: { name: "Suite", retailPrice: 4299 }
       },
       departureDates: ["2025-09-06", "2025-09-20", "2025-10-04", "2026-05-09", "2026-05-23"],
       includes: ["All meals", "Entertainment", "Port charges", "Glacier viewing"]
@@ -258,14 +258,14 @@ export const enrichedCruiseData = {
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Grand_Celebration_(5839736971).jpg/1200px-Grand_Celebration_(5839736971).jpg",
       rating: 4.1,
       reviews: 1890,
-      retailPrice: 499,
+      retailPrice: 299,
       itinerary: ["Palm Beach", "Grand Bahama Island"],
       shipFeatures: ["11 Decks", "1,200 Guests", "Pool", "Casino", "Entertainment"],
       cabinTypes: {
         inside: { name: "Interior", retailPrice: 299 },
-        outside: { name: "Ocean View", retailPrice: 649 },
-        balcony: { name: "Balcony", retailPrice: 849 },
-        suite: { name: "Suite", retailPrice: 1799 }
+        outside: { name: "Ocean View", retailPrice: 399 },
+        balcony: { name: "Balcony", retailPrice: 549 },
+        suite: { name: "Suite", retailPrice: 999 }
       },
       departureDates: ["2025-09-11", "2025-10-09", "2025-11-06", "2025-12-04", "2026-01-08"],
       includes: ["All meals", "Entertainment", "Port charges"]
@@ -284,14 +284,14 @@ export const enrichedCruiseData = {
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Queen_Mary_2.JPG/1200px-Queen_Mary_2.JPG",
       rating: 4.9,
       reviews: 743,
-      retailPrice: 2299,
+      retailPrice: 3299,
       itinerary: ["Southampton", "Lisbon", "Gibraltar", "Barcelona", "Marseille", "Rome"],
       shipFeatures: ["13 Decks", "2,691 Guests", "White Star Service", "Library", "Ballroom"],
       cabinTypes: {
-        inside: { name: "Inside", retailPrice: 2299 },
-        outside: { name: "Ocean View", retailPrice: 2899 },
-        balcony: { name: "Balcony", retailPrice: 3599 },
-        suite: { name: "Suite", retailPrice: 7499 }
+        inside: { name: "Inside", retailPrice: 3299 },
+        outside: { name: "Ocean View", retailPrice: 3999 },
+        balcony: { name: "Balcony", retailPrice: 4799 },
+        suite: { name: "Suite", retailPrice: 8999 }
       },
       departureDates: ["2025-10-03", "2026-01-09", "2026-03-20", "2026-05-01"],
       includes: ["All meals", "White glove service", "Entertainment", "Port charges"]
@@ -358,14 +358,14 @@ export const enrichedCruiseData = {
       image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Pride_of_America_on_open_water._(4610730267).jpg/1200px-Pride_of_America_on_open_water._(4610730267).jpg",
       rating: 4.6,
       reviews: 889,
-      retailPrice: 1199,
+      retailPrice: 1899,
       itinerary: ["Honolulu", "Kahului (Maui)", "Hilo (Big Island)", "Kona", "Nawiliwili (Kauai)"],
       shipFeatures: ["15 Decks", "2,186 Guests", "Multiple Pools", "Spa", "Dining"],
       cabinTypes: {
-        inside: { name: "Inside", retailPrice: 1199 },
-        outside: { name: "Ocean View", retailPrice: 1499 },
-        balcony: { name: "Balcony", retailPrice: 1899 },
-        suite: { name: "Suite", retailPrice: 3999 }
+        inside: { name: "Inside", retailPrice: 1899 },
+        outside: { name: "Ocean View", retailPrice: 2199 },
+        balcony: { name: "Balcony", retailPrice: 2699 },
+        suite: { name: "Suite", retailPrice: 4499 }
       },
       departureDates: ["2025-09-13", "2025-10-11", "2025-11-08", "2025-12-06", "2026-01-10"],
       includes: ["All meals", "Entertainment", "Inter-island travel"]
